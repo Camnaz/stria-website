@@ -1,30 +1,29 @@
-import { forgePrimitives, deployments } from "../../striaPlatformData";
+import { PrimitiveCard } from "./PrimitiveCard";
+import type { ForgePrimitive, EvaluationRun, Deployment } from "../../types/platform";
+import { evaluationRuns, deployments } from "../../data";
 import styles from "./PrimitiveRegistry.module.css";
 
 export function PrimitiveRegistry() {
   return (
     <div className={styles.panel}>
-      <div className={styles.panelHeading}>
-        <span>PRIMITIVE REGISTRY</span>
+      <div className={styles.heading}>
+        <span>Primitive registry</span>
         <strong>Approved automation is versioned, tested, scored, and deployable.</strong>
       </div>
-      {forgePrimitives.map((primitive) => {
-        const deployment = deployments.find((d) => d.primitive_id === primitive.id);
-        return (
-          <article key={primitive.id} className={styles.primitiveItem}>
-            <code>{primitive.id}</code>
-            <h3>{primitive.name}</h3>
-            <span className={`${styles.statusBadge} ${styles[primitive.status]}`}>{primitive.status.toUpperCase()}</span>
-            <p>{primitive.description}</p>
-            <div className={styles.primitiveMeta}>
-              <div><span>VERSION</span><strong>{primitive.version}</strong></div>
-              <div><span>SCORE</span><strong>{(primitive.performance_profile.correctness * 100 | 0)}</strong></div>
-              <div><span>TESTS</span><strong>{primitive.test_suite.length} passing</strong></div>
-              <div><span>DEPLOY</span><strong>{deployment?.environment || "staging"}</strong></div>
-            </div>
-          </article>
-        );
-      })}
+      <div className={styles.list}>
+        {Object.values(require("../../data/forgePrimitives").forgePrimitives).flat().map((primitive: ForgePrimitive) => {
+          const evaluation = evaluationRuns.find((run) => run.primitive_id === primitive.id);
+          const deployment = deployments.find((item) => item.primitive_id === primitive.id);
+          return (
+            <PrimitiveCard
+              key={primitive.id}
+              primitive={primitive}
+              evaluation={evaluation}
+              deployment={deployment}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
