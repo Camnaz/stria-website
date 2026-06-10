@@ -28,6 +28,12 @@
   color: var(--ink);
 }
 
+.nav button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .credit {
   color: var(--quiet);
   font-family: var(--mono);

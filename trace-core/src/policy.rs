@@ -11,9 +11,7 @@
 
 use crate::types::*;
 use regex::Regex;
-use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-
 /// Evaluate identity capabilities against a tool call
 pub fn verify_identity(
     identity: &AgentIdentity,
@@ -190,7 +188,11 @@ fn evaluate_managed_ai_usage(
         return Some(passed(policy, rule, mode));
     }
 
-    let severity = if risk_level == "high" { "high" } else { "medium" };
+    let severity = if risk_level == "high" {
+        "high"
+    } else {
+        "medium"
+    };
 
     Some(RuleEvaluationResult {
         policy_id: policy.policy_id.clone(),
@@ -365,7 +367,8 @@ mod tests {
     fn test_payment_threshold_exceeded() {
         let policy = sample_policy_internal();
         let mut call = sample_call_internal();
-        call.arguments.insert("amount_usd".to_string(), json!(15000));
+        call.arguments
+            .insert("amount_usd".to_string(), json!(15000));
         let results = evaluate_policy(&policy, &call);
         assert_eq!(results.len(), 1);
         assert_eq!(results[0].result, "flag");

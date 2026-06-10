@@ -1,0 +1,23 @@
+{
+  "name": "@trace/core",
+  "version": "0.1.0",
+  "description": "TypeScript wrapper for trace-core Rust native module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "node --test dist/test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "peerDependencies": {
+    "@trace/core": "0.1.0"
+  }
+}

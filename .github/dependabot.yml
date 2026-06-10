@@ -22,6 +22,10 @@ updates:
         patterns:
           - "*"
         dependency-type: "production"
+    # Enable auto-merge for security updates
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
 
   # GitHub Actions
   - package-ecosystem: "github-actions"

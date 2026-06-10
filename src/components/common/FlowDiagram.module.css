@@ -1,0 +1,35 @@
+.diagram {
+  counter-reset: flow;
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transform-style: preserve-3d;
+}
+
+.scroll3d {
+  transform-style: preserve-3d;
+}
+
+.diagram li {
+  align-items: center;
+  background: var(--obsidian-2);
+  border: 1px solid var(--brass-dim);
+  color: var(--ink);
+  counter-increment: flow;
+  display: flex;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 14px;
+  padding: 14px 18px;
+  transform-style: preserve-3d;
+}
+
+.diagram li::before {
+  color: var(--brass);
+  content: counter(flow, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 12px;
+  flex-shrink: 0;
+}

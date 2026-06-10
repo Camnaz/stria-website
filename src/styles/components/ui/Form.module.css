@@ -50,12 +50,12 @@
   border-color: var(--color-line-strong);
 }
 
-.form__input:focus,
-.form__textarea:focus,
-.form__select:focus {
-  outline: none;
+.form__input:focus-visible,
+.form__textarea:focus-visible,
+.form__select:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
   border-color: var(--color-brand);
-  box-shadow: 0 0 0 2px var(--color-brand-dim);
 }
 
 .form__textarea {

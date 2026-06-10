@@ -1,0 +1,26 @@
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: calc(100vh - 64px);
+}
+
+.agenticProofline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
+.band {
+  padding: var(--section-y) var(--pad-x);
+}

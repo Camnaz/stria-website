@@ -6,7 +6,6 @@ use crate::hash::{hash_evidence_record, sha256_str, sign_record_stub};
 use crate::policy::{evaluate_policy, verify_identity};
 use crate::redact::redacted_preview_hashmap;
 use crate::types::*;
-use serde_json::Value;
 
 const PROCESSING_NODE_ID: &str = "trace-local-node-001";
 
@@ -30,7 +29,9 @@ pub fn build_evidence_record(
         prompt_hash: sha256_str(&call.prompt),
         model_provider: call.model_provider.clone(),
         model_name: call.model_name.clone(),
-        model_config_hash: sha256_str(&serde_json::to_string(&call.model_config).unwrap_or_default()),
+        model_config_hash: sha256_str(
+            &serde_json::to_string(&call.model_config).unwrap_or_default(),
+        ),
         parent_context_hash: sha256_str(
             &serde_json::to_string(&call.parent_context).unwrap_or_else(|_| "{}".to_string()),
         ),
@@ -74,7 +75,8 @@ pub fn build_evidence_record(
 /// Finalize an evidence record by computing its hash and signature
 pub fn finalize_evidence_record(record: &mut EvidenceRecordInternal) {
     // Convert to Value for hashing - use &mut *record to avoid move
-    let record_value = serde_json::to_value(&mut *record).expect("Failed to serialize evidence record");
+    let record_value =
+        serde_json::to_value(&mut *record).expect("Failed to serialize evidence record");
 
     // Hash the record (excluding chain_of_custody.record_hash and signature_stub)
     let record_hash = hash_evidence_record(&record_value).expect("Failed to hash evidence record");
@@ -169,8 +171,7 @@ pub fn run_trace_simulation(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::types::*;
-    use serde_json::json;
+    use serde_json::{json, Value};
 
     fn sample_identity() -> AgentIdentity {
         AgentIdentity {
@@ -200,7 +201,8 @@ mod tests {
         AgentToolCallInternal {
             request_id: "ap_12500_payment_draft".to_string(),
             agent_id: "accounts-payable-agent-17".to_string(),
-            prompt: "Create a payment draft for Acme Industrial Supplies invoice INV-2026-1188.".to_string(),
+            prompt: "Create a payment draft for Acme Industrial Supplies invoice INV-2026-1188."
+                .to_string(),
             model_provider: "openai".to_string(),
             model_name: "gpt-5".to_string(),
             model_config: {
@@ -241,7 +243,8 @@ mod tests {
             global_mode: "observe".to_string(),
             rules: vec![PolicyRuleInternal {
                 id: "payment-threshold".to_string(),
-                description: "Require supervisor signature for payment drafts above 10000 USD.".to_string(),
+                description: "Require supervisor signature for payment drafts above 10000 USD."
+                    .to_string(),
                 rule_mode: Some("enforce".to_string()),
                 interrupt: "soft".to_string(),
                 severity: "high".to_string(),
@@ -269,18 +272,31 @@ mod tests {
             None,
             "2026-06-04T14:00:01.000Z",
             "2026-06-04T14:00:02.000Z",
-        ).unwrap();
+        )
+        .unwrap();
 
         assert!(result.action_allowed);
         assert_eq!(result.mode, "observe");
-        assert!(result.evidence_record.chain_of_custody.record_hash.starts_with("sha256:"));
-        assert!(result.evidence_record.chain_of_custody.signature_stub.starts_with("signature_stub:v0:"));
+        assert!(result
+            .evidence_record
+            .chain_of_custody
+            .record_hash
+            .starts_with("sha256:"));
+        assert!(result
+            .evidence_record
+            .chain_of_custody
+            .signature_stub
+            .starts_with("signature_stub:v0:"));
     }
 
     #[test]
     fn test_run_trace_simulation_blocked() {
         let identity = sample_identity();
-        let policy = sample_policy_internal();
+        // Use enforce mode to test actual blocking
+        let mut policy = sample_policy_internal();
+        policy.global_mode = "enforce".to_string();
+        policy.rules[0].rule_mode = Some("enforce".to_string());
+
         let call = sample_call_internal();
 
         let result = run_trace_simulation(
@@ -290,15 +306,17 @@ mod tests {
             None,
             "2026-06-04T14:00:01.000Z",
             "2026-06-04T14:00:02.000Z",
-        ).unwrap();
+        )
+        .unwrap();
 
-        // In observe mode, action is still allowed but flagged
-        assert!(result.action_allowed);
-        assert_eq!(result.mode, "observe");
-        // The ledger should contain a flag entry
-        let flagged = result.evidence_record.evaluation_ledger.iter().find(|e| e.result == "flag");
-        assert!(flagged.is_some());
-        assert_eq!(flagged.unwrap().rule_id, "payment-threshold");
+        // In enforce mode, action is blocked (not allowed)
+        assert!(!result.action_allowed);
+        assert_eq!(result.mode, "enforce");
+        assert!(result.agent_response.error.is_some());
+        assert_eq!(
+            result.agent_response.error.as_ref().unwrap().rule_id,
+            "payment-threshold"
+        );
     }
 
     #[test]
@@ -314,7 +332,8 @@ mod tests {
             None,
             "2026-06-04T14:00:01.000Z",
             "2026-06-04T14:00:02.000Z",
-        ).unwrap();
+        )
+        .unwrap();
 
         // Verify the record hash is consistent
         let record_value = serde_json::to_value(&result.evidence_record).unwrap();
@@ -326,6 +345,9 @@ mod tests {
             }
         }
         let recomputed_hash = crate::hash::sha256_value(&record_clone);
-        assert_eq!(result.evidence_record.chain_of_custody.record_hash, recomputed_hash);
+        assert_eq!(
+            result.evidence_record.chain_of_custody.record_hash,
+            recomputed_hash
+        );
     }
 }

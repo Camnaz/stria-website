@@ -13,14 +13,22 @@ pub mod usage_intel;
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
 
-// Re-export core modules
-use canonical_json::{sort_for_canonical_json, value_to_canonical_json};
-use evidence::run_trace_simulation;
-use hash::{hash_evidence_record, sha256_any, sha256_str, sha256_value, sign_record_stub};
-use policy::{evaluate_policy, verify_identity};
-use redact::redacted_preview;
-use types::*;
-use usage_intel::analyze_usage_intent;
+// Import types for re-export
+pub use types::*;
+
+// Re-export internal types for benchmarks
+pub use types::{
+    ActionPayloadInternal, AgentToolCallInternal, EvidenceRecordInternal, PolicyRuleInternal,
+    PolicySpecInternal, RuleEvaluationResult, SimulationResultInternal,
+};
+
+// Re-export core modules - internal functions made public for benchmarks
+pub use canonical_json::{sort_for_canonical_json, value_to_canonical_json};
+pub use evidence::run_trace_simulation;
+pub use hash::{hash_evidence_record, sha256_any, sha256_str, sha256_value, sign_record_stub};
+pub use policy::{evaluate_policy, verify_identity};
+pub use redact::{redacted_preview, redacted_preview_hashmap};
+pub use usage_intel::analyze_usage_intent;
 
 /// Canonical JSON functions - use String for JSON input/output
 #[napi]
@@ -56,7 +64,8 @@ pub fn hash_sha256_any(value: String) -> String {
 
 #[napi]
 pub fn hash_evidence_record_napi(record: String) -> Result<String> {
-    let parsed: serde_json::Value = serde_json::from_str(&record).unwrap_or(serde_json::Value::Null);
+    let parsed: serde_json::Value =
+        serde_json::from_str(&record).unwrap_or(serde_json::Value::Null);
     hash_evidence_record(&parsed).map_err(|e| Error::new(Status::GenericFailure, e.to_string()))
 }
 
@@ -73,29 +82,31 @@ pub fn policy_verify_identity(
 ) -> Vec<EvaluationLedgerEntry> {
     let call_internal = call.to_internal().unwrap();
     let results = verify_identity(&identity, &call_internal);
-    results.into_iter().map(|e| EvaluationLedgerEntry {
-        policy_id: e.policy_id,
-        policy_version: e.policy_version,
-        rule_id: e.rule_id,
-        rule_mode: e.rule_mode,
-        result: e.result,
-        reason: e.reason,
-        severity: e.severity,
-    }).collect()
+    results
+        .into_iter()
+        .map(|e| EvaluationLedgerEntry {
+            policy_id: e.policy_id,
+            policy_version: e.policy_version,
+            rule_id: e.rule_id,
+            rule_mode: e.rule_mode,
+            result: e.result,
+            reason: e.reason,
+            severity: e.severity,
+        })
+        .collect()
 }
 
 #[napi]
-pub fn policy_evaluate(
-    policy: PolicySpec,
-    call: AgentToolCall,
-) -> Vec<EvaluationLedgerEntry> {
+pub fn policy_evaluate(policy: PolicySpec, call: AgentToolCall) -> Vec<EvaluationLedgerEntry> {
     let call_internal = call.to_internal().unwrap();
     let policy_internal = PolicySpecInternal {
         policy_id: policy.policy_id,
         policy_version: policy.policy_version,
         global_mode: policy.global_mode,
-        rules: policy.rules.into_iter().map(|r| {
-            PolicyRuleInternal {
+        rules: policy
+            .rules
+            .into_iter()
+            .map(|r| PolicyRuleInternal {
                 id: r.id,
                 description: r.description,
                 rule_mode: r.rule_mode,
@@ -107,25 +118,29 @@ pub fn policy_evaluate(
                 forbidden_tools: r.forbidden_tools,
                 forbidden_resource_patterns: r.forbidden_resource_patterns,
                 allowed_destinations: r.allowed_destinations,
-            }
-        }).collect(),
+            })
+            .collect(),
     };
     let results = evaluate_policy(&policy_internal, &call_internal);
-    results.into_iter().map(|e| EvaluationLedgerEntry {
-        policy_id: e.policy_id,
-        policy_version: e.policy_version,
-        rule_id: e.rule_id,
-        rule_mode: e.rule_mode,
-        result: e.result,
-        reason: e.reason,
-        severity: e.severity,
-    }).collect()
+    results
+        .into_iter()
+        .map(|e| EvaluationLedgerEntry {
+            policy_id: e.policy_id,
+            policy_version: e.policy_version,
+            rule_id: e.rule_id,
+            rule_mode: e.rule_mode,
+            result: e.result,
+            reason: e.reason,
+            severity: e.severity,
+        })
+        .collect()
 }
 
 /// Redaction function
 #[napi]
 pub fn redact_arguments(args: String) -> String {
-    let parsed: serde_json::Value = serde_json::from_str(&args).unwrap_or(serde_json::Value::Object(serde_json::Map::new()));
+    let parsed: serde_json::Value =
+        serde_json::from_str(&args).unwrap_or(serde_json::Value::Object(serde_json::Map::new()));
     if let serde_json::Value::Object(map) = parsed {
         let redacted = redacted_preview(&map);
         serde_json::to_string(&serde_json::Value::Object(redacted)).unwrap_or("{}".to_string())
@@ -150,13 +165,17 @@ pub fn trace_simulate(
     evaluated_timestamp: String,
     emitted_timestamp: String,
 ) -> Result<SimulationResult> {
-    let call_internal = call.to_internal().map_err(|e| Error::new(Status::GenericFailure, e.to_string()))?;
+    let call_internal = call
+        .to_internal()
+        .map_err(|e| Error::new(Status::GenericFailure, e.to_string()))?;
     let policy_internal = PolicySpecInternal {
         policy_id: policy.policy_id,
         policy_version: policy.policy_version,
         global_mode: policy.global_mode,
-        rules: policy.rules.into_iter().map(|r| {
-            PolicyRuleInternal {
+        rules: policy
+            .rules
+            .into_iter()
+            .map(|r| PolicyRuleInternal {
                 id: r.id,
                 description: r.description,
                 rule_mode: r.rule_mode,
@@ -168,8 +187,8 @@ pub fn trace_simulate(
                 forbidden_tools: r.forbidden_tools,
                 forbidden_resource_patterns: r.forbidden_resource_patterns,
                 allowed_destinations: r.allowed_destinations,
-            }
-        }).collect(),
+            })
+            .collect(),
     };
     let result = run_trace_simulation(
         &identity,
@@ -178,8 +197,9 @@ pub fn trace_simulate(
         previous_record_hash,
         &evaluated_timestamp,
         &emitted_timestamp,
-    ).map_err(|e| Error::new(Status::GenericFailure, e.to_string()))?;
-    
+    )
+    .map_err(|e| Error::new(Status::GenericFailure, e.to_string()))?;
+
     // Convert internal types to public types
     Ok(convert_simulation_result(result))
 }
@@ -216,7 +236,10 @@ fn convert_action_payload(internal: ActionPayloadInternal) -> ActionPayload {
         tool_name: internal.tool_name,
         tool_namespace: internal.tool_namespace,
         arguments_hash: internal.arguments_hash,
-        redacted_arguments_preview_json: serde_json::to_string(&internal.redacted_arguments_preview).unwrap_or("{}".to_string()),
+        redacted_arguments_preview_json: serde_json::to_string(
+            &internal.redacted_arguments_preview,
+        )
+        .unwrap_or("{}".to_string()),
         resources_targeted: internal.resources_targeted,
         resources_modified: internal.resources_modified,
     }

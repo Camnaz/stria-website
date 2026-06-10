@@ -6,9 +6,7 @@ use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criteri
 use serde_json::json;
 use std::collections::HashMap;
 // Import from the library crate
-use crate::{
-    canonical_json, evidence, hash, policy, redact, types::*, usage_intel,
-};
+use trace_core::{canonical_json, evidence, hash, policy, redact, types::*, usage_intel};
 
 // Test data
 fn sample_agent_identity() -> AgentIdentity {
@@ -66,47 +64,53 @@ fn sample_agent_identity() -> AgentIdentity {
     }
 }
 
-fn sample_agent_tool_call(threshold_exceeded: bool) -> AgentToolCall {
+fn sample_agent_tool_call_internal(threshold_exceeded: bool) -> AgentToolCallInternal {
     let mut arguments = HashMap::new();
     arguments.insert("invoice_id".to_string(), json!("INV-2026-1188"));
     arguments.insert("vendor_id".to_string(), json!("vendor_acme_industrial"));
-    arguments.insert("amount_usd".to_string(), json!(if threshold_exceeded { 12500 } else { 5000 }));
+    arguments.insert(
+        "amount_usd".to_string(),
+        json!(if threshold_exceeded { 12500 } else { 5000 }),
+    );
     arguments.insert("payment_method".to_string(), json!("ach"));
     arguments.insert("account_number".to_string(), json!("000123456789"));
     arguments.insert("supervisor_signature".to_string(), json!(null));
 
-    AgentToolCall {
+    let mut model_config = HashMap::new();
+    model_config.insert("temperature".to_string(), json!(0.2));
+    model_config.insert("max_output_tokens".to_string(), json!(1200));
+    model_config.insert("tool_choice".to_string(), json!("required"));
+
+    AgentToolCallInternal {
         request_id: "ap_12500_payment_draft".to_string(),
         agent_id: "accounts-payable-agent-17".to_string(),
-        prompt: "Create a payment draft for Acme Industrial Supplies invoice INV-2026-1188.".to_string(),
+        prompt: "Create a payment draft for Acme Industrial Supplies invoice INV-2026-1188."
+            .to_string(),
         model_provider: "openai".to_string(),
         model_name: "gpt-5".to_string(),
-        model_config: {
-            let mut map = HashMap::new();
-            map.insert("temperature".to_string(), json!(0.2));
-            map.insert("max_output_tokens".to_string(), json!(1200));
-            map.insert("tool_choice".to_string(), json!("required"));
-            map
-        },
+        model_config,
         parent_context: None,
         tool_namespace: "finance.ap".to_string(),
         tool_name: "payment_draft.create".to_string(),
         action: "create".to_string(),
         arguments,
-        resources_targeted: vec!["invoice:INV-2026-1188".to_string(), "vendor:vendor_acme_industrial".to_string()],
+        resources_targeted: vec![
+            "invoice:INV-2026-1188".to_string(),
+            "vendor:vendor_acme_industrial".to_string(),
+        ],
         resources_modified: vec!["payment_draft:pending".to_string()],
         network_destination: "api.bank-sandbox.example".to_string(),
         received_timestamp: "2026-06-04T14:00:00.000Z".to_string(),
     }
 }
 
-fn sample_policy_spec() -> PolicySpec {
-    PolicySpec {
+fn sample_policy_spec_internal() -> PolicySpecInternal {
+    PolicySpecInternal {
         policy_id: "pol_accounts_payable_agentic_controls".to_string(),
         policy_version: "2026-06-04.1".to_string(),
         global_mode: "observe".to_string(),
         rules: vec![
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "pii-detection".to_string(),
                 description: "Detect sensitive personal information in payment workflow arguments.".to_string(),
                 rule_mode: Some("observe".to_string()),
@@ -119,7 +123,7 @@ fn sample_policy_spec() -> PolicySpec {
                 forbidden_resource_patterns: vec![],
                 allowed_destinations: vec![],
             },
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "token-leakage".to_string(),
                 description: "Detect access tokens, API keys, or bearer credentials in arguments.".to_string(),
                 rule_mode: Some("enforce".to_string()),
@@ -132,7 +136,7 @@ fn sample_policy_spec() -> PolicySpec {
                 forbidden_resource_patterns: vec![],
                 allowed_destinations: vec![],
             },
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "payment-threshold".to_string(),
                 description: "Require supervisor signature for payment drafts above 10000 USD.".to_string(),
                 rule_mode: Some("observe".to_string()),
@@ -145,7 +149,7 @@ fn sample_policy_spec() -> PolicySpec {
                 forbidden_resource_patterns: vec![],
                 allowed_destinations: vec![],
             },
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "forbidden-vendor-modification".to_string(),
                 description: "Accounts payable agents cannot modify vendor records.".to_string(),
                 rule_mode: Some("enforce".to_string()),
@@ -161,7 +165,7 @@ fn sample_policy_spec() -> PolicySpec {
                 forbidden_resource_patterns: vec![],
                 allowed_destinations: vec![],
             },
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "production-database-deletion".to_string(),
                 description: "Block destructive database actions in production.".to_string(),
                 rule_mode: Some("enforce".to_string()),
@@ -174,7 +178,7 @@ fn sample_policy_spec() -> PolicySpec {
                 forbidden_resource_patterns: vec!["database:production:*".to_string()],
                 allowed_destinations: vec![],
             },
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "network-destination-allowlist".to_string(),
                 description: "Flag destinations outside the approved network allowlist.".to_string(),
                 rule_mode: Some("observe".to_string()),
@@ -193,7 +197,7 @@ fn sample_policy_spec() -> PolicySpec {
                     "www.google.com".to_string(),
                 ],
             },
-            PolicyRule {
+            PolicyRuleInternal {
                 id: "managed-ai-usage-review".to_string(),
                 description: "Flag high-risk or out-of-domain AI-assisted browser usage for administrative review.".to_string(),
                 rule_mode: Some("observe".to_string()),
@@ -289,15 +293,15 @@ fn bench_policy_evaluation(c: &mut Criterion) {
     let mut group = c.benchmark_group("policy_evaluation");
 
     let identity = sample_agent_identity();
-    let policy = sample_policy_spec();
+    let policy = sample_policy_spec_internal();
 
     // Identity verification
-    let call_allowed = sample_agent_tool_call(false);
+    let call_allowed = sample_agent_tool_call_internal(false);
     group.bench_function("verify_identity_allowed", |b| {
         b.iter(|| black_box(policy::verify_identity(&identity, &call_allowed)))
     });
 
-    let call_denied = sample_agent_tool_call(false);
+    let call_denied = sample_agent_tool_call_internal(false);
     group.bench_function("verify_identity_denied", |b| {
         b.iter(|| {
             let mut id = identity.clone();
@@ -307,12 +311,12 @@ fn bench_policy_evaluation(c: &mut Criterion) {
     });
 
     // Full policy evaluation
-    let call_below = sample_agent_tool_call(false);
+    let call_below = sample_agent_tool_call_internal(false);
     group.bench_function("evaluate_policy_below_threshold", |b| {
         b.iter(|| black_box(policy::evaluate_policy(&policy, &call_below)))
     });
 
-    let call_above = sample_agent_tool_call(true);
+    let call_above = sample_agent_tool_call_internal(true);
     group.bench_function("evaluate_policy_above_threshold", |b| {
         b.iter(|| black_box(policy::evaluate_policy(&policy, &call_above)))
     });
@@ -340,7 +344,7 @@ fn bench_usage_intel(c: &mut Criterion) {
     for (name, query) in queries {
         group.throughput(Throughput::Bytes(query.len() as u64));
         group.bench_with_input(BenchmarkId::new("analyze", name), query, |b, q| {
-            b.iter(|| black_box(usage_intel::analyze_usage_intel(q).unwrap()))
+            b.iter(|| black_box(usage_intel::analyze_usage_intent(q).unwrap()))
         });
     }
 
@@ -363,7 +367,7 @@ fn bench_redaction(c: &mut Criterion) {
 
     let args_with_secrets = json!({
         "account_number": "123456789",
-        "api_key": "sk-abcdefghijklmnop",
+        "api_key": "sk-abc...mnop",
         "token": "Bearer xyz123",
         "description": "Payment with sensitive data",
         "nested": {
@@ -373,11 +377,19 @@ fn bench_redaction(c: &mut Criterion) {
     });
 
     group.bench_function("redact_no_secrets", |b| {
-        b.iter(|| black_box(redact::redacted_preview(&args_no_secrets.as_object().unwrap().clone())))
+        b.iter(|| {
+            black_box(redact::redacted_preview(
+                &args_no_secrets.as_object().unwrap().clone(),
+            ))
+        })
     });
 
     group.bench_function("redact_with_secrets", |b| {
-        b.iter(|| black_box(redact::redacted_preview(&args_with_secrets.as_object().unwrap().clone())))
+        b.iter(|| {
+            black_box(redact::redacted_preview(
+                &args_with_secrets.as_object().unwrap().clone(),
+            ))
+        })
     });
 
     group.finish();
@@ -391,35 +403,41 @@ fn bench_full_simulation(c: &mut Criterion) {
     let mut group = c.benchmark_group("full_simulation");
 
     let identity = sample_agent_identity();
-    let policy = sample_policy_spec();
+    let policy = sample_policy_spec_internal();
 
     // Below threshold (allowed)
-    let call_allowed = sample_agent_tool_call(false);
+    let call_allowed = sample_agent_tool_call_internal(false);
     group.bench_function("simulate_allowed", |b| {
         b.iter(|| {
-            black_box(evidence::run_trace_simulation(
-                &identity,
-                &policy,
-                &call_allowed,
-                None,
-                "2026-06-04T14:00:01.000Z",
-                "2026-06-04T14:00:02.000Z",
-            ).unwrap())
+            black_box(
+                evidence::run_trace_simulation(
+                    &identity,
+                    &policy,
+                    &call_allowed,
+                    None,
+                    "2026-06-04T14:00:01.000Z",
+                    "2026-06-04T14:00:02.000Z",
+                )
+                .unwrap(),
+            )
         })
     });
 
     // Above threshold (flagged in observe mode)
-    let call_flagged = sample_agent_tool_call(true);
+    let call_flagged = sample_agent_tool_call_internal(true);
     group.bench_function("simulate_flagged", |b| {
         b.iter(|| {
-            black_box(evidence::run_trace_simulation(
-                &identity,
-                &policy,
-                &call_flagged,
-                None,
-                "2026-06-04T14:00:01.000Z",
-                "2026-06-04T14:00:02.000Z",
-            ).unwrap())
+            black_box(
+                evidence::run_trace_simulation(
+                    &identity,
+                    &policy,
+                    &call_flagged,
+                    None,
+                    "2026-06-04T14:00:01.000Z",
+                    "2026-06-04T14:00:02.000Z",
+                )
+                .unwrap(),
+            )
         })
     });
 
@@ -434,8 +452,8 @@ fn bench_evidence_hashing(c: &mut Criterion) {
     let mut group = c.benchmark_group("evidence_hashing");
 
     let identity = sample_agent_identity();
-    let policy = sample_policy_spec();
-    let call = sample_agent_tool_call(false);
+    let policy = sample_policy_spec_internal();
+    let call = sample_agent_tool_call_internal(false);
 
     let result = evidence::run_trace_simulation(
         &identity,
@@ -444,7 +462,8 @@ fn bench_evidence_hashing(c: &mut Criterion) {
         None,
         "2026-06-04T14:00:01.000Z",
         "2026-06-04T14:00:02.000Z",
-    ).unwrap();
+    )
+    .unwrap();
 
     let record = serde_json::to_value(&result.evidence_record).unwrap();
 

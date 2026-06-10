@@ -1,0 +1,1597 @@
+[
+  {
+    "observed": {
+      "action_allowed": true,
+      "duration_ns": 8245541,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "payment-threshold",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": true,
+        "action_payload": {
+          "arguments_hash": "sha256:c9e86f861d7a0dd169c268ebffca7b31f521f18eb28cbe1ff3da3c5e6e9f4ee9",
+          "redacted_arguments_preview": {
+            "account_number": "[REDACTED]",
+            "amount_usd": 5000,
+            "invoice_id": "INV-2026-1188",
+            "payment_method": "ach",
+            "supervisor_signature": null,
+            "vendor_id": "vendor_acme_industrial"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188",
+            "vendor:vendor_acme_industrial"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:2017cf4f26c1a6868c81caadba7634bbd9bcf5e488ebf244f7ec81452ac21d98",
+          "signature_stub": "signature_stub:v0:sha256:2017cf4f26c1a6868c81caadba7634bbd9bcf5e488ebf244f7ec81452ac21d98"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "payment-threshold",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:85c1f4fb3d5fa3b5f07db087c546d8f27b61c086770994236c6f4dd9173dc39a",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:439e8ddd935e8f8d2ddcc22f4b87fdef58a5b6aa6f094b004b9c09118a797dd0"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc1_pay_5k",
+        "standardized_error": null
+      },
+      "mode": "observe",
+      "rule_triggered": null,
+      "scenario_name": "normal_payment_below_threshold",
+      "timestamp": "2026-06-10T20:14:48.318702+00:00"
+    },
+    "scenario": {
+      "description": "Normal payment draft below $10k threshold - should be allowed in observe mode",
+      "expected_allowed": true,
+      "expected_mode": "observe",
+      "expected_rule_id": null,
+      "name": "normal_payment_below_threshold"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": true,
+      "duration_ns": 240750,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "human supervisor signature required above threshold",
+          "result": "flag",
+          "rule_id": "payment-threshold",
+          "rule_mode": "observe",
+          "severity": "high"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": true,
+        "action_payload": {
+          "arguments_hash": "sha256:49ca2fa6fd29258c9bcefae1a7986750556bb16c57cf8ff59658cdd58750efa6",
+          "redacted_arguments_preview": {
+            "account_number": "[REDACTED]",
+            "amount_usd": 15000,
+            "invoice_id": "INV-2026-1188",
+            "payment_method": "ach",
+            "supervisor_signature": null,
+            "vendor_id": "vendor_acme_industrial"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188",
+            "vendor:vendor_acme_industrial"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:a8ead6f021377a9e04c61e53aad5dbcb3fa451e49b49d6c2e248fe140355761f",
+          "signature_stub": "signature_stub:v0:sha256:a8ead6f021377a9e04c61e53aad5dbcb3fa451e49b49d6c2e248fe140355761f"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "human supervisor signature required above threshold",
+            "result": "flag",
+            "rule_id": "payment-threshold",
+            "rule_mode": "observe",
+            "severity": "high"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:85c1f4fb3d5fa3b5f07db087c546d8f27b61c086770994236c6f4dd9173dc39a",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:439e8ddd935e8f8d2ddcc22f4b87fdef58a5b6aa6f094b004b9c09118a797dd0"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc2_pay_15k",
+        "standardized_error": null
+      },
+      "mode": "observe",
+      "rule_triggered": "payment-threshold",
+      "scenario_name": "payment_above_threshold_observe",
+      "timestamp": "2026-06-10T20:14:48.319155+00:00"
+    },
+    "scenario": {
+      "description": "Payment draft above $10k in observe mode - should be flagged but allowed",
+      "expected_allowed": true,
+      "expected_mode": "observe",
+      "expected_rule_id": "payment-threshold",
+      "name": "payment_above_threshold_observe"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": false,
+      "duration_ns": 231125,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "human supervisor signature required above threshold",
+          "result": "block",
+          "rule_id": "payment-threshold",
+          "rule_mode": "enforce",
+          "severity": "high"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": false,
+        "action_payload": {
+          "arguments_hash": "sha256:f7bde475b54d2a7fdcabddaeb1b9c25f78d53a95051351eb4353c213e79b4b43",
+          "redacted_arguments_preview": {
+            "account_number": "[REDACTED]",
+            "amount_usd": 15000,
+            "invoice_id": "INV-2026-1188",
+            "payment_method": "ach",
+            "supervisor_signature": null,
+            "vendor_id": "vendor_acme_industrial"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188",
+            "vendor:vendor_acme_industrial"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:e834af4ac880dc7e3b8192825c19e21cecab233a12e444f0de233b46b40505ae",
+          "signature_stub": "signature_stub:v0:sha256:e834af4ac880dc7e3b8192825c19e21cecab233a12e444f0de233b46b40505ae"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "human supervisor signature required above threshold",
+            "result": "block",
+            "rule_id": "payment-threshold",
+            "rule_mode": "enforce",
+            "severity": "high"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:85c1f4fb3d5fa3b5f07db087c546d8f27b61c086770994236c6f4dd9173dc39a",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:439e8ddd935e8f8d2ddcc22f4b87fdef58a5b6aa6f094b004b9c09118a797dd0"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc3_pay_15k_enforce",
+        "standardized_error": {
+          "code": "TRACE_POLICY_BLOCKED",
+          "message": "Action blocked by Trace policy evaluation.",
+          "rule_id": "payment-threshold"
+        }
+      },
+      "mode": "enforce",
+      "rule_triggered": "payment-threshold",
+      "scenario_name": "payment_above_threshold_enforce",
+      "timestamp": "2026-06-10T20:14:48.319578+00:00"
+    },
+    "scenario": {
+      "description": "Payment draft above $10k with rule_mode=enforce - should be blocked",
+      "expected_allowed": false,
+      "expected_mode": "enforce",
+      "expected_rule_id": "payment-threshold",
+      "name": "payment_above_threshold_enforce"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": false,
+      "duration_ns": 224625,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "human supervisor signature required above threshold",
+          "result": "block",
+          "rule_id": "payment-threshold",
+          "rule_mode": "enforce",
+          "severity": "high"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": false,
+        "action_payload": {
+          "arguments_hash": "sha256:a3f7c0cbd5ebdb1259d6e0bc980691c40b6f0126c53661f64f4311825205049a",
+          "redacted_arguments_preview": {
+            "account_number": "[REDACTED]",
+            "amount_usd": 15000,
+            "invoice_id": "INV-2026-1188",
+            "payment_method": "ach",
+            "supervisor_signature": "supervisor_john",
+            "vendor_id": "vendor_acme_industrial"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188",
+            "vendor:vendor_acme_industrial"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:f78bc0f1ca5a0a80a5c5192bad28b0613a4c3f4a89fec7d0c9243182a7b955cd",
+          "signature_stub": "signature_stub:v0:sha256:f78bc0f1ca5a0a80a5c5192bad28b0613a4c3f4a89fec7d0c9243182a7b955cd"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "human supervisor signature required above threshold",
+            "result": "block",
+            "rule_id": "payment-threshold",
+            "rule_mode": "enforce",
+            "severity": "high"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:85c1f4fb3d5fa3b5f07db087c546d8f27b61c086770994236c6f4dd9173dc39a",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:439e8ddd935e8f8d2ddcc22f4b87fdef58a5b6aa6f094b004b9c09118a797dd0"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc4_pay_15k_signed",
+        "standardized_error": {
+          "code": "TRACE_POLICY_BLOCKED",
+          "message": "Action blocked by Trace policy evaluation.",
+          "rule_id": "payment-threshold"
+        }
+      },
+      "mode": "enforce",
+      "rule_triggered": "payment-threshold",
+      "scenario_name": "payment_with_supervisor_signature",
+      "timestamp": "2026-06-10T20:14:48.320007+00:00"
+    },
+    "scenario": {
+      "description": "Payment above threshold with supervisor signature - rule still flags (no supervisor check implemented)",
+      "expected_allowed": false,
+      "expected_mode": "enforce",
+      "expected_rule_id": "payment-threshold",
+      "name": "payment_with_supervisor_signature"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": false,
+      "duration_ns": 213166,
+      "evaluation_ledger": [
+        {
+          "policy_id": "identity",
+          "policy_version": "2026-06-04.1",
+          "reason": "agent identity does not allow finance.vendor.vendor.modify:modify",
+          "result": "block",
+          "rule_id": "identity-capability-denial",
+          "rule_mode": "enforce",
+          "severity": "critical"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "payment-threshold",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "agent identity does not permit vendor record modification",
+          "result": "block",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "critical"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": false,
+        "action_payload": {
+          "arguments_hash": "sha256:2c7e2d65db8acd7f81db16df195585b4257f8a8293b248ee0534633be2444093",
+          "redacted_arguments_preview": {
+            "new_name": "Acme Updated",
+            "vendor_id": "vendor_acme"
+          },
+          "resources_modified": [
+            "vendor:vendor_acme"
+          ],
+          "resources_targeted": [
+            "vendor:vendor_acme"
+          ],
+          "tool_name": "vendor.modify",
+          "tool_namespace": "finance.vendor"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:496b241040f826efc100eb6086bad876ae6743369110882ea68e1a26d4e1d5b6",
+          "signature_stub": "signature_stub:v0:sha256:496b241040f826efc100eb6086bad876ae6743369110882ea68e1a26d4e1d5b6"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "identity",
+            "policy_version": "2026-06-04.1",
+            "reason": "agent identity does not allow finance.vendor.vendor.modify:modify",
+            "result": "block",
+            "rule_id": "identity-capability-denial",
+            "rule_mode": "enforce",
+            "severity": "critical"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "payment-threshold",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "agent identity does not permit vendor record modification",
+            "result": "block",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "critical"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:3343deb6401157bc04c57916fafb02774d8485eef8f969d4ed6f7ceaf90524e9",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:6a31f1b801eb50fe9fa2eefd49d113a50b01355bd9250930d6c436b2fefe50ed"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc5_vendor_mod",
+        "standardized_error": {
+          "code": "TRACE_POLICY_BLOCKED",
+          "message": "Action blocked by Trace policy evaluation.",
+          "rule_id": "identity-capability-denial"
+        }
+      },
+      "mode": "enforce",
+      "rule_triggered": "identity-capability-denial",
+      "scenario_name": "forbidden_vendor_modification",
+      "timestamp": "2026-06-10T20:14:48.320420+00:00"
+    },
+    "scenario": {
+      "description": "Agent attempts vendor modification - blocked by identity capability denial (runs before tool_forbidden)",
+      "expected_allowed": false,
+      "expected_mode": "enforce",
+      "expected_rule_id": "identity-capability-denial",
+      "name": "forbidden_vendor_modification"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": true,
+      "duration_ns": 342834,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "PII detected in tool arguments; redact and review retained evidence.",
+          "result": "flag",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "medium"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "payment-threshold",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": true,
+        "action_payload": {
+          "arguments_hash": "sha256:7eadaf1ccab8acb7c08ea0a917f6f3cdc85b48fa5ffab7701bd6254a2c340791",
+          "redacted_arguments_preview": {
+            "amount_usd": 5000,
+            "employee_name": "John Doe",
+            "invoice_id": "INV-2026-1188",
+            "ssn": "[REDACTED]",
+            "vendor_id": "vendor_acme"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:53be41d0172ff7665ef0177387c6dbe51091ea472a630421066154e352f52614",
+          "signature_stub": "signature_stub:v0:sha256:53be41d0172ff7665ef0177387c6dbe51091ea472a630421066154e352f52614"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "PII detected in tool arguments; redact and review retained evidence.",
+            "result": "flag",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "medium"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "payment-threshold",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:3343deb6401157bc04c57916fafb02774d8485eef8f969d4ed6f7ceaf90524e9",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:7d2edf1eaf514b87d93f6ba312c4a9642610fb83b4974fba05becfab7a7f3afc"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc6_pii",
+        "standardized_error": null
+      },
+      "mode": "observe",
+      "rule_triggered": "pii-detection",
+      "scenario_name": "pii_detection_observe",
+      "timestamp": "2026-06-10T20:14:48.320972+00:00"
+    },
+    "scenario": {
+      "description": "Tool call contains PII (SSN) - should be flagged in observe mode",
+      "expected_allowed": true,
+      "expected_mode": "observe",
+      "expected_rule_id": "pii-detection",
+      "name": "pii_detection_observe"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": false,
+      "duration_ns": 259584,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "Credential material cannot be sent through the agent action plane.",
+          "result": "block",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "critical"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "payment-threshold",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": false,
+        "action_payload": {
+          "arguments_hash": "sha256:bd7f08340864f0f6957a9f2a007272b45c4bc1b1a9541e6d5c7a18ba33a93c54",
+          "redacted_arguments_preview": {
+            "amount_usd": 5000,
+            "api_key": "[REDACTED]",
+            "authorization": "[REDACTED]",
+            "invoice_id": "INV-2026-1188"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:a25b0b8dcf4095ce182739166a45e7d02817e38875acd0588c9a5ef6c6afed32",
+          "signature_stub": "signature_stub:v0:sha256:a25b0b8dcf4095ce182739166a45e7d02817e38875acd0588c9a5ef6c6afed32"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "Credential material cannot be sent through the agent action plane.",
+            "result": "block",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "critical"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "payment-threshold",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:3343deb6401157bc04c57916fafb02774d8485eef8f969d4ed6f7ceaf90524e9",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:c4adaf0ab380aa35a739c80f18f2405b3f9b7feb5c141c22dd1672d62977687a"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc7_token_leak",
+        "standardized_error": {
+          "code": "TRACE_POLICY_BLOCKED",
+          "message": "Action blocked by Trace policy evaluation.",
+          "rule_id": "token-leakage"
+        }
+      },
+      "mode": "enforce",
+      "rule_triggered": "token-leakage",
+      "scenario_name": "token_leakage_enforced",
+      "timestamp": "2026-06-10T20:14:48.321421+00:00"
+    },
+    "scenario": {
+      "description": "Tool call contains API key - should be blocked by token_leakage rule",
+      "expected_allowed": false,
+      "expected_mode": "enforce",
+      "expected_rule_id": "token-leakage",
+      "name": "token_leakage_enforced"
+    }
+  },
+  {
+    "observed": {
+      "action_allowed": true,
+      "duration_ns": 196250,
+      "evaluation_ledger": [
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "pii-detection",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "token-leakage",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "payment-threshold",
+          "rule_mode": "observe",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "forbidden-vendor-modification",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "production-database-deletion",
+          "rule_mode": "enforce",
+          "severity": "info"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "network destination is outside the approved allowlist",
+          "result": "flag",
+          "rule_id": "network-destination-allowlist",
+          "rule_mode": "observe",
+          "severity": "high"
+        },
+        {
+          "policy_id": "pol_accounts_payable_agentic_controls",
+          "policy_version": "2026-06-04.1",
+          "reason": "rule did not trigger",
+          "result": "pass",
+          "rule_id": "managed-ai-usage-review",
+          "rule_mode": "observe",
+          "severity": "info"
+        }
+      ],
+      "evidence_record": {
+        "action_allowed": true,
+        "action_payload": {
+          "arguments_hash": "sha256:4b4ab992b88d5c8d99eb9ef579726f6180045f3988dbdec186b4f64edca8ede9",
+          "redacted_arguments_preview": {
+            "amount_usd": 5000,
+            "invoice_id": "INV-2026-1188"
+          },
+          "resources_modified": [
+            "payment_draft:pending"
+          ],
+          "resources_targeted": [
+            "invoice:INV-2026-1188"
+          ],
+          "tool_name": "payment_draft.create",
+          "tool_namespace": "finance.ap"
+        },
+        "agent_id": "accounts-payable-agent-17",
+        "agent_identity_version": "2026-06-04.1",
+        "chain_of_custody": {
+          "emitted_timestamp": "2026-06-04T14:00:02.000Z",
+          "evaluated_timestamp": "2026-06-04T14:00:01.000Z",
+          "previous_record_hash": null,
+          "processing_node_id": "trace-local-node-001",
+          "received_timestamp": "2026-06-04T14:00:00.000Z",
+          "record_hash": "sha256:4359b67c0ec9b879bb6ff04778bf098ce693de964c431e5c5e5b07ad04d3e0ec",
+          "signature_stub": "signature_stub:v0:sha256:4359b67c0ec9b879bb6ff04778bf098ce693de964c431e5c5e5b07ad04d3e0ec"
+        },
+        "environment": "production",
+        "evaluation_ledger": [
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "pii-detection",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "token-leakage",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "payment-threshold",
+            "rule_mode": "observe",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "forbidden-vendor-modification",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "production-database-deletion",
+            "rule_mode": "enforce",
+            "severity": "info"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "network destination is outside the approved allowlist",
+            "result": "flag",
+            "rule_id": "network-destination-allowlist",
+            "rule_mode": "observe",
+            "severity": "high"
+          },
+          {
+            "policy_id": "pol_accounts_payable_agentic_controls",
+            "policy_version": "2026-06-04.1",
+            "reason": "rule did not trigger",
+            "result": "pass",
+            "rule_id": "managed-ai-usage-review",
+            "rule_mode": "observe",
+            "severity": "info"
+          }
+        ],
+        "human_owner_operator": {
+          "email": "maya.chen@stria-demo.example",
+          "name": "Maya Chen",
+          "team": "Finance Operations"
+        },
+        "ingress_envelope": {
+          "model_config_hash": "sha256:3343deb6401157bc04c57916fafb02774d8485eef8f969d4ed6f7ceaf90524e9",
+          "model_name": "gpt-5",
+          "model_provider": "openai",
+          "parent_context_hash": "sha256:74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "prompt_hash": "sha256:7d65f1200e0245eb4032f95d48e175cc16d60c74b891a2840dcec01b253af953"
+        },
+        "organization_id": "org_stria_demo_finance",
+        "record_id": "ev_sc8_bad_dest",
+        "standardized_error": null
+      },
+      "mode": "observe",
+      "rule_triggered": "network-destination-allowlist",
+      "scenario_name": "bad_network_destination",
+      "timestamp": "2026-06-10T20:14:48.321804+00:00"
+    },
+    "scenario": {
+      "description": "Tool call to unapproved network destination - should be flagged",
+      "expected_allowed": true,
+      "expected_mode": "observe",
+      "expected_rule_id": "network-destination-allowlist",
+      "name": "bad_network_destination"
+    }
+  }
+]

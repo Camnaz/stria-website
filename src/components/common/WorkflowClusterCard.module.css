@@ -1,0 +1,73 @@
+.card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--bg-elevated);
+  transition: border-color var(--fast) ease, box-shadow var(--fast) ease;
+}
+
+.card:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.compact {
+  padding: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--brand-dim);
+  color: var(--brand);
+}
+
+.badge.forge {
+  background: var(--brand-dim);
+  color: var(--brand);
+}
+
+.description {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 0;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--fg-quiet);
+}
+
+.stats dt {
+  font-weight: 500;
+}
+
+.stats dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--fg);
+}

@@ -1,14 +1,13 @@
 import styles from "./Header.module.css";
 import { useEffect, useRef } from "react";
-import { navigate, routes } from "../../utils/navigation";
-import type { Surface } from "../../types/router";
+import { useLocation, useNavigate } from "react-router-dom";
+import { routes, getSurfaceFromPath } from "../../utils/navigation";
 import { BrandButton } from "./BrandButton";
 
-interface HeaderProps {
-  surface: Surface;
-}
-
-export function Header({ surface }: HeaderProps) {
+export function Header() {
+  const location = useLocation();
+  const surface = getSurfaceFromPath(location.pathname);
+  const navigate = useNavigate();
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {

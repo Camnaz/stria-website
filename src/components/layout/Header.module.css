@@ -12,6 +12,38 @@
   z-index: 100;
 }
 
+.nav {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.nav button {
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  transition: color var(--fast) ease;
+}
+
+.nav button:hover {
+  color: var(--ink);
+}
+
+.nav button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.nav .active {
+  color: var(--brass);
+}
+
 .isScrolled {
   border-bottom-color: var(--line-strong);
 }

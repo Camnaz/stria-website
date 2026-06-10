@@ -1,0 +1,42 @@
+.result {
+  background: linear-gradient(180deg, rgba(242, 237, 230, 0.025), transparent);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-left: 1px solid rgba(212, 175, 55, 0.06);
+  border-right: 1px solid rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
+  padding: 26px;
+  transition: border-color var(--base) ease;
+  will-change: transform;
+  transform: translateZ(0);
+  text-align: center;
+}
+
+.result:hover {
+  border-top-color: rgba(212, 175, 55, 0.4);
+}
+
+.result span {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.result strong {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.result p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}

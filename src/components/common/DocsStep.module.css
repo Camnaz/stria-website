@@ -1,0 +1,40 @@
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  background: linear-gradient(180deg, rgba(242, 237, 230, 0.025), transparent);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-left: 1px solid rgba(212, 175, 55, 0.06);
+  border-right: 1px solid rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
+  padding: 20px;
+  transition: border-color var(--base) ease;
+}
+
+.step:hover {
+  border-top-color: rgba(212, 175, 55, 0.4);
+}
+
+.step span {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.step h3 {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}

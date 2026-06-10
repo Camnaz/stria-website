@@ -322,12 +322,17 @@ impl AgentToolCall {
             prompt: internal.prompt.clone(),
             model_provider: internal.model_provider.clone(),
             model_name: internal.model_name.clone(),
-            model_config_json: serde_json::to_string(&internal.model_config).unwrap_or_else(|_| "{}".to_string()),
-            parent_context_json: internal.parent_context.as_ref().map(|v| serde_json::to_string(v).unwrap_or_else(|_| "{}".to_string())),
+            model_config_json: serde_json::to_string(&internal.model_config)
+                .unwrap_or_else(|_| "{}".to_string()),
+            parent_context_json: internal
+                .parent_context
+                .as_ref()
+                .map(|v| serde_json::to_string(v).unwrap_or_else(|_| "{}".to_string())),
             tool_namespace: internal.tool_namespace.clone(),
             tool_name: internal.tool_name.clone(),
             action: internal.action.clone(),
-            arguments_json: serde_json::to_string(&internal.arguments).unwrap_or_else(|_| "{}".to_string()),
+            arguments_json: serde_json::to_string(&internal.arguments)
+                .unwrap_or_else(|_| "{}".to_string()),
             resources_targeted: internal.resources_targeted.clone(),
             resources_modified: internal.resources_modified.clone(),
             network_destination: internal.network_destination.clone(),
@@ -365,7 +370,11 @@ impl PolicySpec {
             policy_id: internal.policy_id.clone(),
             policy_version: internal.policy_version.clone(),
             global_mode: internal.global_mode.clone(),
-            rules: internal.rules.iter().map(PolicyRule::from_internal).collect(),
+            rules: internal
+                .rules
+                .iter()
+                .map(PolicyRule::from_internal)
+                .collect(),
         }
     }
 }

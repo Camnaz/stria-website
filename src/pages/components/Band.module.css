@@ -1,0 +1,8 @@
+.band {
+  padding: var(--section-y) var(--pad-x);
+  position: relative;
+}
+
+.compact {
+  padding-bottom: calc(var(--section-y) * 0.75);
+}

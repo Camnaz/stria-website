@@ -4,7 +4,7 @@
 //! - Input: canonical JSON string
 //! - Output: `sha256:<hex>` format
 
-use crate::canonical_json::{sort_for_canonical_json, to_canonical_json, value_to_canonical_json};
+use crate::canonical_json::{to_canonical_json, value_to_canonical_json};
 use crate::types::TraceCoreError;
 use ring::digest::{digest, SHA256};
 use serde_json::Value;

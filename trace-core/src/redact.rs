@@ -2,7 +2,6 @@
 //!
 //! Redacts sensitive keys and values from tool arguments before storing in evidence records.
 
-use crate::types::TraceCoreError;
 use once_cell::sync::Lazy;
 use regex::Regex;
 use serde_json::{Map, Value};
@@ -31,7 +30,8 @@ static SENSITIVE_KEYS: Lazy<HashSet<&'static str>> = Lazy::new(|| {
 
 /// Redact sensitive fields from a JSON object (accepts HashMap)
 pub fn redacted_preview_hashmap(args: &HashMap<String, Value>) -> Value {
-    let map: Map<String, Value> = args.iter()
+    let map: Map<String, Value> = args
+        .iter()
         .map(|(key, value)| {
             let redacted = if SENSITIVE_KEYS.contains(key.to_lowercase().as_str()) {
                 Value::String("[REDACTED]".to_string())
@@ -80,7 +80,8 @@ fn looks_sensitive(value: &str) -> bool {
 }
 
 // Pre-compiled regexes for sensitive value detection
-static BEARER_TOKEN_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"(?i)bearer\s+[a-z0-9._-]+").unwrap());
+static BEARER_TOKEN_REGEX: Lazy<Regex> =
+    Lazy::new(|| Regex::new(r"(?i)bearer\s+[a-z0-9._-]+").unwrap());
 static API_KEY_REGEX: Lazy<Regex> = Lazy::new(|| Regex::new(r"(?i)sk-[a-z0-9_-]{12,}").unwrap());
 
 #[cfg(test)]
@@ -105,7 +106,10 @@ mod tests {
         inner.insert("token".to_string(), json!("secret123"));
 
         let mut args = HashMap::new();
-        args.insert("config".to_string(), Value::Object(inner.into_iter().collect()));
+        args.insert(
+            "config".to_string(),
+            Value::Object(inner.into_iter().collect()),
+        );
 
         let redacted = redacted_preview_hashmap(&args);
         let config = redacted.get("config").and_then(|v| v.as_object()).unwrap();
@@ -133,11 +137,17 @@ mod tests {
     #[test]
     fn test_no_false_positive() {
         let mut args = HashMap::new();
-        args.insert("description".to_string(), json!("This is a normal description with no secrets"));
+        args.insert(
+            "description".to_string(),
+            json!("This is a normal description with no secrets"),
+        );
         args.insert("count".to_string(), json!(42));
 
         let redacted = redacted_preview_hashmap(&args);
-        assert_eq!(redacted.get("description"), Some(&json!("This is a normal description with no secrets")));
+        assert_eq!(
+            redacted.get("description"),
+            Some(&json!("This is a normal description with no secrets"))
+        );
         assert_eq!(redacted.get("count"), Some(&json!(42)));
     }
 }

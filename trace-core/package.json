@@ -1,0 +1,21 @@
+{
+  "name": "trace-core",
+  "version": "0.1.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "napi": {
+    "binaryName": "trace_core"
+  },
+  "scripts": {
+    "build": "napi build --platform",
+    "build:release": "napi build --platform --release",
+    "test": "node --test test.js"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

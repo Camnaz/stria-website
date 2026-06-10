@@ -11,10 +11,26 @@ use std::collections::HashSet;
 /// Pre-compiled regex patterns for classification
 static BUSINESS_TERMS: Lazy<HashSet<&'static str>> = Lazy::new(|| {
     [
-        "agent", "ai", "approval", "audit", "compliance", "contract",
-        "customer", "evidence", "finance", "invoice", "legal", "payment",
-        "policy", "refund", "renewal", "risk", "security", "support",
-        "vendor", "workflow",
+        "agent",
+        "ai",
+        "approval",
+        "audit",
+        "compliance",
+        "contract",
+        "customer",
+        "evidence",
+        "finance",
+        "invoice",
+        "legal",
+        "payment",
+        "policy",
+        "refund",
+        "renewal",
+        "risk",
+        "security",
+        "support",
+        "vendor",
+        "workflow",
     ]
     .into_iter()
     .collect()
@@ -99,16 +115,13 @@ static BUSINESS_SENSITIVE_PATTERN: Lazy<Regex> = Lazy::new(|| {
 
 // Education patterns
 static EDUCATION_PATTERN: Lazy<Regex> = Lazy::new(|| {
-    Regex::new(
-        r"\b(student|school|university|assignment|homework|exam|essay|teacher|academic)\b"
-    ).unwrap()
+    Regex::new(r"\b(student|school|university|assignment|homework|exam|essay|teacher|academic)\b")
+        .unwrap()
 });
 
 // Arithmetic patterns (for general research baseline)
 static ARITHMETIC_PATTERN: Lazy<Regex> = Lazy::new(|| {
-    Regex::new(
-        r"^\s*(what is\s*)?-?\d+(?:\.\d+)?\s*(?:x|\*|×|\+|-|/)\s*-?\d+(?:\.\d+)?\b"
-    ).unwrap()
+    Regex::new(r"^\s*(what is\s*)?-?\d+(?:\.\d+)?\s*(?:x|\*|×|\+|-|/)\s*-?\d+(?:\.\d+)?\b").unwrap()
 });
 
 /// Analyze usage intent from a query string
@@ -224,7 +237,10 @@ fn classify_search_intent(normalized: &str) -> String {
 }
 
 fn classify_domain_alignment(normalized: &str, intent: &str, risk_signals: &[String]) -> String {
-    if risk_signals.iter().any(|s| s == "likely_unrelated_personal_use") {
+    if risk_signals
+        .iter()
+        .any(|s| s == "likely_unrelated_personal_use")
+    {
         return "out_of_domain".to_string();
     }
     if intent == "potentially_malicious_or_unsafe" {
@@ -261,17 +277,26 @@ fn determine_risk_level(risk_signals: &[String], domain_alignment: &str) -> Stri
 
 fn narrative_for(intent: &str, risk_signals: &[String]) -> String {
     if intent == "potentially_malicious_or_unsafe" {
-        if risk_signals.iter().any(|s| s == "insider_threat_or_sabotage_intent") {
+        if risk_signals
+            .iter()
+            .any(|s| s == "insider_threat_or_sabotage_intent")
+        {
             return "The query resembles adverse insider intent. Trace should preserve evidence, avoid providing operational harm guidance, and route the event for security or compliance review.".to_string();
         }
         return "The query resembles unsafe or malicious security research. Trace should preserve evidence and route the event for security review.".to_string();
     }
 
-    if risk_signals.iter().any(|s| s == "possible_sensitive_data_exposure") {
+    if risk_signals
+        .iter()
+        .any(|s| s == "possible_sensitive_data_exposure")
+    {
         return "The query may include sensitive material. Trace should retain evidence and prompt an operator to review data exposure risk.".to_string();
     }
 
-    if risk_signals.iter().any(|s| s == "likely_unrelated_personal_use") {
+    if risk_signals
+        .iter()
+        .any(|s| s == "likely_unrelated_personal_use")
+    {
         return "The query appears unrelated to approved business or academic workflows. Trace should record the usage pattern for policy review.".to_string();
     }
 
@@ -300,7 +325,10 @@ fn recommended_workflow(intent: &str, risk_signals: &[String]) -> String {
 
     if high_risk {
         "Route to security or compliance review and retain evidence.".to_string()
-    } else if risk_signals.iter().any(|s| s == "likely_unrelated_personal_use") {
+    } else if risk_signals
+        .iter()
+        .any(|s| s == "likely_unrelated_personal_use")
+    {
         "Record as out-of-domain usage and review against acceptable-use policy.".to_string()
     } else if intent == "business_sensitive_workflow" {
         "Retain evidence and review if sensitive business data appears.".to_string()
@@ -321,7 +349,10 @@ mod tests {
     fn test_analyze_insider_risk() {
         let result = analyze_usage_intent("how to sabotage my company").unwrap();
         assert_eq!(result.risk_level, "high");
-        assert!(result.risk_signals.iter().any(|s| s.contains("insider_threat")));
+        assert!(result
+            .risk_signals
+            .iter()
+            .any(|s| s.contains("insider_threat")));
         assert_eq!(result.domain_alignment, "out_of_domain");
     }
 
@@ -343,7 +374,10 @@ mod tests {
     fn test_analyze_personal_use() {
         let result = analyze_usage_intent("movie streaming sites").unwrap();
         assert_eq!(result.domain_alignment, "out_of_domain");
-        assert!(result.risk_signals.iter().any(|s| s.contains("personal_use")));
+        assert!(result
+            .risk_signals
+            .iter()
+            .any(|s| s.contains("personal_use")));
     }
 
     #[test]

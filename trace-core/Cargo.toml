@@ -6,7 +6,7 @@ description = "High-performance core for Trace: canonical JSON, hashing, policy 
 license = "MIT"
 
 [lib]
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 # N-API bindings for Node.js
@@ -41,6 +41,7 @@ criterion = { version = "0.5", optional = true }
 [dev-dependencies]
 criterion = "0.5"
 serde_json = "1.0"
+rand = "0.8"
 
 [[bench]]
 name = "benchmarks"

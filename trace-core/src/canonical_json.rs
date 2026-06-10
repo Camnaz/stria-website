@@ -3,8 +3,7 @@
 //! Implements deterministic JSON serialization with sorted keys,
 //! matching the TypeScript implementation exactly.
 
-use serde::ser::{SerializeMap, SerializeSeq, Serializer};
-use serde::{Serialize, Serializer as SerdeSerializer};
+use serde::Serialize;
 use serde_json::Value;
 use std::collections::BTreeMap;
 

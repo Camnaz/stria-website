@@ -1,0 +1,46 @@
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.grid > div {
+  background: linear-gradient(180deg, rgba(242, 237, 230, 0.025), transparent);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-left: 1px solid rgba(212, 175, 55, 0.06);
+  border-right: 1px solid rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
+  padding: 26px;
+  transition: border-color var(--base) ease;
+}
+
+.grid > div:hover {
+  border-top-color: rgba(212, 175, 55, 0.4);
+}
+
+.grid > div::before {
+  background: linear-gradient(90deg, var(--brass), transparent);
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 20px;
+  width: 28px;
+}
+
+.grid h3 {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.grid p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}

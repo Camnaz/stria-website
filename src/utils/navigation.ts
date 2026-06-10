@@ -1,9 +1,5 @@
-import { routes } from "../types/router";
-
-export function navigate(path: string): void {
-  window.history.pushState({}, "", path);
-  window.dispatchEvent(new PopStateEvent("popstate"));
-}
+export { routes, routeMetadata, type RouteMetadata } from "../types/router";
+export type { Surface } from "../types/router";
 
 export function getSurfaceFromPath(pathname: string): import("../types/router").Surface {
   if (pathname === "/docs") return "traceDocs";

@@ -1,0 +1,64 @@
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert",
+        "ci",
+        "build"
+      ]
+    ],
+    "scope-case": [2, "always", "lower-case"],
+    "subject-case": [2, "always", "sentence-case"],
+    "subject-empty": [2, "never"],
+    "header-max-length": [2, "always", 100]
+  },
+  "prompt": {
+    "messages": {
+      "type": "Select the type of change:\n",
+      "scope": "Denote the SCOPE of this change (optional):\n",
+      "subject": "Write a SHORT, IMPERATIVE tense description of the change:\n",
+      "body": "Provide a LONGER description of the change (optional):\n",
+      "breaking": "List any BREAKING CHANGES (optional):\n",
+      "footer": "List any ISSUES CLOSED by this change (optional):\n",
+      "confirmCommit": "Are you sure you want to proceed with the commit above?"
+    },
+    "types": [
+      { "value": "feat", "name": "feat:     A new feature", "description": "A new feature" },
+      { "value": "fix", "name": "fix:      A bug fix", "description": "A bug fix" },
+      { "value": "docs", "name": "docs:     Documentation only changes", "description": "Documentation only changes" },
+      { "value": "style", "name": "style:    Formatting, missing semi colons, etc", "description": "Changes that do not affect the meaning of the code" },
+      { "value": "refactor", "name": "refactor: Refactoring production code", "description": "A code change that neither fixes a bug nor adds a feature" },
+      { "value": "perf", "name": "perf:     Performance improvements", "description": "A code change that improves performance" },
+      { "value": "test", "name": "test:     Adding missing tests", "description": "Adding missing tests or correcting existing tests" },
+      { "value": "chore", "name": "chore:    Maintenance tasks", "description": "Changes to the build process or auxiliary tools" },
+      { "value": "revert", "name": "revert:   Reverts a previous commit", "description": "Reverts a previous commit" },
+      { "value": "ci", "name": "ci:       CI/CD changes", "description": "Changes to CI/CD configuration files and scripts" },
+      { "value": "build", "name": "build:    Build system changes", "description": "Changes that affect the build system or external dependencies" }
+    ],
+    "scopes": [
+      { "name": "frontend" },
+      { "name": "rust" },
+      { "name": "ml" },
+      { "name": "runtime" },
+      { "name": "docs" },
+      { "name": "ci" },
+      { "name": "deploy" },
+      { "name": "deps" }
+    ],
+    "allowCustomScopes": true,
+    "allowEmptyScopes": true,
+    "allowBreakingChanges": ["feat", "fix"],
+    "skipQuestions": ["body", "breaking", "footer"]
+  }
+}

@@ -1,30 +1,29 @@
-import { StatusPill } from "../ui";
-import type { TraceEvent } from "../../types/platform";
+import { traceEvents } from "../../striaPlatformData";
 import styles from "./TraceEventTable.module.css";
 
-interface TraceEventTableProps {
-  events: TraceEvent[];
-}
-
-export function TraceEventTable({ events }: TraceEventTableProps) {
+export function TraceEventTable() {
   return (
-    <div className={styles.table} role="table" aria-label="Trace event telemetry">
-      <div className={`${styles.row} ${styles.head}`} role="row">
-        <span>Event</span>
-        <span>App</span>
-        <span>Status</span>
-        <span>Latency</span>
-        <span>Cost</span>
-      </div>
-      {events.map((event) => (
-        <div className={styles.row} role="row" key={event.id}>
-          <span>{event.id}</span>
-          <span>{event.app_id}</span>
-          <span className={`${styles.statusPill} ${event.status}`}>{event.status}</span>
-          <span>{event.latency_ms}ms</span>
-          <span>${event.cost_estimate.toFixed(3)}</span>
-        </div>
-      ))}
-    </div>
+    <table className={styles.table} aria-label="Trace event telemetry">
+      <thead>
+        <tr>
+          <th>EVENT</th>
+          <th>APP</th>
+          <th>STATUS</th>
+          <th>LATENCY</th>
+          <th>COST</th>
+        </tr>
+      </thead>
+      <tbody>
+        {traceEvents.map((event) => (
+          <tr key={event.id}>
+            <td><code>{event.id}</code></td>
+            <td>{event.app_id}</td>
+            <td><span className={`${styles.status} ${styles[event.status]}`}>{event.status.toUpperCase()}</span></td>
+            <td>{event.latency_ms}ms</td>
+            <td>${event.cost_estimate.toFixed(3)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
