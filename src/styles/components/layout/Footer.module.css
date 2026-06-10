@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Footer — CSS Module
+   Site footer with brand, navigation, credit
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-container-x);
+  border-top: var(--hairline);
+  background: var(--color-bg);
+}
+
+.footer__brand {
+  display: inline-flex;
+}
+
+.footer__brandLogo {
+  display: block;
+  width: 40px;
+  height: 38px;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.footer__brand:hover .footer__brandLogo {
+  opacity: 1;
+}
+
+.footer__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.footer__navItem {
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.footer__navItem:hover {
+  color: var(--color-fg);
+}
+
+.footer__credit {
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+    gap: var(--space-5);
+  }
+
+  .footer__brand {
+    justify-self: center;
+  }
+
+  .footer__nav {
+    gap: var(--space-3);
+  }
+}

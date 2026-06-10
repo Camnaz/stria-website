@@ -1,0 +1,67 @@
+.card {
+  background: linear-gradient(180deg, rgba(242, 237, 230, 0.025), transparent);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-left: 1px solid rgba(212, 175, 55, 0.06);
+  border-right: 1px solid rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
+  padding: 26px;
+  transition: border-color var(--base) ease;
+  will-change: transform;
+  transform: translateZ(0);
+  display: grid;
+  gap: 16px;
+}
+
+.card:hover {
+  border-top-color: rgba(212, 175, 55, 0.4);
+}
+
+.card::before {
+  background: linear-gradient(90deg, var(--brass), transparent);
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 20px;
+  width: 28px;
+}
+
+.title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title > div {
+  flex: 1;
+}
+
+.title span:first-child {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 8px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}

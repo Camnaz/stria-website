@@ -1,0 +1,65 @@
+.statusPill {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  border: 1px solid var(--brass-dim);
+  display: inline-block;
+}
+
+.success {
+  border-color: var(--sage);
+  color: var(--sage);
+}
+
+.failed {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.flagged {
+  border-color: var(--brass);
+  color: var(--brass-bright);
+}
+
+.candidate {
+  border-color: var(--quiet);
+  color: var(--muted);
+}
+
+.testing {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+.approved {
+  border-color: var(--sage);
+  color: var(--sage);
+}
+
+.deployed {
+  border-color: var(--stone);
+  color: var(--stone);
+}
+
+.pending {
+  border-color: var(--brass-dim);
+  color: var(--brass-dim);
+}
+
+.active {
+  border-color: var(--sage);
+  color: var(--sage);
+}
+
+.paused {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.rolled_back {
+  border-color: var(--quiet);
+  color: var(--muted);
+}

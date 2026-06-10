@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Button — CSS Module
+   Primary, secondary, nav-cta, and ghost variants
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: var(--radius-none);
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:active {
+  opacity: 0.85;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Primary / Nav CTA — filled brass */
+.btn--primary,
+.btn--nav-cta {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.btn--primary:hover:not(:disabled),
+.btn--nav-cta:hover:not(:disabled) {
+  background: var(--color-brand);
+  color: var(--color-bg);
+}
+
+/* Secondary — outline brass */
+.btn--secondary {
+  border-color: var(--color-brand-dim);
+  color: var(--color-brand);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  border-color: var(--color-brand);
+  color: var(--color-brand-bright);
+}
+
+/* Ghost — no border, muted text */
+.btn--ghost {
+  border-color: transparent;
+  color: var(--color-fg-quiet);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  color: var(--color-fg);
+}
+
+/* Footer variant — smaller, subtler */
+.btn--footer {
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  font-size: 10px;
+}
+
+.btn--icon-only {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+/* Focus is handled globally, but ensure brand focus on primary */
+.btn--primary:focus-visible,
+.btn--nav-cta:focus-visible {
+  outline-color: var(--color-brand);
+}
+
+.btn--secondary:focus-visible {
+  outline-color: var(--color-brand);
+}

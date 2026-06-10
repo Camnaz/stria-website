@@ -1,0 +1,21 @@
+organization: "Stria demo enterprise"
+environment: "managed-workstation-demo"
+natural_language_policy:
+  purpose: >
+    Observe AI-assisted browser usage on managed enterprise devices so administrators can
+    understand business workflow, sensitive data exposure, unsafe intent, and acceptable-use posture.
+  allowed_domains:
+    - "Enterprise AI governance, evidence, audit, compliance, and security workflows"
+    - "Finance operations, invoices, payments, vendors, and policy review"
+    - "Engineering, debugging, deployment, databases, and internal technical work"
+    - "Education administration, academic-use review, and institutional AI policy"
+  undesirable_or_escalated_usage:
+    - "Credential theft, phishing, malware, exploit development, or bypass instructions"
+    - "Sensitive data exposure such as passwords, API keys, tokens, SSNs, or customer data"
+    - "Unrelated personal usage such as gambling, dating, entertainment, or personal travel planning"
+    - "Requests outside the business or institution-defined purpose of the managed environment"
+  default_action: "observe"
+  escalation_guidance:
+    low: "Record evidence and aggregate for usage analytics."
+    medium: "Record evidence and review against acceptable-use policy."
+    high: "Record evidence and route to security, compliance, or administrative review."

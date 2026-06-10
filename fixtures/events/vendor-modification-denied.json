@@ -1,0 +1,28 @@
+{
+  "request_id": "fixture_vendor_modification_denied",
+  "agent_id": "accounts-payable-agent-17",
+  "prompt": "Update the payment routing information for Acme Industrial Supplies.",
+  "model_provider": "openai",
+  "model_name": "gpt-5",
+  "model_config": {
+    "temperature": 0.1,
+    "max_output_tokens": 900,
+    "tool_choice": "required"
+  },
+  "parent_context": {
+    "workflow_id": "wf_vendor_maintenance_review",
+    "previous_record_hash": null
+  },
+  "tool_namespace": "finance.vendor",
+  "tool_name": "vendor.modify",
+  "action": "modify",
+  "arguments": {
+    "vendor_id": "vendor_acme_industrial",
+    "routing_number": "021000021",
+    "account_number": "987654321000"
+  },
+  "resources_targeted": ["vendor:vendor_acme_industrial"],
+  "resources_modified": ["vendor:vendor_acme_industrial"],
+  "network_destination": "api.bank-sandbox.example",
+  "received_timestamp": "2026-06-04T14:05:00.000Z"
+}

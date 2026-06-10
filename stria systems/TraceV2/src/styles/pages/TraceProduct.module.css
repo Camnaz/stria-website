@@ -1,0 +1,211 @@
+/* ==========================================================================
+   TraceProduct — CSS Module
+   Trace product page styles
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+/* Uses shared styles from CompanyHome.module.css */
+.tracePage {
+  /* inherits base */
+}
+
+.traceHero {
+  /* extends hero --asymmetric */
+}
+
+.docsPage {
+  /* inherits base */
+}
+
+.docsHero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  padding: var(--space-section-y) var(--space-container-x);
+}
+
+@media (max-width: 960px) {
+  .docsHero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docsHero__content {
+  max-width: 520px;
+}
+
+.docsRedirectPanel {
+  display: grid;
+  place-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  text-align: center;
+}
+
+.docsRedirectPanel__icon {
+  color: var(--color-brand);
+}
+
+.docsRedirectPanel__title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-fg-quiet);
+}
+
+.docsRedirectPanel__command {
+  background: var(--color-bg);
+  border: var(--hairline);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+}
+
+.docsRedirectPanel__text {
+  margin: var(--space-4) 0 0;
+  max-width: 400px;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.docsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  padding: var(--space-section-y) var(--space-container-x);
+}
+
+@media (max-width: 768px) {
+  .docsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docsBand {
+  padding: var(--space-section-y) var(--space-container-x);
+}
+
+.docsSplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  padding: var(--space-section-y) var(--space-container-x);
+}
+
+.docsSplit--reverse {
+  direction: rtl;
+}
+
+.docsSplit--reverse > * {
+  direction: ltr;
+}
+
+@media (max-width: 960px) {
+  .docsSplit {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docsResultGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 560px) {
+  .docsResultGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docsResult {
+  padding: var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  text-align: center;
+}
+
+.docsResult__label {
+  display: block;
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.docsResult__result {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.docsResult__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+}
+
+.docsGrid--dense {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .docsGrid--dense {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .docsGrid--dense {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flowList {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.flowList li {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+}
+
+.flowList__number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-brand-dim);
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.flowList__content {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}

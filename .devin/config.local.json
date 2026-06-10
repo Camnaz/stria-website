@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Exec(open)",
+      "Exec(find)",
+      "Exec(npm install)",
+      "Exec(npm run)"
+    ]
+  }
+}

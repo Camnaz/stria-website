@@ -1,0 +1,153 @@
+/* ==========================================================================
+   STRIA SYSTEMS — Design Tokens
+   Single source of truth for colors, spacing, typography, motion, z-index
+   ========================================================================== */
+
+:root {
+  /* ---------- Color Scheme ---------- */
+  color-scheme: dark;
+
+  /* ---------- Semantic Colors ---------- */
+  /* Backgrounds */
+  --color-bg: #08080a;
+  --color-bg-elevated: #0d0d12;
+  --color-bg-overlay: #13131a;
+
+  /* Foregrounds */
+  --color-fg: #f2ede6;
+  --color-fg-muted: #a8a095;
+  --color-fg-quiet: #706860;
+
+  /* Brand */
+  --color-brand: #d4af37;
+  --color-brand-bright: #e8cf7a;
+  --color-brand-dim: rgba(212, 175, 55, 0.25);
+  --color-brand-faint: rgba(212, 175, 55, 0.08);
+
+  /* Accent */
+  --color-sage: #7a9e8a;
+  --color-terracotta: #b87e6a;
+  --color-stone: #c4b8a8;
+
+  /* Borders & Lines */
+  --color-line: rgba(212, 175, 55, 0.15);
+  --color-line-strong: rgba(212, 175, 55, 0.35);
+
+  /* Status */
+  --color-success: #7a9e8a;
+  --color-warning: #d4af37;
+  --color-error: #b87e6a;
+  --color-info: #7a9e8a;
+
+  /* ---------- Typography ---------- */
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --font-size-xs: clamp(10px, 0.85vw, 11px);
+  --font-size-sm: clamp(12px, 1vw, 13px);
+  --font-size-base: clamp(15px, 1.15vw, 17px);
+  --font-size-lg: clamp(18px, 1.5vw, 20px);
+  --font-size-xl: clamp(22px, 2vw, 26px);
+  --font-size-2xl: clamp(28px, 3.2vw, 44px);
+  --font-size-3xl: clamp(44px, 5.8vw, 86px);
+
+  --line-height-tight: 1.05;
+  --line-height-snug: 1.15;
+  --line-height-normal: 1.35;
+  --line-height-relaxed: 1.65;
+
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: -0.005em;
+  --letter-spacing-wide: 0.1em;
+  --letter-spacing-wider: 0.18em;
+
+  /* ---------- Spacing ---------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  --space-section-y: clamp(64px, 8vw, 120px);
+  --space-container-x: clamp(24px, 6vw, 80px);
+
+  /* ---------- Border Radius ---------- */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* ---------- Shadows & Glow ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.15);
+  --shadow-glow-strong: 0 0 80px rgba(212, 175, 55, 0.25);
+
+  /* ---------- Motion ---------- */
+  --duration-fast: 140ms;
+  --duration-base: 240ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---------- Z-Index ---------- */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 50;
+  --z-modal: 100;
+  --z-tooltip: 200;
+  --z-cursor: 1000;
+
+  /* ---------- Transitions ---------- */
+  --transition-fast: var(--duration-fast) var(--ease-out-cubic);
+  --transition-base: var(--duration-base) var(--ease-out-cubic);
+  --transition-slow: var(--duration-slow) var(--ease-out-cubic);
+
+  /* ---------- Cursor Position ---------- */
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+
+  /* ---------- Container ---------- */
+  --container-max: 1200px;
+  --container-narrow: 860px;
+  --container-narrower: 720px;
+
+  /* ---------- Selection ---------- */
+  --selection-bg: rgba(201, 168, 106, 0.35);
+
+  /* ---------- Focus ---------- */
+  --focus-ring: 2px solid var(--color-brand);
+  --focus-offset: 2px;
+
+  /* ---------- Hairline ---------- */
+  --hairline: 1px solid var(--color-line);
+  --hairline-strong: 1px solid var(--color-line-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+  }
+}

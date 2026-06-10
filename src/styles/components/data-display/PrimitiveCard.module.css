@@ -1,0 +1,95 @@
+/* ==========================================================================
+   PrimitiveCard — CSS Module
+   Forge primitive display card
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.primitiveCard {
+  padding: var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+}
+
+.primitiveCard__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.primitiveCard__id {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.primitiveCard__name {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.primitiveCard__description {
+  margin: 0 0 var(--space-4);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.primitiveCard__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  .primitiveCard__metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Sandbox Panel */
+.sandboxPanel {
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+}
+
+.sandboxPanel__header {
+  padding: var(--space-5);
+  border-bottom: var(--hairline);
+}
+
+.sandboxPanel__console {
+  padding: var(--space-5);
+  background: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  color: var(--color-sage);
+  min-height: 120px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.sandboxPanel__visualHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+}
+
+.sandboxPanel__runId {
+  color: var(--color-fg-quiet);
+}
+
+.sandboxPanel__status {
+  font-weight: var(--font-weight-medium);
+}

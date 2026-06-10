@@ -1,0 +1,31 @@
+{
+  "request_id": "fixture_payment_draft_above_threshold",
+  "agent_id": "accounts-payable-agent-17",
+  "prompt": "Create a payment draft for Acme Industrial Supplies invoice INV-2026-1188.",
+  "model_provider": "openai",
+  "model_name": "gpt-5",
+  "model_config": {
+    "temperature": 0.2,
+    "max_output_tokens": 1200,
+    "tool_choice": "required"
+  },
+  "parent_context": {
+    "workflow_id": "wf_accounts_payable_daily_close",
+    "previous_record_hash": null
+  },
+  "tool_namespace": "finance.ap",
+  "tool_name": "payment_draft.create",
+  "action": "create",
+  "arguments": {
+    "invoice_id": "INV-2026-1188",
+    "vendor_id": "vendor_acme_industrial",
+    "amount_usd": 12500,
+    "payment_method": "ach",
+    "account_number": "000123456789",
+    "supervisor_signature": null
+  },
+  "resources_targeted": ["invoice:INV-2026-1188", "vendor:vendor_acme_industrial"],
+  "resources_modified": ["payment_draft:pending"],
+  "network_destination": "api.bank-sandbox.example",
+  "received_timestamp": "2026-06-04T14:00:00.000Z"
+}

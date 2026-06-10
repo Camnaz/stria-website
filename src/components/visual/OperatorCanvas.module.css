@@ -1,0 +1,88 @@
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.scroll3d {
+  transform-style: preserve-3d;
+}
+
+.alert {
+  background: var(--obsidian-2);
+  border: 1px solid var(--terracotta);
+  border-left: 4px solid var(--terracotta);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.alert span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+
+.alert strong {
+  display: block;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.alert p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.chat {
+  background: var(--obsidian-2);
+  border: 1px solid var(--brass-dim);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.question {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.answer {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions span {
+  padding: 8px 14px;
+  background: var(--obsidian-2);
+  border: 1px solid var(--brass-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+  cursor: pointer;
+  transition: border-color var(--fast) ease, color var(--fast) ease;
+}
+
+.actions span:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+}

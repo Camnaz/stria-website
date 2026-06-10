@@ -1,0 +1,59 @@
+/* ==========================================================================
+   MetricTile — CSS Module
+   Key-value metric display
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.metricTile {
+  display: grid;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.metricTile__label {
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.metricTile__value {
+  color: var(--color-fg);
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-tight);
+}
+
+/* Inline variant for dashboard grids */
+.metricTile--inline {
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: start;
+  gap: var(--space-3);
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+}
+
+.metricTile--inline .metricTile__label {
+  font-size: var(--font-size-xs);
+}
+
+.metricTile--inline .metricTile__value {
+  font-size: var(--font-size-base);
+}
+
+/* Compact variant */
+.metricTile--compact .metricTile__value {
+  font-size: var(--font-size-lg);
+}
+
+/* Large variant */
+.metricTile--large .metricTile__value {
+  font-size: var(--font-size-2xl);
+}

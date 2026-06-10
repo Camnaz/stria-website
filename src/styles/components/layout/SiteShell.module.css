@@ -1,0 +1,74 @@
+/* ==========================================================================
+   SiteShell — CSS Module
+   Main layout wrapper with background, cursor glow, header/footer slots
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.siteShell {
+  min-height: 100vh;
+  overflow-x: clip;
+  position: relative;
+  background:
+    radial-gradient(120% 50% at 50% 0%, var(--color-brand-faint), transparent 50%),
+    radial-gradient(100% 40% at 80% 100%, var(--color-bg-elevated), transparent 60%),
+    var(--color-bg);
+}
+
+/* Subtle cursor warmth */
+.siteShell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(212, 175, 55, 0.025), transparent 140px);
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+}
+
+/* Surface-specific backgrounds */
+.siteShell--company {
+  /* Uses default */
+}
+
+.siteShell--platform,
+.siteShell--trace,
+.siteShell--forge,
+.siteShell--architecture {
+  background:
+    radial-gradient(120% 50% at 50% 0%, rgba(212, 175, 55, 0.02), transparent 50%),
+    radial-gradient(100% 40% at 80% 100%, var(--color-bg-elevated), transparent 60%),
+    var(--color-bg);
+}
+
+.siteShell--docs,
+.siteShell--demo {
+  background: var(--color-bg);
+}
+
+/* Content wrapper */
+.siteShell__content {
+  width: 100%;
+}
+
+/* Header and Footer slots - positioned by layout */
+.siteShell__header {
+  /* Header is sticky positioned in its own component */
+}
+
+.siteShell__footer {
+  /* Footer at bottom */
+}
+
+/* Main content area */
+.siteShell__main {
+  width: 100%;
+}
+
+/* Reduced motion - disable cursor glow */
+@media (prefers-reduced-motion: reduce) {
+  .siteShell::before {
+    display: none;
+  }
+}

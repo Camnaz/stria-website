@@ -1,0 +1,49 @@
+{
+  "purpose": "Build a Trace enterprise usage-intelligence corpus for MLX LoRA or QLoRA experiments.",
+  "default_output_dir": "datasets/trace-enterprise",
+  "sources": [
+    {
+      "id": "trace-seed",
+      "kind": "local_jsonl",
+      "path": "datasets/usage-intelligence.jsonl",
+      "weight": 3,
+      "description": "Trace's curated seed set of enterprise search and agent usage examples."
+    },
+    {
+      "id": "wambosec-prompt-injections",
+      "kind": "hf_dataset",
+      "dataset": "wambosec/prompt-injections",
+      "split": "train[:1500]",
+      "text_field": "prompt",
+      "label_field": "label",
+      "description": "Generic prompt-injection and jailbreak text for security classification."
+    },
+    {
+      "id": "jailbreak-db",
+      "kind": "hf_dataset",
+      "dataset": "youbin2014/JailbreakDB",
+      "split": "train[:2000]",
+      "text_field": "user_prompt",
+      "label_field": "jailbreak",
+      "description": "Adversarial jailbreak prompts for red-team and unsafe-intent detection."
+    },
+    {
+      "id": "finguard-finance",
+      "kind": "hf_dataset",
+      "dataset": "nandhak12/finguard-finance-injection-dataset",
+      "split": "train[:2500]",
+      "text_field": "user_message",
+      "label_field": "label",
+      "description": "Finance-specific prompt injections and safe finance-agent usage."
+    },
+    {
+      "id": "banking77",
+      "kind": "remote_csv",
+      "data_file": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/master/banking_data/train.csv",
+      "split": "train[:2500]",
+      "text_field": "text",
+      "label_field": "label",
+      "description": "Banking support intent data exported as CSV for enterprise routing, escalation, and customer-service workflows."
+    }
+  ]
+}

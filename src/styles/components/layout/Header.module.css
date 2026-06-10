@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Header — CSS Module
+   Site header with brand, navigation, CTA
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: 64px;
+  padding: var(--space-2) var(--space-container-x);
+  background: var(--color-bg);
+  border-bottom: var(--hairline);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  transition: border-color var(--transition-fast);
+}
+
+.header--scrolled {
+  border-bottom-color: var(--color-line-strong);
+}
+
+/* Brand */
+.brand {
+  display: inline-flex;
+  padding: 0;
+}
+
+.brand__logo {
+  display: block;
+  width: 55px;
+  height: 52px;
+  object-fit: cover;
+  opacity: 0.85;
+  border-radius: var(--radius-none);
+  transition: opacity var(--transition-fast);
+}
+
+.brand:hover .brand__logo {
+  opacity: 1;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.nav__item {
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.nav__item:hover {
+  color: var(--color-fg);
+}
+
+.nav__item--active {
+  color: var(--color-brand);
+}
+
+.nav__item:focus-visible {
+  outline-color: var(--color-brand);
+}
+
+/* CTA Button in nav */
+.nav__cta {
+  min-height: 40px;
+  padding: 0 var(--space-5);
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-4);
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav__cta {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}

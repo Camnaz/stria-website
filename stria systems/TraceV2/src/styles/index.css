@@ -1,0 +1,35 @@
+/* ==========================================================================
+   STRIA SYSTEMS — Main Styles Entry Point
+   Imports design tokens, base styles, and all component/page styles
+   ========================================================================== */
+
+/* Design Tokens - single source of truth */
+@import "./tokens/design-tokens.css";
+
+/* Base styles - reset, typography, utilities */
+@import "./base/base.css";
+
+/* Layout components */
+@import "./components/layout/Header.module.css";
+@import "./components/layout/Footer.module.css";
+@import "./components/layout/SiteShell.module.css";
+
+/* UI primitives */
+@import "./components/ui/Button.module.css";
+@import "./components/ui/SurfaceBadge.module.css";
+@import "./components/ui/Card.module.css";
+@import "./components/ui/MetricTile.module.css";
+@import "./components/ui/Form.module.css";
+@import "./components/ui/StatusPill.module.css";
+
+/* Data display components */
+@import "./components/data-display/Table.module.css";
+@import "./components/data-display/ClusterCard.module.css";
+@import "./components/data-display/PrimitiveCard.module.css";
+
+/* Visual/animation components */
+@import "./components/visual/Visual.module.css";
+
+/* Page styles */
+@import "./pages/CompanyHome.module.css";
+@import "./pages/TraceProduct.module.css";

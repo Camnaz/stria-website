@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Rust build artifacts
+trace-core/target/
+**/target/
+
+# Trace data (large SQLite files, adapter weights)
+.trace/
+*.sqlite
+*.safetensors
+
+# Dataset files (large JSONL files)
+datasets/**/*.jsonl
+datasets/**/*.json
+
+# IDE/Editor
+.DS_Store
+.venv-mlx/
+.wrangler/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+Thumbs.db
+
+# Test outputs
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+*.tmp
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup files
+*.bak
+*.backup
