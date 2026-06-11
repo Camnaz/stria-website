@@ -194,7 +194,7 @@ jobs:
           wranglerVersion: '4'
 
       - name: Comment PR with preview URL
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const url = `https://preview-${{ github.event.pull_request.number }}.stria-systems.pages.dev`;
