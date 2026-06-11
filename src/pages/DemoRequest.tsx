@@ -2,11 +2,13 @@ import { ArrowRight } from "lucide-react";
 import { Band, ClosingCTA, Hero, SectionHeading } from "./components";
 import { SystemBackdrop } from "../components/visual";
 import { Button } from "../components/ui";
-import { navigate, routes } from "../utils/navigation";
+import { routes } from "../utils/navigation";
+import { useNavigate } from "react-router-dom";
 import { useState, FormEvent } from "react";
 import styles from "./DemoRequest.module.css";
 
 export function DemoRequest() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     organization: "",

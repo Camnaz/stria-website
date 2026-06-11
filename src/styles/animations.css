@@ -1,0 +1,164 @@
+/* Native CSS animations for Stria Systems - replaces GSAP + Lenis */
+
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fade in animations */
+.fade-in,
+.scroll-reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-in-view,
+.scroll-reveal.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide up reveal */
+.slide-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-up.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal */
+.stagger-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-reveal.is-in-view [data-reveal] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3D scroll effects */
+.scroll-3d-list {
+  perspective: 800px;
+}
+
+.scroll-3d-list li {
+  transform: rotateX(14deg) translateZ(-36px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.scroll-3d-list.is-in-view li {
+  transform: rotateX(0) translateZ(0);
+  opacity: 1;
+}
+
+.scroll-3d {
+  transform: rotateX(8deg) rotateY(-14deg) translateZ(-50px);
+  opacity: 0.65;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s ease-out;
+}
+
+.scroll-3d.is-in-view {
+  transform: rotateX(0) rotateY(0) translateZ(0);
+  opacity: 1;
+}
+
+/* Individual scroll3d classes */
+.object.scroll3d {
+  transform: rotateX(18deg) rotateY(-16deg) translateZ(-70px);
+  opacity: 0.6;
+}
+
+.object.scroll3d.is-in-view {
+  transform: rotateX(0) rotateY(0) translateZ(0);
+  opacity: 1;
+}
+
+.canvas.scroll3d {
+  transform: rotateY(-12deg) rotateX(6deg) translateZ(-56px);
+  opacity: 0.6;
+}
+
+.canvas.scroll3d.is-in-view {
+  transform: rotateY(0) rotateX(0) translateZ(0);
+  opacity: 1;
+}
+
+.visual.scroll3d {
+  transform: rotateX(8deg) rotateY(-14deg) translateZ(-50px);
+  opacity: 0.65;
+}
+
+.visual.scroll3d.is-in-view {
+  transform: rotateX(0) rotateY(0) translateZ(0);
+  opacity: 1;
+}
+
+/* Plate stagger for ForgeObject */
+.object.scroll3d .plate {
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.object.scroll3d .plateA { transform: translateZ(-64px); }
+.object.scroll3d .plateB { transform: translateZ(0); }
+.object.scroll3d .plateC { transform: translateZ(64px); }
+
+.object.scroll3d.is-in-view .plateA { transform: translateZ(-36px); }
+.object.scroll3d.is-in-view .plateB { transform: translateZ(0); }
+.object.scroll3d.is-in-view .plateC { transform: translateZ(36px); }
+
+/* Row stagger for TraceEvidenceVisual */
+.visual.scroll3d .row {
+  transform: translateZ(-28px) translateY(16px);
+  opacity: 0;
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.visual.scroll3d.is-in-view .row {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.pulse-ring {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Smooth scroll for browsers that support it */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cursor field effect */
+.cursor-glow {
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Page loading state */
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  font-family: var(--mono);
+  color: var(--muted);
+}

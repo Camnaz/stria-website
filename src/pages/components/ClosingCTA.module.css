@@ -1,0 +1,22 @@
+.cta {
+  text-align: center;
+  padding: var(--section-y) 0;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.cta h2 {
+  margin: 0 0 16px;
+}
+
+.action {
+  margin-top: 24px;
+}

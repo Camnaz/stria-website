@@ -13,6 +13,7 @@ import {
   samplePaymentDraftCall,
   traceLocalStore,
   withPaymentThresholdMode,
+  convertSimulationResult,
 } from "./index.js";
 import type { AgentToolCall, TraceIngestEnvelope, TraceMode } from "./types.js";
 
@@ -224,7 +225,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
 async function evaluateCall(call: AgentToolCall, mode: TraceMode, previousRecordHash: string | null = null) {
   const identity = await loadIdentity();
   const policy = withPaymentThresholdMode(await loadPolicy(), mode);
-  return runTraceSimulation({ identity, policy, call, previousRecordHash });
+  const camelResult = await runTraceSimulation({ identity, policy, call, previousRecordHash });
+  return convertSimulationResult(camelResult);
 }
 
 async function loadFixture(fixtureId: string): Promise<AgentToolCall> {

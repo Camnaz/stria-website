@@ -38,6 +38,16 @@ jobs:
         working-directory: trace-core
         run: cargo build --release
 
+      - name: Build N-API binary (napi-rs)
+        working-directory: trace-core
+        run: npm ci && npm run build:release
+
+      - name: Build N-API bindings (TypeScript wrapper)
+        run: |
+          cd trace-core/ts-wrapper
+          npm ci
+          npm run build
+
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
         run: |
@@ -81,7 +91,7 @@ jobs:
       - name: Cache Rust dependencies
         uses: Swatinem/rust-cache@v2
         with:
-          working-directory: trace-core
+          cache-directories: trace-core/target
 
       - name: Check formatting
         run: cargo fmt --all -- --check
@@ -157,6 +167,10 @@ jobs:
         working-directory: trace-core
         run: cargo build --release
 
+      - name: Build N-API binary (napi-rs)
+        working-directory: trace-core
+        run: npm ci && npm run build:release
+
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
         run: |
@@ -216,6 +230,10 @@ jobs:
       - name: Build trace-core (Rust)
         working-directory: trace-core
         run: cargo build --release
+
+      - name: Build N-API binary (napi-rs)
+        working-directory: trace-core
+        run: npm ci && npm run build:release
 
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper

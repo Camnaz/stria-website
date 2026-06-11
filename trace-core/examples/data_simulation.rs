@@ -9,7 +9,7 @@ use serde_json::{json, Value};
 use std::collections::HashMap;
 use std::fs;
 use std::time::Instant;
-use trace_core::{canonical_json, evidence, hash, policy, redact, types::*, usage_intel};
+use trace_core::{evidence, hash, redact, types::*, usage_intel};
 
 /// Test scenario definition
 #[derive(Debug, Clone)]

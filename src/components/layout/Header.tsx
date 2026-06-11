@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { useEffect, useRef } from "react";
-import { navigate, routes } from "../../utils/navigation";
+import { routes } from "../../utils/navigation";
+import { useNavigate } from "react-router-dom";
 import type { Surface } from "../../types/router";
 import { BrandButton } from "./BrandButton";
 
@@ -10,6 +11,7 @@ interface HeaderProps {
 
 export function Header({ surface }: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let rafId = 0;

@@ -1,12 +1,14 @@
 import { ArrowRight, ClipboardCheck, FileSearch, Fingerprint, GitBranch, LockKeyhole, Network, ScanLine, ShieldCheck } from "lucide-react";
 import { Band, Hero, ProductCallout, SectionHeading, ThreeCol } from "./components";
 import { SystemBackdrop } from "../components/visual";
-import { InfoBlock, ModeColumn, PrimitiveCard, ValueCard } from "../../components/common";
-import { Button } from "../../components/ui";
-import { navigate, routes } from "../../utils/navigation";
+import { InfoBlock, ModeColumn, PrimitiveCard, ValueCard } from "../components/common";
+import { Button } from "../components/ui";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../utils/navigation";
 import styles from "./TraceProduct.module.css";
 
 export function TraceProduct() {
+  const navigate = useNavigate();
   return (
     <main className={styles.page}>
       <Hero

@@ -1,13 +1,15 @@
 import { ArrowRight, ClipboardCheck, GitBranch, Network, ShieldCheck } from "lucide-react";
 import { Band, Hero, ProductCallout, SectionHeading, ThreeCol } from "./components";
 import { SystemBackdrop, StriaKineticScene } from "../components/visual";
-import { InfoBlock, WorkflowClusterCard, PrimitiveCard } from "../../components/common";
+import { InfoBlock, WorkflowClusterCard, PrimitiveCard } from "../components/common";
 import { Button } from "../components/ui";
-import { navigate, routes } from "../../utils/navigation";
-import { workflowClusters, forgePrimitives } from "../../striaPlatformData";
+import { routes } from "../utils/navigation";
+import { useNavigate } from "react-router-dom";
+import { workflowClusters, forgePrimitives, deployments } from "../striaPlatformData";
 import styles from "./ForgeProduct.module.css";
 
 export function ForgeProduct() {
+  const navigate = useNavigate();
   return (
     <main className={styles.page}>
       <Hero
@@ -63,15 +65,18 @@ export function ForgeProduct() {
         <div className={styles.splitRight}>
           <p className={styles.eyebrow}>PRIMITIVE REGISTRY</p>
           <strong>Approved automation is versioned, tested, scored, and deployable.</strong>
-          {forgePrimitives.map((primitive) => (
-            <PrimitiveCard key={primitive.id} title={primitive.name} items={[
-              `Version ${primitive.version}`,
-              `Status: ${primitive.status}`,
-              `Score: ${primitive.performance_profile.correctness * 100 | 0}`,
-              `Tests: ${primitive.test_suite.length} passing`,
-              `Deploy: ${primitive.deployments?.[0]?.environment || "staging"}`,
-            ]} />
-          ))}
+          {forgePrimitives.map((primitive) => {
+            const deployment = deployments.find((d) => d.primitive_id === primitive.id);
+            return (
+              <PrimitiveCard key={primitive.id} title={primitive.name} items={[
+                `Version ${primitive.version}`,
+                `Status: ${primitive.status}`,
+                `Score: ${Math.round(primitive.performance_profile.correctness * 100)}`,
+                `Tests: ${primitive.test_suite.length} passing`,
+                `Deploy: ${deployment?.environment || "staging"}`,
+              ]} />
+            );
+          })}
         </div>
       </Band>
 

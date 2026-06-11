@@ -14,21 +14,22 @@ import {
   SectionHeading,
   ThreeCol,
 } from "./components";
+import { useNavigate } from "react-router-dom";
 import { SystemBackdrop, RecursiveWorkflowVisual, StriaKineticScene } from "../components/visual";
-import { InfoBlock, ModeColumn, WorkflowClusterCard } from "../../components/common";
-import { PrimitiveRegistry, SandboxPanel, TraceEventTable } from "../../components/data-display";
-import { Button } from "../../components/ui";
-import { navigate, routes } from "../../utils/navigation";
-import { traceEvents, workflowClusters, forgePrimitives } from "../../striaPlatformData";
-import { traceEvents, workflowClusters, forgePrimitives } from "../striaPlatformData";
+import { InfoBlock, ModeColumn, WorkflowClusterCard } from "../components/common";
+import { PrimitiveRegistry, SandboxPanel, TraceEventTable } from "../components/data-display";
+import { Button } from "../components/ui";
+import { routes } from "../utils/navigation";
+import { traceEvents, workflowClusters, forgePrimitives, evaluationRuns } from "../striaPlatformData";
 import styles from "./PlatformDashboard.module.css";
 
 export function PlatformDashboard() {
   const navigate = useNavigate();
-  const totalCost = traceEvents.reduce((sum, event) => sum + event.cost_estimate, 0);
-  const avgLatency = Math.round(traceEvents.reduce((sum, event) => sum + event.latency_ms, 0) / traceEvents.length);
-  const failures = traceEvents.filter((event) => event.status === "failed").length;
-  const flagged = traceEvents.filter((event) => event.status === "flagged").length;
+  const totalCost = traceEvents.reduce((sum: number, event: { cost_estimate: number }) => sum + event.cost_estimate, 0);
+  const avgLatency = Math.round(traceEvents.reduce((sum: number, event: { latency_ms: number }) => sum + event.latency_ms, 0) / traceEvents.length);
+  const failures = traceEvents.filter((event: { status: string }) => event.status === "failed").length;
+  const flagged = traceEvents.filter((event: { status: string }) => event.status === "flagged").length;
+  const latestRun = evaluationRuns[evaluationRuns.length - 1];
 
   return (
     <main className={styles.page}>
@@ -96,7 +97,7 @@ export function PlatformDashboard() {
               <strong className={styles.metricValue}>{flagged} / {failures}</strong>
             </div>
           </div>
-          <TraceEventTable />
+          <TraceEventTable events={traceEvents} />
         </div>
 
         <div className={styles.dashboardPanel}>
@@ -114,7 +115,7 @@ export function PlatformDashboard() {
 
       <section className={styles.dashboardGrid}>
         <PrimitiveRegistry />
-        <SandboxPanel />
+        <SandboxPanel activeRun={evaluationRuns[evaluationRuns.length - 1]} />
       </section>
     </main>
   );

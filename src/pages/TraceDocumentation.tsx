@@ -3,10 +3,12 @@ import { Band, ClosingCTA, Hero, SectionHeading, ThreeCol } from "./components";
 import { SystemBackdrop } from "../components/visual";
 import { DocsCard, InfoBlock } from "../components/common";
 import { Button } from "../components/ui";
-import { navigate, routes } from "../utils/navigation";
+import { routes } from "../utils/navigation";
+import { useNavigate } from "react-router-dom";
 import styles from "./TraceDocumentation.module.css";
 
 export function TraceDocumentation() {
+  const navigate = useNavigate();
   return (
     <main className={styles.page}>
       <Hero

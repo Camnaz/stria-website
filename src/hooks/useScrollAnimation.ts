@@ -1,128 +1,154 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "./useReducedMotion";
 
-interface ScrollAnimationOptions {
+export interface StaggeredRevealOptions {
+  selector?: string;
+  delay?: number;
+  stagger?: number;
   trigger?: Element | string;
-  start?: string;
-  end?: string;
-  scrub?: number | boolean;
-  onEnter?: () => void;
-  onLeave?: () => void;
-  onEnterBack?: () => void;
-  onLeaveBack?: () => void;
-}
-
-export function useScrollAnimation(
-  animation: gsap.core.Timeline | (() => gsap.core.Timeline),
-  options: ScrollAnimationOptions = {}
-): void {
-  const prefersReducedMotion = useReducedMotion();
-  const ctxRef = useRef<gsap.Context | null>(null);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      const timeline = typeof animation === "function" ? animation() : animation;
-
-      ScrollTrigger.create({
-        trigger: options.trigger,
-        start: options.start,
-        end: options.end,
-        scrub: options.scrub,
-        animation: timeline,
-        onEnter: options.onEnter,
-        onLeave: options.onLeave,
-        onEnterBack: options.onEnterBack,
-        onLeaveBack: options.onLeaveBack,
-      });
-    });
-
-    ctxRef.current = ctx;
-
-    return () => {
-      ctx.revert();
-      ctxRef.current = null;
-    };
-  }, [animation, options.trigger, options.start, options.end, options.scrub, prefersReducedMotion]);
-}
-
-export function useScrollTrigger(
-  trigger: Element | string,
-  animation: gsap.core.Timeline | (() => gsap.core.Timeline),
-  options: ScrollAnimationOptions = {}
-): void {
-  const prefersReducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      const timeline = typeof animation === "function" ? animation() : animation;
-
-      ScrollTrigger.create({
-        trigger,
-        start: options.start,
-        end: options.end,
-        scrub: options.scrub,
-        animation: timeline,
-        onEnter: options.onEnter,
-        onLeave: options.onLeave,
-        onEnterBack: options.onEnterBack,
-        onLeaveBack: options.onLeaveBack,
-      });
-    });
-
-    return () => ctx.revert();
-  }, [trigger, animation, options.start, options.end, options.scrub, prefersReducedMotion]);
+  rootMargin?: string;
+  threshold?: number | number[];
 }
 
 export function useStaggeredReveal(
-  selector: string,
-  options: {
-    from?: gsap.TweenVars;
-    to?: gsap.TweenVars;
-    stagger?: number;
-    trigger?: Element | string;
-    start?: string;
-    end?: string;
-    scrub?: number | boolean;
-  } = {}
+  options: StaggeredRevealOptions = {}
 ): React.RefObject<HTMLElement> {
   const prefersReducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    const ctx = gsap.context(() => {
-      const container = containerRef.current;
-      if (!container) return;
+    const container = containerRef.current;
+    if (!container) return;
 
-      const elements = container.querySelectorAll(selector);
-      if (elements.length === 0) return;
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const elements = container.querySelectorAll(options.selector ?? "[data-reveal]");
+            elements.forEach((el, i) => {
+              const item = el as HTMLElement;
+              item.style.transitionDelay = `${(options.delay ?? 0) + i * (options.stagger ?? 0.1)}s`;
+              item.classList.add("is-in-view");
+            });
+            if (observerRef.current) {
+              observerRef.current.unobserve(container);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: options.rootMargin ?? "0px",
+        threshold: options.threshold ?? 0.1,
+      }
+    );
 
-      gsap.fromTo(
-        elements,
-        options.from ?? { opacity: 0, y: 20 },
-        {
-          ...(options.to ?? { opacity: 1, y: 0 }),
-          stagger: options.stagger ?? 0.1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: options.trigger ?? container,
-            start: options.start ?? "top 90%",
-            end: options.end ?? "top 45%",
-            scrub: options.scrub ?? 0.6,
-          },
-        }
-      );
-    }, containerRef);
+    observerRef.current.observe(container);
 
-    return () => ctx.revert();
-  }, [selector, options.from, options.to, options.stagger, options.trigger, options.start, options.end, options.scrub, prefersReducedMotion]);
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [containerRef.current, options.selector, options.delay, options.stagger, options.rootMargin, options.threshold, prefersReducedMotion]);
 
   return containerRef;
+}
+
+export function useScrollReveal(
+  options: {
+    rootMargin?: string;
+    threshold?: number | number[];
+    triggerOnce?: boolean;
+  } = {}
+): { ref: React.RefObject<HTMLElement>; isInView: boolean } {
+  const prefersReducedMotion = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsInView(true);
+      return;
+    }
+
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          if (options.triggerOnce) {
+            observer.unobserve(element);
+          }
+        } else if (!options.triggerOnce) {
+          setIsInView(false);
+        }
+      },
+      {
+        rootMargin: options.rootMargin ?? "0px",
+        threshold: options.threshold ?? 0.1,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [options.rootMargin, options.threshold, options.triggerOnce, prefersReducedMotion]);
+
+  return { ref, isInView };
+}
+
+export function useScroll3D(
+  options: {
+    rootMargin?: string;
+    threshold?: number | number[];
+  } = {}
+): { ref: React.RefObject<HTMLElement>; isInView: boolean } {
+  const prefersReducedMotion = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsInView(true);
+      return;
+    }
+
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      },
+      {
+        rootMargin: options.rootMargin ?? "0px",
+        threshold: options.threshold ?? 0.1,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [options.rootMargin, options.threshold, prefersReducedMotion]);
+
+  return { ref, isInView };
+}
+
+export function scrollToTop(immediate = false): void {
+  if (immediate) {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  } else if (!useReducedMotion()) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
 }

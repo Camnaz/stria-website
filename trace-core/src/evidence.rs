@@ -10,6 +10,7 @@ use crate::types::*;
 const PROCESSING_NODE_ID: &str = "trace-local-node-001";
 
 /// Build an evidence record from components
+#[allow(clippy::too_many_arguments)]
 pub fn build_evidence_record(
     identity: &AgentIdentity,
     call: &AgentToolCallInternal,

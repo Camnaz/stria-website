@@ -1,8 +1,12 @@
 import styles from "./SystemBackdrop.module.css";
 
-export function SystemBackdrop() {
+interface SystemBackdropProps {
+  className?: string;
+}
+
+export function SystemBackdrop({ className = "" }: SystemBackdropProps) {
   return (
-    <div className={styles.backdrop} aria-hidden="true">
+    <div className={`${styles.backdrop} ${className}`} aria-hidden="true">
       <div className={styles.signalColumnLeft}>
         <span />
         <span />

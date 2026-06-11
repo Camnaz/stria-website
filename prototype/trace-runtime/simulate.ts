@@ -4,17 +4,17 @@ const identity = await loadIdentity();
 const basePolicy = await loadPolicy();
 const call = samplePaymentDraftCall();
 
-const observeResult = runTraceSimulation({
+const observeResult = await runTraceSimulation({
   identity,
   policy: withPaymentThresholdMode(basePolicy, "observe"),
   call,
 });
 
-const enforceResult = runTraceSimulation({
+const enforceResult = await runTraceSimulation({
   identity,
   policy: withPaymentThresholdMode(basePolicy, "enforce"),
   call,
-  previousRecordHash: observeResult.evidence_record.chain_of_custody.record_hash,
+  previousRecordHash: observeResult.evidenceRecord.chainOfCustody.recordHash,
 });
 
 console.log(
@@ -27,6 +27,6 @@ console.log(
       },
     },
     null,
-    2,
-  ),
+    2
+  )
 );

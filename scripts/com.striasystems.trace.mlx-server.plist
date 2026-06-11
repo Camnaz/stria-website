@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.striasystems.trace.mlx-server</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/cnazarko/stria systems/TraceV2/.venv-mlx/bin/python</string>
+        <string>-m</string>
+        <string>mlx_lm.server</string>
+        <string>--model</string>
+        <string>mlx-community/Qwen2.5-1.5B-Instruct-4bit</string>
+        <string>--adapter-path</string>
+        <string>.trace/adapters/trace-enterprise-full-600</string>
+        <string>--port</string>
+        <string>8080</string>
+        <string>--host</string>
+        <string>0.0.0.0</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/cnazarko/stria systems/TraceV2</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+        <key>Crashed</key>
+        <true/>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/cnazarko/stria systems/TraceV2/logs/mlx_server.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/cnazarko/stria systems/TraceV2/logs/mlx_server_error.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/Users/cnazarko/stria systems/TraceV2/.venv-mlx/bin</string>
+    </dict>
+</dict>
+</plist>

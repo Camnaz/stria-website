@@ -1,8 +1,10 @@
 import styles from "./Footer.module.css";
-import { navigate, routes } from "../../utils/navigation";
+import { routes } from "../../utils/navigation";
+import { useNavigate } from "react-router-dom";
 import { BrandButton } from "./BrandButton";
 
 export function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className={styles.footer}>
       <BrandButton variant="footer" />

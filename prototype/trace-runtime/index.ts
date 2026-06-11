@@ -27,6 +27,7 @@ export {
   sampleGoogleSearchCall,
   sampleGoogleSearchResponse,
   withPaymentThresholdMode,
+  convertSimulationResult,
 } from './rust-runtime.js';
 
 export { traceLocalStore } from './store.js';

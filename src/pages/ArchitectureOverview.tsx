@@ -3,10 +3,12 @@ import { Band, ClosingCTA, Hero, SectionHeading, ThreeCol } from "./components";
 import { SystemBackdrop } from "../components/visual";
 import { ArchitectureCard, InfoBlock } from "../components/common";
 import { Button } from "../components/ui";
-import { navigate, routes } from "../utils/navigation";
+import { routes } from "../utils/navigation";
+import { useNavigate } from "react-router-dom";
 import styles from "./ArchitectureOverview.module.css";
 
 export function ArchitectureOverview() {
+  const navigate = useNavigate();
   return (
     <main className={styles.page}>
       <Hero
@@ -90,6 +92,7 @@ export function ArchitectureOverview() {
       <ClosingCTA
         eyebrow="OBSERVABLE. VERIFIED. ACCOUNTABLE."
         title="Telemetry stays observable. Automation becomes verified."
+        text="The Stria platform gives enterprises the evidence layer they need to operate AI at scale — with full attribution, policy enforcement, and audit readiness."
         action={
           <Button variant="primary" onClick={() => navigate(routes.traceDocs)}>
             View developer docs <ArrowRight size={18} />

@@ -206,14 +206,20 @@ function loadNativeModule(): any {
   
   // Try multiple possible locations for the native module
   const possiblePaths = [
+    // Local development - check current directory first (for ts-wrapper/dist)
+    path.join(__dirname, 'trace_core.darwin-arm64.node'),
+    path.join(__dirname, `trace_core.${process.platform}-${process.arch}.node`),
     // Local development - from project root
     path.join(projectRoot, 'trace_core.darwin-arm64.node'),
     path.join(projectRoot, `trace_core.${process.platform}-${process.arch}.node`),
     // NPM package style
     path.join(projectRoot, 'node_modules', '@trace', 'core', 'trace_core.darwin-arm64.node'),
-    // Relative to this file (for dist builds)
+    // Relative to this file (for dist builds) - trace-core directory
     path.join(__dirname, '..', 'trace-core', 'trace_core.darwin-arm64.node'),
     path.join(__dirname, '..', 'trace-core', `trace_core.${process.platform}-${process.arch}.node`),
+    // Relative to this file - trace-core root
+    path.join(__dirname, '..', '..', 'trace_core.darwin-arm64.node'),
+    path.join(__dirname, '..', '..', `trace_core.${process.platform}-${process.arch}.node`),
   ];
 
   for (const p of possiblePaths) {

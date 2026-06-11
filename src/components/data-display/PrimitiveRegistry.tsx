@@ -1,6 +1,6 @@
 import { PrimitiveCard } from "./PrimitiveCard";
 import type { ForgePrimitive, EvaluationRun, Deployment } from "../../types/platform";
-import { evaluationRuns, deployments } from "../../data";
+import { evaluationRuns, deployments, forgePrimitives } from "../../data";
 import styles from "./PrimitiveRegistry.module.css";
 
 export function PrimitiveRegistry() {
@@ -11,7 +11,7 @@ export function PrimitiveRegistry() {
         <strong>Approved automation is versioned, tested, scored, and deployable.</strong>
       </div>
       <div className={styles.list}>
-        {Object.values(require("../../data/forgePrimitives").forgePrimitives).flat().map((primitive: ForgePrimitive) => {
+        {forgePrimitives.map((primitive: ForgePrimitive) => {
           const evaluation = evaluationRuns.find((run) => run.primitive_id === primitive.id);
           const deployment = deployments.find((item) => item.primitive_id === primitive.id);
           return (
