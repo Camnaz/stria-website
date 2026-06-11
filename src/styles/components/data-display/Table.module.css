@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Table — CSS Module
+   Data table component
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+}
+
+.table__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px 80px 80px;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--hairline);
+  align-items: center;
+}
+
+.table__row:last-child {
+  border-bottom: none;
+}
+
+.table__head {
+  color: var(--color-fg-quiet);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.table__cell {
+  color: var(--color-fg);
+  padding: var(--space-2) 0;
+}
+
+.table__cell--mono {
+  font-family: var(--font-mono);
+}
+
+/* Compact variant for cards */
+.table--compact .table__row {
+  grid-template-columns: 1fr 1fr 70px 70px 70px;
+  padding: var(--space-2) var(--space-3);
+  font-size: 10px;
+}
+
+/* Metric Row - for dashboard metric grids */
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .metricRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .metricRow {
+    grid-template-columns: 1fr;
+  }
+}

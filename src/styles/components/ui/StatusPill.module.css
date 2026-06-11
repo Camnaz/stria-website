@@ -1,0 +1,135 @@
+/* ==========================================================================
+   StatusPill — CSS Module
+   Inline status indicator with color coding
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  border-radius: var(--radius-none);
+  white-space: nowrap;
+}
+
+/* Variants */
+.statusPill--success {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}
+
+.statusPill--warning {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-brand);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.statusPill--error {
+  background: rgba(184, 126, 106, 0.15);
+  color: var(--color-terracotta);
+  border: 1px solid rgba(184, 126, 106, 0.3);
+}
+
+.statusPill--info {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}
+
+.statusPill--neutral {
+  background: var(--color-bg-elevated);
+  color: var(--color-fg-muted);
+  border: var(--hairline);
+}
+
+.statusPill--candidate {
+  background: var(--color-bg-elevated);
+  color: var(--color-fg-muted);
+  border: var(--hairline);
+}
+
+.statusPill--testing {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-brand);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.statusPill--approved {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}
+
+.statusPill--deployed {
+  background: var(--color-brand-dim);
+  color: var(--color-brand);
+  border: 1px solid var(--color-brand);
+}
+
+.statusPill--passed {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}
+
+.statusPill--failed {
+  background: rgba(184, 126, 106, 0.15);
+  color: var(--color-terracotta);
+  border: 1px solid rgba(184, 126, 106, 0.3);
+}
+
+.statusPill--running {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-brand);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.statusPill--active {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}
+
+.statusPill--pending {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-brand);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.statusPill--paused {
+  background: var(--color-bg-elevated);
+  color: var(--color-fg-muted);
+  border: var(--hairline);
+}
+
+.statusPill--rolled_back {
+  background: rgba(184, 126, 106, 0.15);
+  color: var(--color-terracotta);
+  border: 1px solid rgba(184, 126, 106, 0.3);
+}
+
+/* Flag/Block/Allowed specific */
+.statusPill--flag {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-brand);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.statusPill--block {
+  background: rgba(184, 126, 106, 0.15);
+  color: var(--color-terracotta);
+  border: 1px solid rgba(184, 126, 106, 0.3);
+}
+
+.statusPill--allowed {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}

@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Card — CSS Module
+   Base card component and variants
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.card {
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  padding: var(--space-6);
+}
+
+.card--elevated {
+  background: var(--color-bg-overlay);
+  box-shadow: var(--shadow-md);
+}
+
+.card--interactive {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card--interactive:hover {
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Info Block — icon + title + text */
+.infoBlock {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.infoBlock__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-brand-faint);
+  border: var(--hairline);
+  color: var(--color-brand);
+}
+
+.infoBlock__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.infoBlock__title {
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.infoBlock__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Principle Card */
+.principle {
+  padding: var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+}
+
+.principle__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.principle__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Insight Card */
+.insightCard {
+  padding: var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  border-left: 3px solid var(--color-brand);
+}
+
+.insightCard__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.insightCard__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Docs Card */
+.docsCard {
+  padding: var(--space-6);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+}
+
+.docsCard__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.docsCard__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Docs Step */
+.docsStep {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  align-items: start;
+}
+
+.docsStep__number {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.docsStep__title {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.docsStep__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}

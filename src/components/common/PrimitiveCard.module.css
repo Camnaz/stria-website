@@ -1,0 +1,42 @@
+.card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--bg-elevated);
+  transition: border-color var(--fast) ease, box-shadow var(--fast) ease;
+}
+
+.card:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--fg-muted);
+  line-height: 1.8;
+}
+
+.card li {
+  position: relative;
+}
+
+.card li::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--brand);
+}

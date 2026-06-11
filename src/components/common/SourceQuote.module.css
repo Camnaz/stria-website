@@ -1,0 +1,23 @@
+.quote {
+  margin: 0;
+  padding: 0;
+}
+
+.quote blockquote {
+  border-left: 3px solid var(--brass);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0 0 12px;
+  padding-left: 16px;
+}
+
+.quote figcaption {
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

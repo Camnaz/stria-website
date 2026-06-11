@@ -1,0 +1,31 @@
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: calc(100vh - 64px);
+}
+
+.band {
+  padding: var(--section-y) var(--pad-x);
+}
+
+.codeSection {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 24px;
+}
+
+.codeBlock {
+  background: var(--obsidian);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-x: auto;
+  padding: 16px;
+  white-space: pre;
+  color: var(--muted);
+}

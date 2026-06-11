@@ -1,0 +1,26 @@
+name: "StriaSystems CodeQL Config"
+
+queries:
+  - uses: security-and-quality
+
+paths-ignore:
+  - "node_modules"
+  - "dist"
+  - "build"
+  - "trace-core/target"
+  - ".trace"
+  - "datasets"
+  - "prototype/mlx-classifier/__pycache__"
+  - "*.sqlite"
+  - "*.safetensors"
+  - "*.jsonl"
+  - "*.bak"
+  - "*.backup"
+
+paths:
+  - "src"
+  - "trace-core/src"
+  - "prototype/trace-runtime"
+  - "scripts"
+  - ".github/workflows"
+  - "tests"

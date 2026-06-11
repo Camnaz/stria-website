@@ -1,0 +1,45 @@
+.button {
+  align-items: center;
+  border: 1px solid var(--brass-dim);
+  color: var(--brass);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  gap: 8px;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  min-height: 40px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: background var(--fast) ease, border-color var(--fast) ease, color var(--fast) ease;
+  white-space: nowrap;
+}
+
+.primary,
+.navCta {
+  border-color: var(--brass);
+}
+
+.primary:hover,
+.navCta:hover {
+  background: var(--brass);
+  color: var(--obsidian);
+}
+
+.secondary:hover {
+  border-color: var(--brass);
+  color: var(--brass-bright);
+}
+
+.primary:active,
+.secondary:active,
+.navCta:active {
+  opacity: 0.85;
+}
+
+.small {
+  min-height: 32px;
+  padding: 0 14px;
+  font-size: 10px;
+}

@@ -1,0 +1,69 @@
+/* ==========================================================================
+   ClusterCard — CSS Module
+   Workflow cluster display card
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+.clusterCard {
+  padding: var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  transition: border-color var(--transition-fast);
+}
+
+.clusterCard:hover {
+  border-color: var(--color-line-strong);
+}
+
+.clusterCard--recommended {
+  border-color: var(--color-brand-dim);
+  background: linear-gradient(180deg, var(--color-brand-faint), var(--color-bg-elevated));
+}
+
+.clusterCard__id {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.clusterCard__name {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.clusterCard__description {
+  margin: 0 0 var(--space-4);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.clusterCard__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--hairline);
+}
+
+.clusterCard__recommendation {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .clusterCard__metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,31 @@
+.pill {
+  background: linear-gradient(180deg, rgba(242, 237, 230, 0.025), transparent);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-left: 1px solid rgba(212, 175, 55, 0.06);
+  border-right: 1px solid rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
+  padding: 26px;
+  transition: border-color var(--base) ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.pill:hover {
+  border-top-color: rgba(212, 175, 55, 0.4);
+}
+
+.pill strong {
+  color: var(--brass-bright);
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.pill span {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.55;
+}

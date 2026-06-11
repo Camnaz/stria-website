@@ -1,0 +1,167 @@
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: calc(100vh - 64px);
+}
+
+.recursiveVisual {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+.band {
+  padding: var(--section-y) var(--pad-x);
+}
+
+.platformChain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.platformChain li {
+  background: var(--obsidian-2);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.dashboardGrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  padding: var(--section-y) var(--pad-x);
+}
+
+.dashboardPanel {
+  background: var(--obsidian-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.panelHeading {
+  margin-bottom: 24px;
+}
+
+.panelHeading span {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.panelHeading strong {
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.metricRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metricTile {
+  background: var(--obsidian);
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: var(--radius);
+}
+
+.metricLabel {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  margin-bottom: 6px;
+}
+
+.metricValue {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.traceTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.traceTable th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
+.traceTable td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.traceTable td code {
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.traceTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+}
+
+.statusSuccess {
+  background: rgba(122, 158, 138, 0.15);
+  color: var(--sage);
+  border: 1px solid rgba(122, 158, 138, 0.3);
+}
+
+.statusFailed {
+  background: rgba(184, 126, 106, 0.15);
+  color: var(--terracotta);
+  border: 1px solid rgba(184, 126, 106, 0.3);
+}
+
+.statusFlagged {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--brass);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.clusterList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

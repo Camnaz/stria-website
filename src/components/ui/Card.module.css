@@ -1,0 +1,21 @@
+.card {
+  background: linear-gradient(180deg, rgba(242, 237, 230, 0.025), transparent);
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-left: 1px solid rgba(212, 175, 55, 0.06);
+  border-right: 1px solid rgba(212, 175, 55, 0.06);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
+  padding: 26px;
+  transition: border-color var(--base) ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.card:hover {
+  border-top-color: rgba(212, 175, 55, 0.4);
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}

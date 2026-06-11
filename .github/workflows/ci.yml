@@ -1,0 +1,258 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  NODE_VERSION: '20'
+  RUST_VERSION: 'stable'
+
+jobs:
+  # TypeScript/React CI
+  typescript:
+    name: TypeScript CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+
+      - name: Build trace-core (Rust)
+        working-directory: trace-core
+        run: cargo build --release
+
+      - name: Build N-API binary (napi-rs)
+        working-directory: trace-core
+        run: npm ci && npm run build:release
+
+      - name: Build N-API bindings (TypeScript wrapper)
+        run: |
+          cd trace-core/ts-wrapper
+          npm ci
+          npm run build
+
+      - name: Build trace-core TypeScript wrapper
+        working-directory: trace-core/ts-wrapper
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
+
+      - name: TypeScript type check
+        run: npm run trace:typecheck
+
+      - name: Run linting (if available)
+        run: |
+          if npm run lint 2>/dev/null; then
+            npm run lint
+          else
+            echo "No lint script defined, skipping"
+          fi
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+  # Rust CI for trace-core
+  rust:
+    name: Rust CI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: trace-core
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+          components: rustfmt, clippy
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-directories: trace-core/target
+
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+
+      - name: Run clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Run tests
+        run: cargo test --all-features
+
+      - name: Run benchmarks (compile check only)
+        run: cargo build --benches --all-features
+
+  # Python ML CI
+  python:
+    name: Python ML CI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototype/mlx-classifier
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run syntax check
+        run: python -m py_compile *.py
+
+      - name: Run tests (if any)
+        run: |
+          if ls test_*.py 1>/dev/null 2>&1; then
+            pytest -v
+          else
+            echo "No Python tests found, skipping"
+          fi
+
+  # PR Preview Deployment (on pull requests)
+  preview-deploy:
+    name: Preview Deploy (PR)
+    needs: [typescript, rust]
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+
+      - name: Build trace-core (Rust)
+        working-directory: trace-core
+        run: cargo build --release
+
+      - name: Build N-API binary (napi-rs)
+        working-directory: trace-core
+        run: npm ci && npm run build:release
+
+      - name: Build trace-core TypeScript wrapper
+        working-directory: trace-core/ts-wrapper
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages (Preview)
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: stria-systems
+          directory: dist
+          branch: preview-${{ github.event.pull_request.number }}
+          wranglerVersion: '4'
+
+      - name: Comment PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = `https://preview-${{ github.event.pull_request.number }}.stria-systems.pages.dev`;
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🚀 **Preview Deployment Ready**\\n\\nYour changes are live at: ${url}\\n\\nThis preview will update automatically on each push to this PR.`
+            })
+
+  # Cloudflare Pages Production Deploy (on main branch only)
+  deploy:
+    name: Deploy to Cloudflare Pages (Production)
+    needs: [typescript, rust]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+
+      - name: Build trace-core (Rust)
+        working-directory: trace-core
+        run: cargo build --release
+
+      - name: Build N-API binary (napi-rs)
+        working-directory: trace-core
+        run: npm ci && npm run build:release
+
+      - name: Build trace-core TypeScript wrapper
+        working-directory: trace-core/ts-wrapper
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: stria-systems
+          directory: dist
+          branch: main
+          wranglerVersion: '4'

@@ -1,0 +1,22 @@
+.brand {
+  display: inline-flex;
+  padding: 0;
+}
+
+.logo {
+  border-radius: 0;
+  display: block;
+  height: 52px;
+  width: 55px;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity var(--fast) ease;
+}
+
+.brand:hover .logo {
+  opacity: 1;
+}
+
+.footerBrand {
+  /* footer variant styles if needed */
+}

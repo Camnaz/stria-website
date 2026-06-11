@@ -1,0 +1,17 @@
+.header {
+  align-items: center;
+  background: var(--obsidian);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: auto 1fr auto;
+  min-height: 64px;
+  padding: 8px var(--pad-x);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.isScrolled {
+  border-bottom-color: var(--line-strong);
+}

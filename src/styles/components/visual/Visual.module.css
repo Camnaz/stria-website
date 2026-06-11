@@ -1,0 +1,586 @@
+/* ==========================================================================
+   Visual — CSS Module
+   Kinetic scenes, trace objects, forge objects, evidence visuals
+   ========================================================================== */
+
+@import "../../tokens/design-tokens.css";
+
+/* ---------- System Backdrop ---------- */
+.systemBackdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.systemBackdrop__column {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--color-brand-dim), transparent);
+  animation: signalPulse 4s ease-in-out infinite;
+}
+
+.systemBackdrop__column--left {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.systemBackdrop__column--right {
+  right: 20%;
+  animation-delay: 2s;
+}
+
+@keyframes signalPulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---------- Stria Kinetic Scene ---------- */
+.kineticScene {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+}
+
+.kineticScene__ring {
+  position: absolute;
+  border: 1px solid var(--color-brand-dim);
+  border-radius: 50%;
+  animation: ringRotate 20s linear infinite;
+}
+
+.kineticScene__ring--one {
+  inset: 10%;
+  animation-duration: 25s;
+}
+
+.kineticScene__ring--two {
+  inset: 25%;
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+
+.kineticScene__core {
+  position: absolute;
+  inset: 40%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.kineticScene__core span {
+  background: var(--color-brand-dim);
+  animation: corePulse 3s ease-in-out infinite;
+}
+
+.kineticScene__core span:nth-child(1) { animation-delay: 0s; }
+.kineticScene__core span:nth-child(2) { animation-delay: 0.1s; }
+.kineticScene__core span:nth-child(3) { animation-delay: 0.2s; }
+.kineticScene__core span:nth-child(4) { animation-delay: 0.3s; }
+.kineticScene__core span:nth-child(5) { animation-delay: 0.4s; }
+.kineticScene__core span:nth-child(6) { animation-delay: 0.5s; }
+.kineticScene__core span:nth-child(7) { animation-delay: 0.6s; }
+.kineticScene__core span:nth-child(8) { animation-delay: 0.7s; }
+.kineticScene__core span:nth-child(9) { animation-delay: 0.8s; }
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes corePulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+/* Kinetic Nodes */
+.kineticNodes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.kineticNodes span {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-brand);
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  animation: nodeFloat 6s ease-in-out infinite;
+}
+
+.kineticNodes span:nth-child(1) { top: 10%; left: 50%; animation-delay: 0s; }
+.kineticNodes span:nth-child(2) { top: 30%; right: 10%; animation-delay: 1s; }
+.kineticNodes span:nth-child(3) { bottom: 30%; right: 10%; animation-delay: 2s; }
+.kineticNodes span:nth-child(4) { bottom: 10%; left: 50%; animation-delay: 3s; }
+.kineticNodes span:nth-child(5) { bottom: 30%; left: 10%; animation-delay: 4s; }
+.kineticNodes span:nth-child(6) { top: 30%; left: 10%; animation-delay: 5s; }
+
+@keyframes nodeFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+  50% { transform: translate(var(--tx, 0), var(--ty, 0)); opacity: 0.6; }
+}
+
+/* Kinetic Paths */
+.kineticPath {
+  position: absolute;
+  border: 1px dashed var(--color-brand-faint);
+  border-radius: 50%;
+  animation: pathRotate 30s linear infinite;
+}
+
+.kineticPath--one {
+  inset: 5%;
+  animation-duration: 40s;
+}
+
+.kineticPath--two {
+  inset: 35%;
+  animation-duration: 50s;
+  animation-direction: reverse;
+}
+
+@keyframes pathRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Trace Object ---------- */
+.traceObject {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.traceObject__orbit {
+  position: absolute;
+  border: 1px solid var(--color-brand-dim);
+  border-radius: 50%;
+  animation: orbitRotate 15s linear infinite;
+}
+
+.traceObject__orbit--one {
+  inset: 15%;
+  animation-duration: 18s;
+}
+
+.traceObject__orbit--two {
+  inset: 35%;
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
+
+.traceObject__prism {
+  position: absolute;
+  inset: 30%;
+  display: grid;
+  place-items: center;
+  perspective: 200px;
+}
+
+.traceObject__plane {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-brand-faint);
+  border: 1px solid var(--color-brand-dim);
+  transform-origin: center;
+}
+
+.traceObject__plane--one {
+  transform: rotateX(60deg) rotateY(30deg);
+}
+
+.traceObject__plane--two {
+  transform: rotateX(-60deg) rotateY(-30deg);
+}
+
+.traceObject__plane--three {
+  transform: rotateX(0deg) rotateY(90deg);
+}
+
+.traceObject__coreDot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-brand);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--color-brand);
+  z-index: 10;
+}
+
+.traceObject__shadow {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 8px;
+  background: radial-gradient(ellipse, var(--color-brand-faint), transparent);
+  filter: blur(4px);
+  opacity: 0.3;
+}
+
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Forge Object ---------- */
+.forgeObject {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  perspective: 300px;
+}
+
+.forgeObject__plate {
+  position: absolute;
+  inset: 20%;
+  background: linear-gradient(135deg, var(--color-bg-elevated), var(--color-bg-overlay));
+  border: var(--hairline);
+  box-shadow: var(--shadow-md);
+  transform-style: preserve-3d;
+  animation: plateFloat 6s ease-in-out infinite;
+}
+
+.forgeObject__plate--a {
+  animation-delay: 0s;
+  z-index: 3;
+}
+
+.forgeObject__plate--b {
+  animation-delay: 0.2s;
+  z-index: 2;
+}
+
+.forgeObject__plate--c {
+  animation-delay: 0.4s;
+  z-index: 1;
+}
+
+.forgeObject__score {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.forgeObject__scoreLabel {
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.forgeObject__scoreValue {
+  color: var(--color-brand);
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  line-height: 1;
+}
+
+@keyframes plateFloat {
+  0%, 100% { transform: translateZ(-36px) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translateZ(36px) rotateX(2deg) rotateY(-2deg); }
+}
+
+/* ---------- Evidence Visual ---------- */
+.evidenceVisual {
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  max-width: 400px;
+}
+
+.evidenceVisual__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--hairline);
+  background: var(--color-bg);
+}
+
+.evidenceVisual__title {
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.evidenceVisual__mode {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.recordStack {
+  padding: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.visualRow {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  padding: var(--space-3);
+  background: var(--color-bg);
+  border: var(--hairline);
+}
+
+.visualRow__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.visualRow__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.visualRow__label {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.visualRow__value {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Tone variants */
+.visualRow--green .visualRow__icon {
+  color: var(--color-sage);
+}
+
+.visualRow--gold .visualRow__icon {
+  color: var(--color-brand);
+}
+
+.visualRow--stone .visualRow__icon {
+  color: var(--color-stone);
+}
+
+.visualRow--red .visualRow__icon {
+  color: var(--color-terracotta);
+}
+
+/* ---------- Operator Canvas ---------- */
+.operatorCanvas {
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  max-width: 520px;
+}
+
+.canvasAlert {
+  padding: var(--space-5);
+  background: var(--color-bg);
+  border-bottom: var(--hairline);
+}
+
+.canvasAlert__label {
+  color: var(--color-fg-quiet);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.canvasAlert__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.canvasAlert__text {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.canvasChat {
+  padding: var(--space-5);
+  border-bottom: var(--hairline);
+}
+
+.canvasQuestion {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.canvasAnswer {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.canvasActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-5);
+}
+
+.canvasActions span {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg);
+  border: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-quiet);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.canvasActions span:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+/* ---------- Recursive Workflow Visual ---------- */
+.recursiveWorkflow {
+  perspective: 300px;
+}
+
+.workflowGlass {
+  padding: var(--space-6);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(13, 13, 18, 0.8));
+  border: var(--hairline);
+  backdrop-filter: blur(10px);
+}
+
+.workflowTopline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+}
+
+.workflowTopline__label {
+  color: var(--color-fg-quiet);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.workflowTopline__status {
+  color: var(--color-sage);
+  font-weight: var(--font-weight-medium);
+}
+
+.workflowNodeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.workflowNodeGrid span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-fg-quiet);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.workflowNodeGrid span:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.workflowPulseRing {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-brand-dim);
+  border-radius: var(--radius-none);
+  animation: pulseRing 3s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.05); opacity: 0; }
+}
+
+/* ---------- Flow Diagram ---------- */
+.flowDiagram {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flowDiagram li {
+  position: relative;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-elevated);
+  border: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-fg);
+}
+
+.flowDiagram li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 6px;
+  background: var(--color-brand-dim);
+}
+
+/* Scroll 3D base */
+.scroll3d {
+  transform-style: preserve-3d;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Stria Systems",
+  "short_name": "Stria",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#031d31",
+  "background_color": "#031d31",
+  "display": "standalone"
+}

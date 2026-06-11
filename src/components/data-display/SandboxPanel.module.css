@@ -1,0 +1,83 @@
+.panel {
+  background: linear-gradient(180deg, rgba(245, 245, 242, 0.03), transparent);
+  border-top: 1px solid rgba(201, 168, 106, 0.12);
+  border-left: 1px solid rgba(201, 168, 106, 0.06);
+  border-right: 1px solid rgba(201, 168, 106, 0.06);
+  border-bottom: 1px solid rgba(201, 168, 106, 0.06);
+  min-width: 0;
+  padding: 28px;
+}
+
+.panel::before {
+  background: linear-gradient(90deg, var(--brass), transparent);
+  content: "";
+  display: block;
+  height: 1px;
+  margin-bottom: 24px;
+  width: 28px;
+}
+
+.heading {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.heading span {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heading strong {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.console {
+  background: var(--obsidian);
+  border: 1px solid var(--brass-dim);
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.consoleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.consoleHeader span {
+  color: var(--brass-dim);
+}
+
+.consoleHeader strong {
+  color: var(--brass);
+}
+
+.console pre {
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}

@@ -1,0 +1,59 @@
+name: Rust CI
+
+on:
+  push:
+    paths:
+      - 'trace-core/**'
+      - 'Cargo.lock'
+      - '.github/workflows/rust.yml'
+  pull_request:
+    paths:
+      - 'trace-core/**'
+      - 'Cargo.lock'
+      - '.github/workflows/rust.yml'
+  workflow_dispatch:
+
+env:
+  RUST_VERSION: 'stable'
+
+jobs:
+  rust:
+    name: Rust CI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: trace-core
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+          components: rustfmt, clippy
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-directories: trace-core/target
+
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+
+      - name: Run clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Run tests
+        run: cargo test --all-features
+
+      - name: Run benchmarks (compile check only)
+        run: cargo build --benches --all-features
+
+      - name: Check for security vulnerabilities
+        uses: rustsec/audit-check@v2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
