@@ -3,6 +3,7 @@ import argparse
 import json
 import re
 import sys
+from typing import Optional
 
 DEFAULT_MODEL = "mlx-community/Qwen2.5-1.5B-Instruct-4bit"
 
@@ -32,15 +33,45 @@ def build_messages(query: str) -> list[dict[str, str]]:
 
 
 def extract_json(text: str) -> dict:
+    """Robustly extract JSON from model output, handling truncation and extra text."""
+    # First try: find first { and parse with raw_decode
     match = re.search(r"\{", text)
-    if not match:
-        raise ValueError("model did not return JSON")
-    decoder = json.JSONDecoder()
-    parsed, _ = decoder.raw_decode(text[match.start() :])
-    return parsed
+    if match:
+        decoder = json.JSONDecoder()
+        try:
+            parsed, _ = decoder.raw_decode(text[match.start():])
+            return parsed
+        except json.JSONDecodeError:
+            pass
+    
+    # Second try: find last complete JSON object by balancing braces
+    brace_count = 0
+    start_idx = -1
+    for i, ch in enumerate(text):
+        if ch == '{':
+            if brace_count == 0:
+                start_idx = i
+            brace_count += 1
+        elif ch == '}':
+            brace_count -= 1
+            if brace_count == 0 and start_idx != -1:
+                candidate = text[start_idx:i+1]
+                try:
+                    return json.loads(candidate)
+                except json.JSONDecodeError:
+                    continue
+    
+    # Third try: regex search for balanced-like JSON
+    for match in re.finditer(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', text):
+        try:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
+            continue
+    
+    raise ValueError(f"model did not return valid JSON. Output: {text[:200]}")
 
 
-def classify_with_mlx(query: str, model_name: str, adapter_path: str | None = None) -> dict:
+def classify_with_mlx(query: str, model_name: str, adapter_path: Optional[str] = None) -> dict:
     try:
         from mlx_lm import generate, load
     except ImportError as error:
@@ -50,7 +81,7 @@ def classify_with_mlx(query: str, model_name: str, adapter_path: str | None = No
 
     model, tokenizer = load(model_name, adapter_path=adapter_path)
     prompt = tokenizer.apply_chat_template(build_messages(query), tokenize=False, add_generation_prompt=True)
-    output = generate(model, tokenizer, prompt=prompt, max_tokens=260, verbose=False)
+    output = generate(model, tokenizer, prompt=prompt, max_tokens=512, verbose=False)
     parsed = extract_json(output)
     parsed["query"] = query
     parsed["model"] = model_name

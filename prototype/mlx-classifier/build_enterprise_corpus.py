@@ -242,7 +242,21 @@ SYNTHETIC_PATTERNS = [
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    print(f"  read_jsonl: {path}")
+    text = path.read_text()
+    print(f"    Text length: {len(text)}, First 200: {repr(text[:200])}")
+    lines = text.splitlines()
+    print(f"    Lines: {len(lines)}")
+    result = []
+    for i, line in enumerate(lines):
+        if line.strip():
+            try:
+                result.append(json.loads(line))
+            except json.JSONDecodeError as e:
+                print(f"    ERROR line {i+1}: {e}")
+                print(f"    Line: {repr(line[:200])}")
+                raise
+    return result
 
 
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -721,6 +735,7 @@ def split_examples(examples: list[dict[str, Any]]) -> dict[str, list[dict[str, A
 
 
 def load_local_source(path: Path, limit: int | None = None) -> list[dict[str, Any]]:
+    print(f"  Loading cached file: {path}")
     rows = read_jsonl(path)
     return rows if limit is None else rows[:limit]
 
@@ -805,20 +820,32 @@ def build_examples(
             if not include_remote:
                 skipped.append({"source_id": source_id, "reason": "remote hydration disabled"})
                 continue
-            try:
-                rows = load_remote_source(source["dataset"], source["split"], source["text_field"], source.get("label_field"), source_limit)
-            except Exception as error:
-                skipped.append({"source_id": source_id, "reason": f"remote hydration failed: {error}"})
-                continue
+            # Check for cached version first
+            cached_path = Path(f"datasets/cache/{source_id}.jsonl")
+            if cached_path.exists():
+                rows = load_local_source(cached_path, source_limit)
+                print(f"  Using cached data for {source_id}: {len(rows)} rows")
+            else:
+                try:
+                    rows = load_remote_source(source["dataset"], source["split"], source["text_field"], source.get("label_field"), source_limit)
+                except Exception as error:
+                    skipped.append({"source_id": source_id, "reason": f"remote hydration failed: {error}"})
+                    continue
         elif kind == "remote_csv":
             if not include_remote:
                 skipped.append({"source_id": source_id, "reason": "remote hydration disabled"})
                 continue
-            try:
-                rows = load_remote_csv_source(source["data_file"], source["split"], source_limit)
-            except Exception as error:
-                skipped.append({"source_id": source_id, "reason": f"remote hydration failed: {error}"})
-                continue
+            # Check for cached version first
+            cached_path = Path(f"datasets/cache/{source_id}.jsonl")
+            if cached_path.exists():
+                rows = load_local_source(cached_path, source_limit)
+                print(f"  Using cached data for {source_id}: {len(rows)} rows")
+            else:
+                try:
+                    rows = load_remote_csv_source(source["data_file"], source["split"], source_limit)
+                except Exception as error:
+                    skipped.append({"source_id": source_id, "reason": f"remote hydration failed: {error}"})
+                    continue
         else:
             skipped.append({"source_id": source_id, "reason": f"unsupported kind: {kind}"})
             continue
