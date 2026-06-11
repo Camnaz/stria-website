@@ -3,7 +3,7 @@
 //! Run with: cargo bench
 
 use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion, Throughput};
-use std::hint::black_box;
+use std::hint::black_box as hint_black_box;
 use serde_json::json;
 use std::collections::HashMap;
 // Import from the library crate
@@ -231,7 +231,7 @@ fn bench_canonical_json(c: &mut Criterion) {
 
     group.throughput(Throughput::Bytes(small_obj.to_string().len() as u64));
     group.bench_function("small_object", |b| {
-        b.iter(|| black_box(canonical_json::value_to_canonical_json(&small_obj)))
+        b.iter(|| hint_black_box(canonical_json::value_to_canonical_json(&small_obj)))
     });
 
     // Medium object (simulating agent tool call arguments)
@@ -254,7 +254,7 @@ fn bench_canonical_json(c: &mut Criterion) {
 
     group.throughput(Throughput::Bytes(medium_obj.to_string().len() as u64));
     group.bench_function("medium_object", |b| {
-        b.iter(|| black_box(canonical_json::value_to_canonical_json(&medium_obj)))
+        b.iter(|| hint_black_box(canonical_json::value_to_canonical_json(&medium_obj)))
     });
 
     group.finish();
@@ -270,7 +270,7 @@ fn bench_hash(c: &mut Criterion) {
     let test_string = "Create a payment draft for Acme Industrial Supplies invoice INV-2026-1188.";
     group.throughput(Throughput::Bytes(test_string.len() as u64));
     group.bench_function("sha256_string", |b| {
-        b.iter(|| black_box(hash::sha256_str(test_string)))
+        b.iter(|| hint_black_box(hash::sha256_str(test_string)))
     });
 
     let json_value = json!({
@@ -280,7 +280,7 @@ fn bench_hash(c: &mut Criterion) {
     });
     group.throughput(Throughput::Bytes(json_value.to_string().len() as u64));
     group.bench_function("sha256_json_value", |b| {
-        b.iter(|| black_box(hash::sha256_value(&json_value)))
+        b.iter(|| hint_black_box(hash::sha256_value(&json_value)))
     });
 
     group.finish();
@@ -299,7 +299,7 @@ fn bench_policy_evaluation(c: &mut Criterion) {
     // Identity verification
     let call_allowed = sample_agent_tool_call_internal(false);
     group.bench_function("verify_identity_allowed", |b| {
-        b.iter(|| black_box(policy::verify_identity(&identity, &call_allowed)))
+        b.iter(|| hint_black_box(policy::verify_identity(&identity, &call_allowed)))
     });
 
     let call_denied = sample_agent_tool_call_internal(false);
@@ -307,19 +307,19 @@ fn bench_policy_evaluation(c: &mut Criterion) {
         b.iter(|| {
             let mut id = identity.clone();
             id.allowed_tool_capabilities.clear();
-            black_box(policy::verify_identity(&id, &call_denied))
+            hint_black_box(policy::verify_identity(&id, &call_denied))
         })
     });
 
     // Full policy evaluation
     let call_below = sample_agent_tool_call_internal(false);
     group.bench_function("evaluate_policy_below_threshold", |b| {
-        b.iter(|| black_box(policy::evaluate_policy(&policy, &call_below)))
+        b.iter(|| hint_black_box(policy::evaluate_policy(&policy, &call_below)))
     });
 
     let call_above = sample_agent_tool_call_internal(true);
     group.bench_function("evaluate_policy_above_threshold", |b| {
-        b.iter(|| black_box(policy::evaluate_policy(&policy, &call_above)))
+        b.iter(|| hint_black_box(policy::evaluate_policy(&policy, &call_above)))
     });
 
     group.finish();
@@ -345,7 +345,7 @@ fn bench_usage_intel(c: &mut Criterion) {
     for (name, query) in queries {
         group.throughput(Throughput::Bytes(query.len() as u64));
         group.bench_with_input(BenchmarkId::new("analyze", name), query, |b, q| {
-            b.iter(|| black_box(usage_intel::analyze_usage_intent(q).unwrap()))
+            b.iter(|| hint_black_box(usage_intel::analyze_usage_intent(q).unwrap()))
         });
     }
 
@@ -379,7 +379,7 @@ fn bench_redaction(c: &mut Criterion) {
 
     group.bench_function("redact_no_secrets", |b| {
         b.iter(|| {
-            black_box(redact::redacted_preview(
+            hint_black_box(redact::redacted_preview(
                 &args_no_secrets.as_object().unwrap().clone(),
             ))
         })
@@ -387,7 +387,7 @@ fn bench_redaction(c: &mut Criterion) {
 
     group.bench_function("redact_with_secrets", |b| {
         b.iter(|| {
-            black_box(redact::redacted_preview(
+            hint_black_box(redact::redacted_preview(
                 &args_with_secrets.as_object().unwrap().clone(),
             ))
         })
@@ -410,7 +410,7 @@ fn bench_full_simulation(c: &mut Criterion) {
     let call_allowed = sample_agent_tool_call_internal(false);
     group.bench_function("simulate_allowed", |b| {
         b.iter(|| {
-            black_box(
+            hint_black_box(
                 evidence::run_trace_simulation(
                     &identity,
                     &policy,
@@ -428,7 +428,7 @@ fn bench_full_simulation(c: &mut Criterion) {
     let call_flagged = sample_agent_tool_call_internal(true);
     group.bench_function("simulate_flagged", |b| {
         b.iter(|| {
-            black_box(
+            hint_black_box(
                 evidence::run_trace_simulation(
                     &identity,
                     &policy,
@@ -469,7 +469,7 @@ fn bench_evidence_hashing(c: &mut Criterion) {
     let record = serde_json::to_value(&result.evidence_record).unwrap();
 
     group.bench_function("hash_evidence_record", |b| {
-        b.iter(|| black_box(hash::hash_evidence_record(&record).unwrap()))
+        b.iter(|| hint_black_box(hash::hash_evidence_record(&record).unwrap()))
     });
 
     group.finish();
