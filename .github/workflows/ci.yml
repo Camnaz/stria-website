@@ -19,16 +19,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -38,15 +28,33 @@ jobs:
         working-directory: trace-core
         run: cargo build --release
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: trace-core/package-lock.json
+
       - name: Build N-API binary (napi-rs)
         working-directory: trace-core
         run: npm ci && npm run build:release
 
-      - name: Build N-API bindings (TypeScript wrapper)
-        run: |
-          cd trace-core/ts-wrapper
-          npm ci
-          npm run build
+      - name: Setup Node.js (root)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Node.js (ts-wrapper)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: trace-core/ts-wrapper/package-lock.json
 
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
