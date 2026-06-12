@@ -39,10 +39,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          cargo build --target x86_64-unknown-linux-gnu --release
-          ls -la target/x86_64-unknown-linux-gnu/release/libtrace_core.so
-          cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.linux-x64-gnu.node
-          ls -la trace_core.*.node
+          npx napi build --platform --release --target x86_64-unknown-linux-gnu
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -204,10 +201,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          cargo build --target x86_64-unknown-linux-gnu --release
-          ls -la target/x86_64-unknown-linux-gnu/release/libtrace_core.so
-          cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.linux-x64-gnu.node
-          ls -la trace_core.*.node
+          npx napi build --platform --release --target x86_64-unknown-linux-gnu
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -286,10 +280,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          cargo build --target x86_64-unknown-linux-gnu --release
-          ls -la target/x86_64-unknown-linux-gnu/release/libtrace_core.so
-          cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.linux-x64-gnu.node
-          ls -la trace_core.*.node
+          npx napi build --platform --release --target x86_64-unknown-linux-gnu
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
