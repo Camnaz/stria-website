@@ -66,7 +66,7 @@
 | `--focus`, `--deep`, `--audit`, `--harvest`, `--harden`, `--force-retrain` flags referenced but not implemented | High | Referenced in meta_intent_classifier fallback | Add argparse flags |
 | `train-trace-mlx.sh` called but path handling could break | Medium | Line 147 | Use absolute paths |
 | `hot_swap_model()` only prints instruction, doesn't actually restart server | High | Line 165-171 | Integrate with `hot_swap.py` |
-| Telemetry API endpoint `/summary` doesn't exist | Medium | N/A | Add to trace_telemetry_api.py |
+| Telemetry API endpoint `/summary` doesn't exist | Medium | N/A | Add to trace_telemetry_mock.py |
 
 ---
 
@@ -92,12 +92,11 @@
 
 ---
 
-### 6. trace_telemetry_api.py (Mock Server) ✅ GOOD FOR DEV
+### 6. trace_telemetry_mock.py (Mock Server) ✅ GOOD FOR DEV
 
 **Issues Found:**
 | Issue | Severity | Location | Fix |
 |-------|----------|----------|-----|
-| No `/summary` endpoint (called by meta_intent_classifier) | High | - | Add endpoint |
 | Mock data only - not connected to real Trace backend | Medium | - | Document as dev-only |
 
 ---
@@ -136,7 +135,7 @@
 | Gap | Components Affected | Resolution |
 |-----|---------------------|------------|
 | No `meta_state.json` writer | meta_intent_classifier → meta_cron_orchestrator | Add writer in orchestrator |
-| No `/summary` telemetry endpoint | meta_intent_classifier | Add to trace_telemetry_api.py |
+| No `/summary` telemetry endpoint | meta_intent_classifier | Add to trace_telemetry_mock.py |
 | Missing CLI flags in evaluate_trace.py | meta_intent_classifier fallback crons | Add argparse to evaluate_trace.py |
 | Missing `--discover-gaps` in scorer | meta_intent_classifier fallback | Add to meta_effectiveness_scorer.py |
 | Hot-swap not actually integrated | evaluate_trace, train_trigger, meta_intent_classifier | Use hot_swap.py module |
@@ -153,7 +152,7 @@
 3. **CRITICAL** - Create `meta_rl_trainer.py` (RL closure)
 4. **HIGH** - Fix hardcoded paths in meta_intent_classifier.py
 5. **HIGH** - Add missing CLI flags to evaluate_trace.py
-6. **HIGH** - Add `/summary` endpoint to trace_telemetry_api.py
+6. **HIGH** - Add `/summary` endpoint to trace_telemetry_mock.py
 6. **HIGH** - Integrate real hot-swap in evaluate_trace.py and train_trigger.py
 7. **MEDIUM** - Add validation workflow to meta_effectiveness_scorer.py
 8. **MEDIUM** - Add cron job TTL/reaper in orchestrator

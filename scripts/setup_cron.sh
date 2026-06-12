@@ -15,6 +15,9 @@ CRON_ENTRIES="
 
 # Trace Retrain Monitor - runs every 5 minutes
 */5 * * * * cd $ROOT_DIR && .venv-mlx/bin/python scripts/retrain_monitor.py --once >> $ROOT_DIR/logs/retrain_monitor.log 2>&1
+
+# Stria Systems Deployment Monitor - runs every 15 minutes
+*/15 * * * * cd $ROOT_DIR && .venv-mlx/bin/python scripts/monitor_deployment.py >> $ROOT_DIR/logs/deployment_monitor.log 2>&1
 "
 
 # Add --once flag support to retrain_monitor.py
@@ -30,10 +33,12 @@ else
 fi
 
 echo ""
+
 echo "Installed cron jobs:"
-crontab -l | grep -E "evaluate_trace|retrain_monitor"
+crontab -l | grep -E "evaluate_trace|retrain_monitor|monitor_deployment"
 
 echo ""
 echo "Log files:"
 echo "  $ROOT_DIR/logs/evaluate_trace.log"
 echo "  $ROOT_DIR/logs/retrain_monitor.log"
+echo "  $ROOT_DIR/logs/deployment_monitor.log"

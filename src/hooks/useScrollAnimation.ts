@@ -143,12 +143,10 @@ export function useScroll3D(
   return { ref, isInView };
 }
 
-export function scrollToTop(immediate = false): void {
-  if (immediate) {
+export function scrollToTop(prefersReducedMotion: boolean): void {
+  if (prefersReducedMotion) {
     window.scrollTo({ top: 0, behavior: "instant" });
-  } else if (!useReducedMotion()) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }

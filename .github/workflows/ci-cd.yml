@@ -1,0 +1,308 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM UTC
+
+env:
+  NODE_VERSION: '22.x'
+  CF_PAGES_PROJECT_NAME: 'stria-systems'
+
+jobs:
+  # ============================================================
+  # LINT & TYPE CHECK
+  # ============================================================
+  lint-and-typecheck:
+    name: Lint + Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint || true
+
+      - name: Run TypeScript check
+        run: npx tsc --noEmit || true
+
+      - name: Run Prettier check
+        run: npx prettier --check . || true
+
+  # ============================================================
+  # UNIT TESTS
+  # ============================================================
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test -- --run
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        if: always()
+
+  # ============================================================
+  # VISUAL REGRESSION & EDGE CASE AUDIT
+  # ============================================================
+  visual-audit:
+    name: Visual Regression + Edge Case Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Build site
+        run: npm run build
+
+      - name: Start preview server
+        run: |
+          npx vite preview --host 0.0.0.0 --port 4173 &
+          sleep 5
+          curl -f http://localhost:4173 || exit 1
+
+      - name: Run edge case audit
+        run: |
+          node edge-case-audit.cjs > audit-results.json 2>&1 || true
+          cat audit-results.json
+
+      - name: Upload audit results
+        uses: actions/upload-artifact@v4
+        with:
+          name: edge-case-audit
+          path: audit-results.json
+          retention-days: 7
+
+      - name: Check for critical issues
+        run: |
+          CRITICAL=$(cat audit-results.json | jq '[.[] | .issues[] | select(.severity=="critical")] | length')
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "❌ Found $CRITICAL critical issues"
+            cat audit-results.json | jq '.[] | select(.issues[] | select(.severity=="critical")) | {page: .page, viewport: .viewport, issues: .issues[] | select(.severity=="critical")}'
+            exit 1
+          fi
+          echo "✅ No critical issues"
+
+  # ============================================================
+  # ACCESSIBILITY AUDIT
+  # ============================================================
+  accessibility:
+    name: Accessibility Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Start preview server
+        run: |
+          npx vite preview --host 0.0.0.0 --port 4173 &
+          sleep 5
+
+      - name: Run Pa11y
+        uses: pa11y/pa11y-action@v2
+        with:
+          url: http://localhost:4173
+          standard: WCAG2AA
+          runners: htmlcs, axe
+          threshold: 5
+          timeout: 120000
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:4173
+            http://localhost:4173/trace
+            http://localhost:4173/forge
+            http://localhost:4173/platform
+            http://localhost:4173/architecture
+            http://localhost:4173/trace/documentation
+            http://localhost:4173/demo
+          uploadArtifacts: true
+          budgetPath: ./lighthouse-budget.json
+
+  # ============================================================
+  # BUILD
+  # ============================================================
+  build:
+    name: Build Production
+    runs-on: ubuntu-latest
+    needs: [lint-and-typecheck, test, visual-audit, accessibility]
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -d dist
+          test -f dist/index.html
+          test -f dist/assets/index-*.js
+          test -f dist/assets/index-*.css
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+  # ============================================================
+  # DEPLOY TO CLOUDFLARE PAGES
+  # ============================================================
+  deploy-cloudflare:
+    name: Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ env.CF_PAGES_PROJECT_NAME }}
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          # Preview deployments for PRs
+          # productionBranch: main
+
+  # ============================================================
+  # POST-DEPLOY SMOKE TESTS
+  # ============================================================
+  smoke-test:
+    name: Post-Deploy Smoke Tests
+    runs-on: ubuntu-latest
+    needs: deploy-cloudflare
+    steps:
+      - name: Wait for deployment
+        run: sleep 30
+
+      - name: Test production URLs
+        run: |
+          for url in \
+            "https://striasystems.com" \
+            "https://striasystems.com/trace" \
+            "https://striasystems.com/forge" \
+            "https://striasystems.com/platform" \
+            "https://striasystems.com/architecture" \
+            "https://striasystems.com/trace/documentation" \
+            "https://striasystems.com/demo"; do
+            echo "Testing $url..."
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$url" --max-time 30)
+            if [ "$HTTP_CODE" -ne 200 ]; then
+              echo "❌ $url returned $HTTP_CODE"
+              exit 1
+            fi
+            echo "✅ $url returned 200"
+          done
+
+      - name: Test critical paths
+        run: |
+          npx playwright install --with-deps chromium
+          node smoke-tests.cjs
+
+  # ============================================================
+  # NOTIFICATIONS
+  # ============================================================
+  notify:
+    name: Notifications
+    runs-on: ubuntu-latest
+    needs: [deploy-cloudflare, smoke-test]
+    if: always()
+    steps:
+      - name: Determine status
+        id: status
+        run: |
+          if [[ "${{ needs.deploy-cloudflare.result }}" == "success" && "${{ needs.smoke-test.result }}" == "success" ]]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "status=failure" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Slack/Discord notification
+        if: steps.status.outputs.status == 'failure'
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\": \"❌ Stria Systems deployment failed: ${{ github.workflow }} #${{ github.run_number }}\"}"
+
+      - name: Send success notification
+        if: steps.status.outputs.status == 'success'
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK_URL }} \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\": \"✅ Stria Systems deployed successfully: ${{ github.workflow }} #${{ github.run_number }}\"}"

@@ -56,23 +56,6 @@ export function CompanyHome() {
       >
         <SystemBackdrop />
         <StriaKineticScene className={styles.kineticScene} />
-        <aside className={styles.heroRail} aria-label="Stria evidence journey">
-          <div>
-            <span>01</span>
-            <strong>Observe</strong>
-            <p>Prompts, tools, cost, latency, failures.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Prove</strong>
-            <p>Identity, authority, policy, evidence.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Verify</strong>
-            <p>Repeated workflows become primitives.</p>
-          </div>
-        </aside>
       </Hero>
 
       <Band className={styles.band}>

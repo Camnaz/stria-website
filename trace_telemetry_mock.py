@@ -19,88 +19,103 @@ import uvicorn
 
 # ─── Synthetic Telemetry Templates ──────────────────────────────────────────
 
-TEMPLATES = [
+TEMPLATES = {
     # Business sensitive workflows (low risk)
-    {"query": "summarize invoice dispute history before payment approval", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
-    {"query": "draft a variance explanation for monthly close", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
-    {"query": "compare payment terms in vendor renewal contract", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["contract_review"], "domain": "in_domain"},
-    {"query": "prepare audit evidence for accounts payable exception review", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
-    {"query": "explain why this purchase order needs supervisor review", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
+    "invoice_dispute": {"query": "summarize invoice dispute history before payment approval", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
+    "variance_explanation": {"query": "draft a variance explanation for monthly close", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
+    "compare_payment_terms": {"query": "compare payment terms in vendor renewal contract", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["contract_review"], "domain": "in_domain"},
+    "audit_evidence": {"query": "prepare audit evidence for accounts payable exception review", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
+    "purchase_order_review": {"query": "explain why this purchase order needs supervisor review", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["financial_operations"], "domain": "in_domain"},
     # Support workflows
-    {"query": "why are support agents asking AI about refund exceptions", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["customer_support_routing"], "domain": "in_domain"},
-    {"query": "classify this customer escalation and suggest the right queue", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["customer_support_routing"], "domain": "in_domain"},
-    {"query": "draft a safe answer for a billing dispute without sharing private data", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["customer_support_routing"], "domain": "in_domain"},
+    "support_refund_exceptions": {"query": "why are support agents asking AI about refund exceptions", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["customer_support_routing"], "domain": "in_domain"},
+    "classify_escalation": {"query": "classify this customer escalation and suggest the right queue", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["customer_support_routing"], "domain": "in_domain"},
+    "safe_billing_answer": {"query": "draft a safe answer for a billing dispute without sharing private data", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["customer_support_routing"], "domain": "in_domain"},
     # Technical workflows
-    {"query": "debug a database schema migration error", "intent": "technical_workflow", "risk": "low", "risk_signals": ["developer_workflow"], "domain": "adjacent"},
-    {"query": "explain this TypeScript build failure", "intent": "technical_workflow", "risk": "low", "risk_signals": ["developer_workflow"], "domain": "adjacent"},
-    {"query": "summarize deployment logs for a failed release", "intent": "technical_workflow", "risk": "low", "risk_signals": ["developer_workflow"], "domain": "adjacent"},
+    "debug_migration": {"query": "debug a database schema migration error", "intent": "technical_workflow", "risk": "low", "risk_signals": ["developer_workflow"], "domain": "adjacent"},
+    "explain_build_failure": {"query": "explain this TypeScript build failure", "intent": "technical_workflow", "risk": "low", "risk_signals": ["developer_workflow"], "domain": "adjacent"},
+    "summarize_deployment_logs": {"query": "summarize deployment logs for a failed release", "intent": "technical_workflow", "risk": "low", "risk_signals": ["developer_workflow"], "domain": "adjacent"},
     # Trace-specific (data plane, control plane, trust plane)
-    {"query": "agent attempts to approve a vendor payment above 10000 without human approval", "intent": "business_sensitive_workflow", "risk": "high", "risk_signals": ["policy_violation", "agent_action_requires_review"], "domain": "in_domain"},
-    {"query": "agent sends a support transcript containing an api key and customer account number to an external summarizer", "intent": "business_sensitive_workflow", "risk": "high", "risk_signals": ["possible_sensitive_data_exposure", "customer_account_data"], "domain": "in_domain"},
-    {"query": "CISO asks which AI agents violated data deletion policy in production", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["policy_search", "control_plane_review"], "domain": "in_domain"},
-    {"query": "create a Merkle root from evidence record hashes for audit verification", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["tamper_evident_audit", "evidence_hashing"], "domain": "in_domain"},
+    "agent_payment_violation": {"query": "agent attempts to approve a vendor payment above 10000 without human approval", "intent": "business_sensitive_workflow", "risk": "high", "risk_signals": ["policy_violation", "agent_action_requires_review"], "domain": "in_domain"},
+    "agent_data_exposure": {"query": "agent sends a support transcript containing an api key and customer account number to an external summarizer", "intent": "business_sensitive_workflow", "risk": "high", "risk_signals": ["possible_sensitive_data_exposure", "customer_account_data"], "domain": "in_domain"},
+    "ciso_policy_query": {"query": "CISO asks which AI agents violated data deletion policy in production", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["policy_search", "control_plane_review"], "domain": "in_domain"},
+    "merkle_audit": {"query": "create a Merkle root from evidence record hashes for audit verification", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["tamper_evident_audit", "evidence_hashing"], "domain": "in_domain"},
     # Malicious/unsafe (out of domain)
-    {"query": "how to hack employee email password", "intent": "potentially_malicious_or_unsafe", "risk": "high", "risk_signals": ["potentially_malicious_security_intent"], "domain": "out_of_domain"},
-    {"query": "write a phishing email that steals payroll credentials", "intent": "potentially_malicious_or_unsafe", "risk": "high", "risk_signals": ["potentially_malicious_security_intent"], "domain": "out_of_domain"},
-    {"query": "bypass endpoint security on a managed laptop", "intent": "potentially_malicious_or_unsafe", "risk": "high", "risk_signals": ["potentially_malicious_security_intent"], "domain": "out_of_domain"},
+    "hack_email": {"query": "how to hack employee email password", "intent": "potentially_malicious_or_unsafe", "risk": "high", "risk_signals": ["potentially_malicious_security_intent"], "domain": "out_of_domain"},
+    "phishing_payroll": {"query": "write a phishing email that steals payroll credentials", "intent": "potentially_malicious_or_unsafe", "risk": "high", "risk_signals": ["potentially_malicious_security_intent"], "domain": "out_of_domain"},
+    "bypass_endpoint": {"query": "bypass endpoint security on a managed laptop", "intent": "potentially_malicious_or_unsafe", "risk": "high", "risk_signals": ["potentially_malicious_security_intent"], "domain": "out_of_domain"},
     # Edge cases with latency issues
-    {"query": "analyze this 50000 token document and extract all financial entities with citations", "intent": "business_sensitive_workflow", "risk": "medium", "risk_signals": ["large_context_processing"], "domain": "in_domain"},
-    {"query": "generate a comprehensive compliance report comparing 50 vendor contracts against policy", "intent": "business_sensitive_workflow", "risk": "medium", "risk_signals": ["batch_processing", "policy_comparison"], "domain": "in_domain"},
+    "large_doc_analysis": {"query": "analyze this 50000 token document and extract all financial entities with citations", "intent": "business_sensitive_workflow", "risk": "medium", "risk_signals": ["large_context_processing"], "domain": "in_domain"},
+    "vendor_compliance_report": {"query": "generate a comprehensive compliance report comparing 50 vendor contracts against policy", "intent": "business_sensitive_workflow", "risk": "medium", "risk_signals": ["batch_processing", "policy_comparison"], "domain": "in_domain"},
     # Intent-output drift cases
-    {"query": "return ONLY JSON with fields: vendor, amount, date", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["structured_output_required"], "domain": "in_domain"},
-    {"query": "classify this ticket: refund, billing, or technical", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["classification_task"], "domain": "in_domain"},
-]
+    "json_only_output": {"query": "return ONLY JSON with fields: vendor, amount, date", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["structured_output_required"], "domain": "in_domain"},
+    "classify_ticket": {"query": "classify this ticket: refund, billing, or technical", "intent": "business_sensitive_workflow", "risk": "low", "risk_signals": ["classification_task"], "domain": "in_domain"},
+}
+
+# Also provide as list for backwards compatibility
+TEMPLATE_LIST = list(TEMPLATES.values())
+
 
 # ─── Generate Synthetic Telemetry ──────────────────────────────────────────
 
+def generate_event(template: dict) -> dict:
+    """Generate a single telemetry event from a template."""
+    import random
+    import hashlib
+    from datetime import datetime, timedelta
+    
+    now = datetime.utcnow()
+    timestamp = now - timedelta(minutes=random.randint(0, 60), seconds=random.randint(0, 59))
+    
+    # Simulate realistic latency based on query complexity
+    base_latency = 500 + len(template["query"]) * 2  # ~2ms per char
+    if template["risk"] == "high":
+        base_latency *= 1.5
+    if "50000" in template["query"] or "50 vendor" in template["query"]:
+        base_latency *= 3
+    
+    latency_ms = int(random.gauss(base_latency, base_latency * 0.2))
+    latency_ms = max(100, latency_ms)
+    
+    # TTFT typically 30-50% of total latency
+    ttft_ms = int(latency_ms * random.uniform(0.3, 0.5))
+    
+    # Token counts
+    prompt_tokens = len(template["query"].split()) + random.randint(-2, 5)
+    completion_tokens = random.randint(50, 300)
+    
+    # Simulate occasional errors
+    error = None
+    if random.random() < 0.02:
+        error = random.choice(["timeout", "model_overloaded", "validation_failed"])
+    
+    return {
+        "timestamp": timestamp.isoformat() + "Z",
+        "user_id": f"user_{random.randint(1, 100)}",
+        "session_id": f"sess_{hashlib.md5(str(random.random()).encode()).hexdigest()[:16]}",
+        "input": template["query"],
+        "output": f"AI response for: {template['query'][:50]}... [tokens: {completion_tokens}]",
+        "latency_ms": latency_ms,
+        "ttft_ms": ttft_ms,
+        "prompt_tokens": prompt_tokens,
+        "completion_tokens": completion_tokens,
+        "intent_classification": template["intent"],
+        "domain_alignment": template["domain"],
+        "risk_level": template["risk"],
+        "risk_signals": template["risk_signals"],
+        "error": error,
+        "model": "local-hermes-nemotron",
+    }
+
+
 def generate_telemetry_batch(count: int = 50, minutes_ago: int = 60) -> List[dict]:
     """Generate a batch of synthetic telemetry records."""
-    now = datetime.utcnow()
+    import random
+    
     logs = []
     
     for _ in range(count):
-        template = random.choice(TEMPLATES)
-        timestamp = now - timedelta(minutes=random.randint(0, minutes_ago), seconds=random.randint(0, 59))
-        
-        # Simulate realistic latency based on query complexity
-        base_latency = 500 + len(template["query"]) * 2  # ~2ms per char
-        if template["risk"] == "high":
-            base_latency *= 1.5
-        if "50000" in template["query"] or "50 vendor" in template["query"]:
-            base_latency *= 3
-        
-        latency_ms = int(random.gauss(base_latency, base_latency * 0.2))
-        latency_ms = max(100, latency_ms)
-        
-        # TTFT typically 30-50% of total latency
-        ttft_ms = int(latency_ms * random.uniform(0.3, 0.5))
-        
-        # Token counts
-        prompt_tokens = len(template["query"].split()) + random.randint(-2, 5)
-        completion_tokens = random.randint(50, 300)
-        
-        # Simulate occasional errors
-        error = None
-        if random.random() < 0.02:
-            error = random.choice(["timeout", "model_overloaded", "validation_failed"])
-        
-        logs.append({
-            "timestamp": timestamp.isoformat() + "Z",
-            "user_id": f"user_{random.randint(1, 100)}",
-            "session_id": f"sess_{hashlib.md5(str(random.random()).encode()).hexdigest()[:16]}",
-            "input": template["query"],
-            "output": f"AI response for: {template['query'][:50]}... [tokens: {completion_tokens}]",
-            "latency_ms": latency_ms,
-            "ttft_ms": ttft_ms,
-            "prompt_tokens": prompt_tokens,
-            "completion_tokens": completion_tokens,
-            "intent_classification": template["intent"],
-            "domain_alignment": template["domain"],
-            "risk_level": template["risk"],
-            "risk_signals": template["risk_signals"],
-            "error": error,
-            "model": "local-hermes-nemotron",
-        })
+        template = random.choice(TEMPLATE_LIST)
+        logs.append(generate_event(template))
     
     return logs
 

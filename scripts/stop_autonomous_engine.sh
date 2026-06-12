@@ -16,8 +16,8 @@ if pgrep -f "mlx_lm.server" > /dev/null; then
 fi
 
 # Kill telemetry API
-if pgrep -f "trace_telemetry_api.py" > /dev/null; then
-    pkill -f "trace_telemetry_api.py"
+if pgrep -f "trace_telemetry_mock.py" > /dev/null; then
+    pkill -f "trace_telemetry_mock.py"
     echo "  ✓ Telemetry API stopped"
 fi
 

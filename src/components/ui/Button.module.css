@@ -32,12 +32,13 @@
 }
 
 .secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.06);
   border-color: var(--dark-border);
   color: var(--dark-text);
 }
 
 .light-band .secondary {
+  background: rgba(0, 0, 0, 0.06);
   border-color: var(--light-border);
   color: var(--light-text);
 }

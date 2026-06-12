@@ -33,6 +33,28 @@ jobs:
       - name: Verify build passes
         run: npm run build
 
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Build trace-core (Rust)
+        working-directory: trace-core
+        run: cargo build --release
+
+      - name: Setup Node.js (trace-core)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: trace-core/package-lock.json
+
+      - name: Build N-API binary
+        working-directory: trace-core
+        run: |
+          npm ci
+          npx napi build --platform --release
+
       - name: Run tests
         run: npm run test
 

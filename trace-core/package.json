@@ -12,8 +12,8 @@
     "binaryName": "trace_core"
   },
   "scripts": {
-    "build": "napi build --platform",
-    "build:release": "napi build --platform --release",
+    "build": "npx napi build --platform",
+    "build:release": "npx napi build --platform --release",
     "test": "node --test test.js"
   },
   "devDependencies": {

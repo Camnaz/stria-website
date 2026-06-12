@@ -1,0 +1,980 @@
+{
+  "auditDate": "2026-06-12T03:35:35.679469",
+  "tool": "edge-case-audit.cjs",
+  "viewportMatrix": {
+    "pages": 7,
+    "viewports": 9,
+    "totalCombinations": 63
+  },
+  "results": {
+    "home": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 10,
+        "medium": 11
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 10,
+        "medium": 11
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 10,
+        "medium": 11
+      }
+    },
+    "trace": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 9,
+        "medium": 23
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 9,
+        "medium": 23
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 9,
+        "medium": 23
+      }
+    },
+    "forge": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 9,
+        "medium": 30
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 9,
+        "medium": 29
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 9,
+        "medium": 30
+      }
+    },
+    "platform": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 9,
+        "medium": 36
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 9,
+        "medium": 36
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 9,
+        "medium": 37
+      }
+    },
+    "architecture": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      }
+    },
+    "docs": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 10,
+        "medium": 10
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 10,
+        "medium": 10
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 10,
+        "medium": 13
+      }
+    },
+    "demo": {
+      "mobile-375": {
+        "critical": 0,
+        "high": 9,
+        "medium": 12
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 9,
+        "medium": 12
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "mobile-320": {
+        "critical": 0,
+        "high": 9,
+        "medium": 12
+      }
+    }
+  },
+  "baseline": {
+    "home": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      }
+    },
+    "trace": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 11,
+        "medium": 20
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 11,
+        "medium": 20
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 20
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      }
+    },
+    "forge": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 12,
+        "medium": 26
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 12,
+        "medium": 26
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 26
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      }
+    },
+    "platform": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 12,
+        "medium": 33
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 12,
+        "medium": 33
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 12,
+        "medium": 33
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      }
+    },
+    "architecture": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 10
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0
+      }
+    },
+    "docs": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 12,
+        "medium": 7
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 11,
+        "medium": 8
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 8
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      }
+    },
+    "demo": {
+      "mobile-320": {
+        "critical": 0,
+        "high": 11,
+        "medium": 9
+      },
+      "mobile-375": {
+        "critical": 0,
+        "high": 11,
+        "medium": 9
+      },
+      "mobile-480": {
+        "critical": 0,
+        "high": 11,
+        "medium": 9
+      },
+      "tablet-768": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "tablet-1024": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1280": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1440": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-1920": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      },
+      "desktop-2560": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0
+      }
+    }
+  },
+  "regressions": [
+    {
+      "page": "home",
+      "viewport": "mobile-320",
+      "severity": "medium",
+      "baseline": 10,
+      "current": 11,
+      "delta": 1
+    },
+    {
+      "page": "home",
+      "viewport": "mobile-375",
+      "severity": "medium",
+      "baseline": 10,
+      "current": 11,
+      "delta": 1
+    },
+    {
+      "page": "home",
+      "viewport": "mobile-480",
+      "severity": "medium",
+      "baseline": 10,
+      "current": 11,
+      "delta": 1
+    },
+    {
+      "page": "trace",
+      "viewport": "mobile-320",
+      "severity": "medium",
+      "baseline": 20,
+      "current": 23,
+      "delta": 3
+    },
+    {
+      "page": "trace",
+      "viewport": "mobile-375",
+      "severity": "medium",
+      "baseline": 20,
+      "current": 23,
+      "delta": 3
+    },
+    {
+      "page": "trace",
+      "viewport": "mobile-480",
+      "severity": "medium",
+      "baseline": 20,
+      "current": 23,
+      "delta": 3
+    },
+    {
+      "page": "forge",
+      "viewport": "mobile-320",
+      "severity": "medium",
+      "baseline": 26,
+      "current": 30,
+      "delta": 4
+    },
+    {
+      "page": "forge",
+      "viewport": "mobile-375",
+      "severity": "medium",
+      "baseline": 26,
+      "current": 30,
+      "delta": 4
+    },
+    {
+      "page": "forge",
+      "viewport": "mobile-480",
+      "severity": "medium",
+      "baseline": 26,
+      "current": 29,
+      "delta": 3
+    },
+    {
+      "page": "platform",
+      "viewport": "mobile-320",
+      "severity": "medium",
+      "baseline": 33,
+      "current": 37,
+      "delta": 4
+    },
+    {
+      "page": "platform",
+      "viewport": "mobile-375",
+      "severity": "medium",
+      "baseline": 33,
+      "current": 36,
+      "delta": 3
+    },
+    {
+      "page": "platform",
+      "viewport": "mobile-480",
+      "severity": "medium",
+      "baseline": 33,
+      "current": 36,
+      "delta": 3
+    },
+    {
+      "page": "docs",
+      "viewport": "mobile-320",
+      "severity": "medium",
+      "baseline": 7,
+      "current": 13,
+      "delta": 6
+    },
+    {
+      "page": "docs",
+      "viewport": "mobile-375",
+      "severity": "medium",
+      "baseline": 8,
+      "current": 10,
+      "delta": 2
+    },
+    {
+      "page": "docs",
+      "viewport": "mobile-480",
+      "severity": "medium",
+      "baseline": 8,
+      "current": 10,
+      "delta": 2
+    },
+    {
+      "page": "demo",
+      "viewport": "mobile-320",
+      "severity": "medium",
+      "baseline": 9,
+      "current": 12,
+      "delta": 3
+    },
+    {
+      "page": "demo",
+      "viewport": "mobile-375",
+      "severity": "medium",
+      "baseline": 9,
+      "current": 12,
+      "delta": 3
+    },
+    {
+      "page": "demo",
+      "viewport": "mobile-480",
+      "severity": "medium",
+      "baseline": 9,
+      "current": 12,
+      "delta": 3
+    }
+  ],
+  "improvements": [
+    {
+      "page": "home",
+      "viewport": "mobile-320",
+      "severity": "high",
+      "baseline": 11,
+      "current": 10,
+      "delta": 1
+    },
+    {
+      "page": "home",
+      "viewport": "mobile-375",
+      "severity": "high",
+      "baseline": 11,
+      "current": 10,
+      "delta": 1
+    },
+    {
+      "page": "home",
+      "viewport": "mobile-480",
+      "severity": "high",
+      "baseline": 11,
+      "current": 10,
+      "delta": 1
+    },
+    {
+      "page": "trace",
+      "viewport": "mobile-320",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    },
+    {
+      "page": "trace",
+      "viewport": "mobile-375",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    },
+    {
+      "page": "trace",
+      "viewport": "mobile-480",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    },
+    {
+      "page": "forge",
+      "viewport": "mobile-320",
+      "severity": "high",
+      "baseline": 12,
+      "current": 9,
+      "delta": 3
+    },
+    {
+      "page": "forge",
+      "viewport": "mobile-375",
+      "severity": "high",
+      "baseline": 12,
+      "current": 9,
+      "delta": 3
+    },
+    {
+      "page": "forge",
+      "viewport": "mobile-480",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    },
+    {
+      "page": "platform",
+      "viewport": "mobile-320",
+      "severity": "high",
+      "baseline": 12,
+      "current": 9,
+      "delta": 3
+    },
+    {
+      "page": "platform",
+      "viewport": "mobile-375",
+      "severity": "high",
+      "baseline": 12,
+      "current": 9,
+      "delta": 3
+    },
+    {
+      "page": "platform",
+      "viewport": "mobile-480",
+      "severity": "high",
+      "baseline": 12,
+      "current": 9,
+      "delta": 3
+    },
+    {
+      "page": "docs",
+      "viewport": "mobile-320",
+      "severity": "high",
+      "baseline": 12,
+      "current": 10,
+      "delta": 2
+    },
+    {
+      "page": "docs",
+      "viewport": "mobile-375",
+      "severity": "high",
+      "baseline": 11,
+      "current": 10,
+      "delta": 1
+    },
+    {
+      "page": "docs",
+      "viewport": "mobile-480",
+      "severity": "high",
+      "baseline": 11,
+      "current": 10,
+      "delta": 1
+    },
+    {
+      "page": "demo",
+      "viewport": "mobile-320",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    },
+    {
+      "page": "demo",
+      "viewport": "mobile-375",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    },
+    {
+      "page": "demo",
+      "viewport": "mobile-480",
+      "severity": "high",
+      "baseline": 11,
+      "current": 9,
+      "delta": 2
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "critical": 0,
+      "high": 261,
+      "medium": 347
+    },
+    "current": {
+      "critical": 0,
+      "high": 225,
+      "medium": 399
+    },
+    "delta": {
+      "critical": 0,
+      "high": -36,
+      "medium": 52
+    }
+  }
+}

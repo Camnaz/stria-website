@@ -1,4 +1,5 @@
 .band {
+  border-top: 1px solid var(--hairline);
   padding: var(--section-y) var(--pad-x);
   position: relative;
 }

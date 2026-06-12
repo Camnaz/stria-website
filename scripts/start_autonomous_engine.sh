@@ -9,22 +9,22 @@ LOG_DIR="$PROJECT_DIR/logs"
 mkdir -p "$LOG_DIR"
 
 # Kill any existing MLX servers and telemetry APIs on our ports to prevent sprawl
-echo "Cleaning up existing processes on ports 8080, 8085, 9001, 3000..."
-lsof -ti :8080 :8085 :9001 :3000 2>/dev/null | xargs -r kill -9 2>/dev/null || true
+echo "Cleaning up existing processes on ports 8080, 8085, 9001, 8084..."
+lsof -ti :8080 :8085 :9001 :8084 2>/dev/null | xargs -r kill -9 2>/dev/null || true
 sleep 0.5
 
 echo "╔═══════════════════════════════════════════════════════════╗"
 echo "║  Trace Autonomous Testing Engine - Startup                ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 
-# 1. Start Trace Telemetry API (mock)
+# 1. Start Trace Telemetry API (mock) - FastAPI based on port 8084
 echo ""
-echo "▶ Starting Trace Telemetry API (port 3000)..."
+echo "▶ Starting Trace Telemetry API (port 8084)..."
 cd "$PROJECT_DIR"
-nohup .venv-mlx/bin/python scripts/trace_telemetry_api.py > "$LOG_DIR/telemetry_api.log" 2>&1 &
+nohup .venv-mlx/bin/python trace_telemetry_mock.py > "$LOG_DIR/telemetry_api.log" 2>&1 &
 TELEMETRY_PID=$!
-sleep 2
-if curl -s http://127.0.0.1:3000/api/v1/health > /dev/null; then
+sleep 3
+if curl -s http://localhost:8084/health > /dev/null; then
     echo "  ✓ Telemetry API running (PID: $TELEMETRY_PID)"
 else
     echo "  ✗ Telemetry API failed to start"
@@ -63,7 +63,7 @@ echo ""
 echo "╔═══════════════════════════════════════════════════════════╗"
 echo "║  Trace Autonomous Testing Engine - RUNNING                ║"
 echo "╠═══════════════════════════════════════════════════════════╣"
-echo "║  Telemetry API:  http://localhost:3000                   ║"
+echo "║  Telemetry API:  http://localhost:8084                   ║"
 echo "║  MLX Server:     http://localhost:8080                   ║"
 echo "║  Logs:           $LOG_DIR                                ║"
 echo "║                                                          ║"

@@ -17,11 +17,12 @@ Adapter: .trace/adapters/trace-enterprise-full-600 (8 layers, 2.6M params)
 Endpoints: /v1/chat/completions, /v1/models, /health
 ```
 
-### 2. Trace Telemetry API (Port 3000)
-```
-Mock server for development
+### 2. Trace Telemetry API (Port 8084)
+``` 
+Mock server for development (FastAPI)
 Endpoints: GET /api/v1/telemetry/recent?minutes=60
-GET /api/v1/health
+GET /api/v1/telemetry/stats?minutes=60
+GET /health
 ```
 
 ### 3. Evaluation Flywheel Script
@@ -61,7 +62,7 @@ Run: Hourly via cron (minute 5)
 | `scripts/stop_autonomous_engine.sh` | Stop all components |
 | `scripts/install_cron.sh` | Install hourly/daily/weekly cron jobs |
 | `scripts/evaluate_trace.py` | Main flywheel evaluation script |
-| `scripts/trace_telemetry_api.py` | Mock telemetry API server |
+| `trace_telemetry_mock.py` | Mock telemetry API server (FastAPI) |
 | `scripts/com.striasystems.trace.mlx-server.plist` | launchd service for MLX server |
 | `.trace/adapters/trace-enterprise-full-600/` | Trained LoRA adapter (600 iters, 8 layers) |
 | `datasets/trace-enterprise-full/` | Training data (2,109 examples) |
@@ -225,4 +226,4 @@ cat logs/daily_rollup.log
 ---
 
 *Generated: 2026-06-11*
-*Engine Status: RUNNING (MLX:8085, Telemetry:3000, Cron:INSTALLED)*
+*Engine Status: RUNNING (MLX:8085, Telemetry:8084, Cron:INSTALLED)*

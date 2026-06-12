@@ -1,0 +1,107 @@
+{
+  "version": "2026-06-11",
+  "auditDate": "2026-06-11T20:30:00Z",
+  "tool": "edge-case-audit.cjs",
+  "viewportMatrix": {
+    "pages": 7,
+    "viewports": 9,
+    "totalCombinations": 63
+  },
+  "baseline": {
+    "home": {
+      "mobile-320": { "critical": 0, "high": 11, "medium": 10 },
+      "mobile-375": { "critical": 0, "high": 11, "medium": 10 },
+      "mobile-480": { "critical": 0, "high": 11, "medium": 10 },
+      "tablet-768": { "critical": 0, "high": 1, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 1, "medium": 0 }
+    },
+    "trace": {
+      "mobile-320": { "critical": 0, "high": 11, "medium": 20 },
+      "mobile-375": { "critical": 0, "high": 11, "medium": 20 },
+      "mobile-480": { "critical": 0, "high": 11, "medium": 20 },
+      "tablet-768": { "critical": 0, "high": 0, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 0, "medium": 0 }
+    },
+    "forge": {
+      "mobile-320": { "critical": 0, "high": 12, "medium": 26 },
+      "mobile-375": { "critical": 0, "high": 12, "medium": 26 },
+      "mobile-480": { "critical": 0, "high": 11, "medium": 26 },
+      "tablet-768": { "critical": 0, "high": 0, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 0, "medium": 0 }
+    },
+    "platform": {
+      "mobile-320": { "critical": 0, "high": 12, "medium": 33 },
+      "mobile-375": { "critical": 0, "high": 12, "medium": 33 },
+      "mobile-480": { "critical": 0, "high": 12, "medium": 33 },
+      "tablet-768": { "critical": 0, "high": 0, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 0, "medium": 0 }
+    },
+    "architecture": {
+      "mobile-320": { "critical": 0, "high": 11, "medium": 10 },
+      "mobile-375": { "critical": 0, "high": 11, "medium": 10 },
+      "mobile-480": { "critical": 0, "high": 11, "medium": 10 },
+      "tablet-768": { "critical": 0, "high": 2, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 2, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 2, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 2, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 2, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 2, "medium": 0 }
+    },
+    "docs": {
+      "mobile-320": { "critical": 0, "high": 12, "medium": 7 },
+      "mobile-375": { "critical": 0, "high": 11, "medium": 8 },
+      "mobile-480": { "critical": 0, "high": 11, "medium": 8 },
+      "tablet-768": { "critical": 0, "high": 1, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 1, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 1, "medium": 0 }
+    },
+    "demo": {
+      "mobile-320": { "critical": 0, "high": 11, "medium": 9 },
+      "mobile-375": { "critical": 0, "high": 11, "medium": 9 },
+      "mobile-480": { "critical": 0, "high": 11, "medium": 9 },
+      "tablet-768": { "critical": 0, "high": 0, "medium": 0 },
+      "tablet-1024": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1280": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1440": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-1920": { "critical": 0, "high": 0, "medium": 0 },
+      "desktop-2560": { "critical": 0, "high": 0, "medium": 0 }
+    }
+  },
+  "issueCategories": {
+    "edge-padding": "Elements with 0px horizontal padding (footer, header, containers)",
+    "small-text": "Font sizes 11-13px on mobile (below 14px minimum)",
+    "touch-target": "Buttons/links smaller than 44x44px on mobile",
+    "contrast": "Secondary buttons with transparent backgrounds",
+    "input-zoom": "Form inputs with font-size < 16px (triggers iOS zoom)",
+    "code-overflow": "Code blocks wider than container on mobile"
+  },
+  "autoFixable": [
+    "edge-padding",
+    "small-text",
+    "touch-target",
+    "contrast",
+    "input-zoom"
+  ],
+  "requiresDesignDecision": [
+    "code-overflow"
+  ]
+}

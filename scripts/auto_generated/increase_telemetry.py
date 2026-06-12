@@ -11,7 +11,7 @@ from pathlib import Path
 import sys
 import aiohttp
 
-# Inline telemetry generation (from trace_telemetry_api.py)
+# Inline telemetry generation (from trace_telemetry_mock.py)
 SAMPLE_QUERIES = [
     "summarize invoice dispute history before payment approval",
     "agent attempts to approve a vendor payment above 10000 without human approval",

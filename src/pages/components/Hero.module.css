@@ -44,7 +44,7 @@
 .hero h1 {
   font-size: clamp(40px, 5.4vw, 68px);
   letter-spacing: -0.045em;
-  line-height: 0.98;
+  line-height: 1.15;
   margin-bottom: 24px;
   max-width: 700px;
   font-weight: 600;
@@ -111,7 +111,7 @@
   .hero h1 {
     font-size: clamp(38px, 12vw, 56px);
     letter-spacing: -0.04em;
-    line-height: 1;
+    line-height: 1.15;
   }
 
   .text {

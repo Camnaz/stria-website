@@ -1,0 +1,3793 @@
+home @ mobile-375: 21 issues
+home @ mobile-480: 21 issues
+home @ tablet-768: 1 issues
+home @ tablet-1024: 1 issues
+home @ desktop-1280: 1 issues
+home @ desktop-1440: 1 issues
+home @ desktop-1920: 1 issues
+home @ desktop-2560: 1 issues
+home @ mobile-320: 21 issues
+trace @ mobile-375: 32 issues
+trace @ mobile-480: 32 issues
+trace @ tablet-768: 0 issues
+trace @ tablet-1024: 0 issues
+trace @ desktop-1280: 0 issues
+trace @ desktop-1440: 0 issues
+trace @ desktop-1920: 0 issues
+trace @ desktop-2560: 0 issues
+trace @ mobile-320: 32 issues
+forge @ mobile-375: 39 issues
+forge @ mobile-480: 38 issues
+forge @ tablet-768: 0 issues
+forge @ tablet-1024: 0 issues
+forge @ desktop-1280: 0 issues
+forge @ desktop-1440: 0 issues
+forge @ desktop-1920: 0 issues
+forge @ desktop-2560: 0 issues
+forge @ mobile-320: 39 issues
+platform @ mobile-375: 45 issues
+platform @ mobile-480: 45 issues
+platform @ tablet-768: 0 issues
+platform @ tablet-1024: 0 issues
+platform @ desktop-1280: 0 issues
+platform @ desktop-1440: 0 issues
+platform @ desktop-1920: 0 issues
+platform @ desktop-2560: 0 issues
+platform @ mobile-320: 46 issues
+architecture @ mobile-375: 21 issues
+architecture @ mobile-480: 21 issues
+architecture @ tablet-768: 2 issues
+architecture @ tablet-1024: 2 issues
+architecture @ desktop-1280: 2 issues
+architecture @ desktop-1440: 2 issues
+architecture @ desktop-1920: 2 issues
+architecture @ desktop-2560: 2 issues
+architecture @ mobile-320: 21 issues
+docs @ mobile-375: 20 issues
+docs @ mobile-480: 20 issues
+docs @ tablet-768: 1 issues
+docs @ tablet-1024: 1 issues
+docs @ desktop-1280: 1 issues
+docs @ desktop-1440: 1 issues
+docs @ desktop-1920: 1 issues
+docs @ desktop-2560: 1 issues
+docs @ mobile-320: 23 issues
+demo @ mobile-375: 21 issues
+demo @ mobile-480: 21 issues
+demo @ tablet-768: 0 issues
+demo @ tablet-1024: 0 issues
+demo @ desktop-1280: 0 issues
+demo @ desktop-1440: 0 issues
+demo @ desktop-1920: 0 issues
+demo @ desktop-2560: 0 issues
+demo @ mobile-320: 21 issues
+
+=== FULL AUDIT RESULTS ===
+[
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:375"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Stria Systems"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Forge"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Accountable Autonomy"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 20 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:480"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Stria Systems"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Forge"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Accountable Autonomy"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 20 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:768"
+      }
+    ],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:1024"
+      }
+    ],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:1280"
+      }
+    ],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:1440"
+      }
+    ],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:1920"
+      }
+    ],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:2560"
+      }
+    ],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 6 has padding L:0px R:0px, width:320"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Stria Systems"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Forge"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Accountable Autonomy"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 20 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/",
+    "page": "home",
+    "viewport": "mobile-320",
+    "width": 320
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Usage intelligence → Evidence → Governance"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer prototype"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Read the evidence schema"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Local agent install"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Operator copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Evidence before enforcement"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Agent identity binding"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Human operator linkage"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Delegation chain tracking"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Credential rotation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Declarative policy as code"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Context-aware conditions"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Approval workflows"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Versioned policy sets"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Cryptographic integrity"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Selective disclosure"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Audit log export"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Long-term retention"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Usage intelligence → Evidence → Governance"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer prototype"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Read the evidence schema"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Local agent install"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Operator copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Evidence before enforcement"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Agent identity binding"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Human operator linkage"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Delegation chain tracking"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Credential rotation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Declarative policy as code"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Context-aware conditions"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Approval workflows"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Versioned policy sets"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Cryptographic integrity"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Selective disclosure"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Audit log export"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Long-term retention"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Usage intelligence → Evidence → Governance"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer prototype"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Read the evidence schema"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Local agent install"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Operator copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Evidence before enforcement"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Agent identity binding"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Human operator linkage"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Delegation chain tracking"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Credential rotation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Declarative policy as code"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Context-aware conditions"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Approval workflows"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Versioned policy sets"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Cryptographic integrity"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Selective disclosure"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Audit log export"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Long-term retention"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/trace",
+    "page": "trace",
+    "viewport": "mobile-320",
+    "width": 320
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Workflow clustering → Verification → Registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: See Trace telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: CANDIDATE WORKFLOWS"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Support users repeatedly ask LLMs to read refund p"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Finance repeatedly summarizes invoice deltas for m"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Sales users ask for account risk summaries but too"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: PRIMITIVE REGISTRY"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Version 1.2.0"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Status: approved"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Tests: 4 passing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Deploy: staging"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Version 0.4.0"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Status: testing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Tests: 3 passing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Deploy: staging"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: SANDBOX EXECUTION"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: CLEAN API BOUNDARY"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Trace → Forge: workflow candidate events"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Forge → Trace: primitive execution telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Bidirectional: deployment feedback loop"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      },
+      {
+        "type": "code-overflow",
+        "severity": "medium",
+        "detail": "Code block 0 wider than container"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Workflow clustering → Verification → Registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: See Trace telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: CANDIDATE WORKFLOWS"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Support users repeatedly ask LLMs to read refund p"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Finance repeatedly summarizes invoice deltas for m"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Sales users ask for account risk summaries but too"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: PRIMITIVE REGISTRY"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Version 1.2.0"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Status: approved"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Tests: 4 passing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Deploy: staging"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Version 0.4.0"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Status: testing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Tests: 3 passing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Deploy: staging"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: SANDBOX EXECUTION"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: CLEAN API BOUNDARY"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Trace → Forge: workflow candidate events"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Forge → Trace: primitive execution telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Bidirectional: deployment feedback loop"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Workflow clustering → Verification → Registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View platform dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: See Trace telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: CANDIDATE WORKFLOWS"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Support users repeatedly ask LLMs to read refund p"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Finance repeatedly summarizes invoice deltas for m"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Sales users ask for account risk summaries but too"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: PRIMITIVE REGISTRY"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Version 1.2.0"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Status: approved"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Tests: 4 passing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Deploy: staging"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Version 0.4.0"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Status: testing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Tests: 3 passing"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Deploy: staging"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: SANDBOX EXECUTION"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: CLEAN API BOUNDARY"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Trace → Forge: workflow candidate events"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Forge → Trace: primitive execution telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Bidirectional: deployment feedback loop"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      },
+      {
+        "type": "code-overflow",
+        "severity": "medium",
+        "detail": "Code block 0 wider than container"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/forge",
+    "page": "forge",
+    "viewport": "mobile-320",
+    "width": 320
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Stria Systems Platform"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Forge"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Automated workflow loop"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Workflow clustering"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Forge recommendation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Code and tests"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Sandbox verification"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Approved primitive registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Monitored deployment"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Feedback into Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Avg latency"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Flagged / failed"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: finance-agent"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: revenue-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Forge dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Support users repeatedly ask LLMs to read refund p"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Finance repeatedly summarizes invoice deltas for m"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Sales users ask for account risk summaries but too"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: Primitive registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: prim_refund_guarded_response"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: prim_invoice_variance"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: Sandbox execution"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Stria Systems Platform"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Forge"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Automated workflow loop"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Workflow clustering"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Forge recommendation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Code and tests"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Sandbox verification"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Approved primitive registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Monitored deployment"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Feedback into Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Avg latency"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Flagged / failed"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: finance-agent"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: revenue-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Forge dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Support users repeatedly ask LLMs to read refund p"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Finance repeatedly summarizes invoice deltas for m"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Sales users ask for account risk summaries but too"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: Primitive registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: prim_refund_guarded_response"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: prim_invoice_variance"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: Sandbox execution"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Stria Systems Platform"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Explore Forge"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 11px on text: Automated workflow loop"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace telemetry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Workflow clustering"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Forge recommendation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Code and tests"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Sandbox verification"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Approved primitive registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Monitored deployment"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Feedback into Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Avg latency"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Flagged / failed"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: finance-agent"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: support-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12.5px on text: revenue-copilot"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Forge dashboard"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Support users repeatedly ask LLMs to read refund p"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Finance repeatedly summarizes invoice deltas for m"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10px on text: Forge Candidate"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Sales users ask for account risk summaries but too"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: Primitive registry"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: prim_refund_guarded_response"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: prim_invoice_variance"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 10.5px on text: Sandbox execution"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 48.421875x22.796875px"
+      },
+      {
+        "type": "code-overflow",
+        "severity": "medium",
+        "detail": "Code block 0 wider than container"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/platform",
+    "page": "platform",
+    "viewport": "mobile-320",
+    "width": 320
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:327"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:375"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Data Plane × Control Plane × Trust Plane"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer docs"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Back to Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: OBSERVABLE. VERIFIED. ACCOUNTABLE."
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer docs"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:422.40625"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:480"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Data Plane × Control Plane × Trust Plane"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer docs"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Back to Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: OBSERVABLE. VERIFIED. ACCOUNTABLE."
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer docs"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:675.84375"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:768"
+      }
+    ],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:720"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1024"
+      }
+    ],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:720"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1280"
+      }
+    ],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:720"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1440"
+      }
+    ],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:720"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1920"
+      }
+    ],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:720"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:2560"
+      }
+    ],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 3 has padding L:0px R:0px, width:272"
+      },
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:320"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Data Plane × Control Plane × Trust Plane"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer docs"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Back to Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: OBSERVABLE. VERIFIED. ACCOUNTABLE."
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: View developer docs"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/architecture",
+    "page": "architecture",
+    "viewport": "mobile-320",
+    "width": 320
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:375"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace Documentation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Return to Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: PROTOTYPE STATUS"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:480"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace Documentation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Return to Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: PROTOTYPE STATUS"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 48.421875x22.796875px"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:768"
+      }
+    ],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1024"
+      }
+    ],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1280"
+      }
+    ],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1440"
+      }
+    ],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:1920"
+      }
+    ],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:2560"
+      }
+    ],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "edge-padding",
+        "severity": "high",
+        "detail": "Element 5 has padding L:0px R:0px, width:320"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Trace Documentation"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Return to Trace"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: PROTOTYPE STATUS"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 18 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 19 48.421875x22.796875px"
+      },
+      {
+        "type": "code-overflow",
+        "severity": "medium",
+        "detail": "Code block 0 wider than container"
+      },
+      {
+        "type": "code-overflow",
+        "severity": "medium",
+        "detail": "Code block 1 wider than container"
+      },
+      {
+        "type": "code-overflow",
+        "severity": "medium",
+        "detail": "Code block 2 wider than container"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/trace/documentation",
+    "page": "docs",
+    "viewport": "mobile-320",
+    "width": 320
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: REQUEST DEMO"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Prepare demo request"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Demo requests are prepared for review before onboa"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 12 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 48.421875x22.796875px"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 0 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 1 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 2 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 3 font-size 15px < 16px on mobile"
+      }
+    ],
+    "bodyWidth": 375,
+    "viewportWidth": 375,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "mobile-375",
+    "width": 375
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: REQUEST DEMO"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Prepare demo request"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Demo requests are prepared for review before onboa"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 12 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 48.421875x22.796875px"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 0 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 1 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 2 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 3 font-size 15px < 16px on mobile"
+      }
+    ],
+    "bodyWidth": 480,
+    "viewportWidth": 480,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "mobile-480",
+    "width": 480
+  },
+  {
+    "issues": [],
+    "bodyWidth": 768,
+    "viewportWidth": 768,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "tablet-768",
+    "width": 768
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1024,
+    "viewportWidth": 1024,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "tablet-1024",
+    "width": 1024
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1280,
+    "viewportWidth": 1280,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "desktop-1280",
+    "width": 1280
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1440,
+    "viewportWidth": 1440,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "desktop-1440",
+    "width": 1440
+  },
+  {
+    "issues": [],
+    "bodyWidth": 1920,
+    "viewportWidth": 1920,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "desktop-1920",
+    "width": 1920
+  },
+  {
+    "issues": [],
+    "bodyWidth": 2560,
+    "viewportWidth": 2560,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "desktop-2560",
+    "width": 2560
+  },
+  {
+    "issues": [
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Request demo"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: REQUEST DEMO"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Prepare demo request"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 12px on text: Demo requests are prepared for review before onboa"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Architecture"
+      },
+      {
+        "type": "small-text",
+        "severity": "medium",
+        "detail": "Font size 13px on text: Stria Systems"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 0 45x42px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 1 48x38px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 9 0x0px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 12 64.265625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 13 47.25x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 14 47.515625x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 15 88.6875x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 16 43.75x22.796875px"
+      },
+      {
+        "type": "touch-target",
+        "severity": "high",
+        "detail": "Button 17 48.421875x22.796875px"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 0 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 1 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 2 font-size 15px < 16px on mobile"
+      },
+      {
+        "type": "input-zoom",
+        "severity": "medium",
+        "detail": "Input 3 font-size 15px < 16px on mobile"
+      }
+    ],
+    "bodyWidth": 320,
+    "viewportWidth": 320,
+    "url": "http://localhost:5176/demo",
+    "page": "demo",
+    "viewport": "mobile-320",
+    "width": 320
+  }
+]
