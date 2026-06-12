@@ -3,9 +3,9 @@
 //! Run with: cargo bench
 
 use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion, Throughput};
-use std::hint::black_box as hint_black_box;
 use serde_json::json;
 use std::collections::HashMap;
+use std::hint::black_box as hint_black_box;
 // Import from the library crate
 use trace_core::{canonical_json, evidence, hash, policy, redact, types::*, usage_intel};
 
