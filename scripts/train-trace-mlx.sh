@@ -4,8 +4,21 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
+# Prevent multiprocessing RLock deadlocks in Hugging Face datasets library
+export TOKENIZERS_PARALLELISM=false
+export HF_HUB_DISABLE_SYMLINKS_WARNING=1
+export HF_HUB_DISABLE_PROGRESS_BARS=1
+export HF_DATASETS_NUM_PROC=1
+
 MODEL="${TRACE_MLX_MODEL:-mlx-community/Qwen2.5-1.5B-Instruct-4bit}"
-PYTHON="${TRACE_PYTHON:-python3}"
+# Use venv python if available, otherwise system python3
+if [[ -f "$ROOT_DIR/.venv-mlx/bin/python3" ]]; then
+    PYTHON="$ROOT_DIR/.venv-mlx/bin/python3"
+elif [[ -f "$ROOT_DIR/.venv-mlx/bin/python" ]]; then
+    PYTHON="$ROOT_DIR/.venv-mlx/bin/python"
+else
+    PYTHON="${TRACE_PYTHON:-python3}"
+fi
 OUTPUT_DIR="${TRACE_MLX_OUTPUT_DIR:-datasets/trace-enterprise}"
 ADAPTER_PATH="${TRACE_MLX_ADAPTER_PATH:-.trace/adapters/trace-enterprise}"
 ITERS="${TRACE_MLX_ITERS:-600}"

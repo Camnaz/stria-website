@@ -93,7 +93,7 @@ export function ForgeProduct() {
 
 POST /forge/primitives/:id/evaluate
 POST /forge/primitives/:id/deploy
-GET  /trace/events?primitive_id=...`}</pre>
+GET  /trace/events?primitive_id={primitiveId}`}</pre>
         </div>
         <div className={styles.splitRight}>
           <p className={styles.eyebrow}>CLEAN API BOUNDARY</p>

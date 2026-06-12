@@ -1,17 +1,27 @@
 import styles from "./Header.module.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { routes } from "../../utils/navigation";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import type { Surface } from "../../types/router";
 import { BrandButton } from "./BrandButton";
 
 interface HeaderProps {
-  surface: Surface;
+  surface?: Surface;
 }
 
 export function Header({ surface }: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const activeSurface = surface ?? surfaceFromPath(location.pathname);
+
+  const goTo = (route: string) => {
+    setIsMenuOpen(false);
+    navigate(route);
+  };
 
   useEffect(() => {
     let rafId = 0;
@@ -39,30 +49,55 @@ export function Header({ surface }: HeaderProps) {
     <header ref={headerRef} className={styles.header}>
       <BrandButton />
 
-      <nav className={styles.nav} aria-label="Primary navigation">
-        <button className={surface === "company" ? styles.active : ""} onClick={() => navigate(routes.company)}>
+      <button
+        className={styles.menuButton}
+        type="button"
+        aria-expanded={isMenuOpen}
+        aria-controls="primary-navigation"
+        aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+        onClick={() => setIsMenuOpen((open) => !open)}
+      >
+        {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+        <span>Menu</span>
+      </button>
+
+      <nav id="primary-navigation" className={`${styles.nav} ${isMenuOpen ? styles.open : ""}`} aria-label="Primary navigation">
+        <button className={activeSurface === "company" ? styles.active : ""} onClick={() => goTo(routes.company)}>
           Company
         </button>
-        <button className={surface === "platform" ? styles.active : ""} onClick={() => navigate(routes.platform)}>
+        <button className={activeSurface === "platform" ? styles.active : ""} onClick={() => goTo(routes.platform)}>
           Platform
         </button>
-        <button className={surface === "trace" ? styles.active : ""} onClick={() => navigate(routes.trace)}>
+        <button className={activeSurface === "trace" ? styles.active : ""} onClick={() => goTo(routes.trace)}>
           Trace
         </button>
-        <button className={surface === "forge" ? styles.active : ""} onClick={() => navigate(routes.forge)}>
+        <button className={activeSurface === "forge" ? styles.active : ""} onClick={() => goTo(routes.forge)}>
           Forge
         </button>
-        <button className={surface === "architecture" ? styles.active : ""} onClick={() => navigate(routes.architecture)}>
+        <button className={activeSurface === "architecture" ? styles.active : ""} onClick={() => goTo(routes.architecture)}>
           Architecture
         </button>
-        <button className={surface === "traceDocs" ? styles.active : ""} onClick={() => navigate(routes.traceDocs)}>
+        <button className={activeSurface === "traceDocs" ? styles.active : ""} onClick={() => goTo(routes.traceDocs)}>
           Docs
+        </button>
+        <button className={styles.mobileCta} onClick={() => goTo(routes.demo)}>
+          Request demo
         </button>
       </nav>
 
-      <button className={styles.navCta} onClick={() => navigate(routes.demo)}>
+      <button className={styles.navCta} onClick={() => goTo(routes.demo)}>
         Request demo
       </button>
     </header>
   );
+}
+
+function surfaceFromPath(pathname: string): Surface {
+  if (pathname.startsWith(routes.platform)) return "platform";
+  if (pathname.startsWith(routes.traceDocs)) return "traceDocs";
+  if (pathname.startsWith(routes.trace)) return "trace";
+  if (pathname.startsWith(routes.forge)) return "forge";
+  if (pathname.startsWith(routes.architecture)) return "architecture";
+  if (pathname.startsWith(routes.demo)) return "demo";
+  return "company";
 }

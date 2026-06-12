@@ -4,16 +4,17 @@
 }
 
 .eyebrow {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 11px;
+  color: var(--blue-quiet);
+  font-family: var(--body);
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .cta h2 {
+  font-weight: 600;
   margin: 0 0 16px;
 }
 

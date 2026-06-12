@@ -24,6 +24,9 @@ pub use types::{
 
 // Re-export core modules - internal functions made public for benchmarks
 pub use canonical_json::{sort_for_canonical_json, value_to_canonical_json};
+
+/// Maximum number of synthetic probes for evaluation generation
+pub const MAX_PROBES: usize = 1000;
 pub use evidence::run_trace_simulation;
 pub use hash::{hash_evidence_record, sha256_any, sha256_str, sha256_value, sign_record_stub};
 pub use policy::{evaluate_policy, verify_identity};

@@ -12,10 +12,12 @@
     "dev": "tsc --watch",
     "test": "node --test dist/test.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "trace-core": "file:../trace-core-0.1.0.tgz"
+  },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "@trace/core": "0.1.0"

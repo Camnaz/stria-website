@@ -6,3 +6,22 @@
 .compact {
   padding-bottom: calc(var(--section-y) * 0.75);
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .band {
+    animation: bandReveal both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 32%;
+  }
+}
+
+@keyframes bandReveal {
+  from {
+    opacity: 0.72;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -16,10 +16,10 @@
 
 .nav button {
   color: var(--quiet);
-  font-family: var(--mono);
-  font-size: 11px;
+  font-family: var(--body);
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
   transition: color var(--fast) ease;
 }
@@ -29,9 +29,10 @@
 }
 
 .credit {
-  color: var(--quiet);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  color: var(--blue-quiet);
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }

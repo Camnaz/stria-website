@@ -3,8 +3,21 @@
 Download remote datasets for Trace corpus building, avoiding multiprocessing RLock issues.
 Run this once to cache all remote data locally, then build corpus with --local-only.
 """
-import json
+# Prevent multiprocessing RLock deadlocks in Hugging Face datasets library
 import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+os.environ["HF_DATASETS_NUM_PROC"] = "1"  # Disable multiprocessing in datasets library
+
+# Force 'spawn' start method on macOS to avoid fork-safety issues with multiprocessing
+import multiprocessing
+try:
+    multiprocessing.set_start_method("spawn", force=True)
+except RuntimeError:
+    pass  # Already set
+
+import json
 from pathlib import Path
 
 def download_wambosec():

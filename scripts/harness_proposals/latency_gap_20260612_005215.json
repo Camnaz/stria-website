@@ -1,0 +1,5 @@
+{
+  "file": "increase-telemetry.py",
+  "description": "Increase telemetry script to collect more data",
+  "category": "latency_gap"
+}
