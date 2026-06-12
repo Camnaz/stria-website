@@ -62,6 +62,11 @@ jobs:
           npm ci --legacy-peer-deps
           npm run build
 
+      - name: Copy native module to ts-wrapper dist
+        working-directory: trace-core
+        run: |
+          cp trace_core.linux-x64-gnu.node ts-wrapper/dist/ 2>/dev/null || cp trace_core.linux-x64-musl.node ts-wrapper/dist/ 2>/dev/null || cp trace_core.linux-x64.node ts-wrapper/dist/ 2>/dev/null || true
+
       - name: TypeScript type check
         run: npm run trace:typecheck
 
