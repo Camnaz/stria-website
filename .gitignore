@@ -17,6 +17,7 @@ trace-core/target/
 
 # Dataset files (large JSONL files)
 datasets/**/*.jsonl
+!datasets/usage-intelligence.jsonl
 datasets/**/*.json
 
 # IDE/Editor
