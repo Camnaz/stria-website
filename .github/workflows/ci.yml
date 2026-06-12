@@ -71,7 +71,12 @@ jobs:
       - name: Copy native module to ts-wrapper dist
         working-directory: trace-core
         run: |
-          cp trace_core.linux-x64-gnu.node ts-wrapper/dist/ 2>/dev/null || cp trace_core.linux-x64-musl.node ts-wrapper/dist/ 2>/dev/null || cp trace_core.linux-x64.node ts-wrapper/dist/ 2>/dev/null || true
+          ls -la trace_core.*.node
+          cp trace_core.linux-x64-gnu.node ts-wrapper/dist/ 2>/dev/null && echo "Copied gnu" || \
+          cp trace_core.linux-x64-musl.node ts-wrapper/dist/ 2>/dev/null && echo "Copied musl" || \
+          cp trace_core.linux-x64.node ts-wrapper/dist/ 2>/dev/null && echo "Copied generic" || \
+          (echo "No native module found to copy" && exit 1)
+          ls -la ts-wrapper/dist/trace_core.*.node
 
       - name: TypeScript type check
         run: npm run trace:typecheck
