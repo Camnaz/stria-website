@@ -11,7 +11,8 @@
     "test": "vitest run",
     "lint:commits": "commitlint --from=HEAD~1 --to=HEAD",
     "commit": "git-cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "trace:typecheck": "cd trace-core/ts-wrapper && npm run build"
   },
   "dependencies": {
     "@trace/core": "^0.1.0",
@@ -41,7 +42,8 @@
     "typescript": "^5.6.3",
     "vite": "^6.0.7",
     "vitest": "^4.1.8",
-    "wrangler": "^4.98.0"
+    "wrangler": "^4.98.0",
+    "ajv-formats": "^3.0.1"
   },
   "description": "The official Stria Systems website — built with React, Vite, and deployed to Cloudflare Pages.",
   "main": "index.js",

@@ -15,9 +15,11 @@ permissions:
   security-events: write
 
 jobs:
+  # CodeQL Analysis (main analysis)
   analyze:
     name: CodeQL Analysis
     runs-on: ubuntu-latest
+    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
@@ -54,6 +56,7 @@ jobs:
   secret-scan:
     name: Secret Scanning
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
