@@ -55,6 +55,31 @@ jobs:
           npm ci
           npx napi build --platform --release
 
+      - name: Setup Node.js (ts-wrapper)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: trace-core/ts-wrapper/package-lock.json
+
+      - name: Build trace-core TypeScript wrapper
+        working-directory: trace-core/ts-wrapper
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
+
+      - name: Copy native module to ts-wrapper dist
+        working-directory: trace-core
+        run: |
+          ls -la trace_core.*.node
+          cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
+          (echo "No native module found to copy" && exit 1)
+          ls -la ts-wrapper/dist/trace_core.*.node
+
+      - name: Copy native module to installed trace-core package
+        run: |
+          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
+
       - name: Run tests
         run: npm run test
 

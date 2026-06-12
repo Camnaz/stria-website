@@ -74,17 +74,13 @@ jobs:
         working-directory: trace-core
         run: |
           ls -la trace_core.*.node
-          cp trace_core.linux-x64-gnu.node ts-wrapper/dist/ 2>/dev/null && echo "Copied gnu" || \
-          cp trace_core.linux-x64-musl.node ts-wrapper/dist/ 2>/dev/null && echo "Copied musl" || \
-          cp trace_core.linux-x64.node ts-wrapper/dist/ 2>/dev/null && echo "Copied generic" || \
+          cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
           (echo "No native module found to copy" && exit 1)
           ls -la ts-wrapper/dist/trace_core.*.node
 
       - name: Copy native module to installed trace-core package
         run: |
-          cp trace-core/trace_core.linux-x64-gnu.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64-musl.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64.node node_modules/trace-core/ 2>/dev/null || true
+          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: TypeScript type check
         run: npm run trace:typecheck
@@ -222,9 +218,7 @@ jobs:
         working-directory: trace-core
         run: |
           ls -la trace_core.*.node
-          cp trace_core.linux-x64-gnu.node ts-wrapper/dist/ 2>/dev/null && echo "Copied gnu" || \
-          cp trace_core.linux-x64-musl.node ts-wrapper/dist/ 2>/dev/null && echo "Copied musl" || \
-          cp trace_core.linux-x64.node ts-wrapper/dist/ 2>/dev/null && echo "Copied generic" || \
+          cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
           (echo "No native module found to copy" && exit 1)
           ls -la ts-wrapper/dist/trace_core.*.node
 
@@ -233,9 +227,7 @@ jobs:
 
       - name: Copy native module to installed trace-core package
         run: |
-          cp trace-core/trace_core.linux-x64-gnu.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64-musl.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64.node node_modules/trace-core/ 2>/dev/null || true
+          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: Build
         run: npm run build
@@ -311,9 +303,7 @@ jobs:
         working-directory: trace-core
         run: |
           ls -la trace_core.*.node
-          cp trace_core.linux-x64-gnu.node ts-wrapper/dist/ 2>/dev/null && echo "Copied gnu" || \
-          cp trace_core.linux-x64-musl.node ts-wrapper/dist/ 2>/dev/null && echo "Copied musl" || \
-          cp trace_core.linux-x64.node ts-wrapper/dist/ 2>/dev/null && echo "Copied generic" || \
+          cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
           (echo "No native module found to copy" && exit 1)
           ls -la ts-wrapper/dist/trace_core.*.node
 
@@ -322,9 +312,7 @@ jobs:
 
       - name: Copy native module to installed trace-core package
         run: |
-          cp trace-core/trace_core.linux-x64-gnu.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64-musl.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64.node node_modules/trace-core/ 2>/dev/null || true
+          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: Build
         run: npm run build
