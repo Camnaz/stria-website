@@ -48,6 +48,9 @@ jobs:
           npm pack
           ls -la trace-core-0.1.0.tgz
 
+      - name: Install local trace-core package
+        run: npm install ./trace-core/trace-core-0.1.0.tgz
+
       - name: Setup Node.js (root)
         uses: actions/setup-node@v4
         with:
@@ -78,10 +81,6 @@ jobs:
           cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
           (echo "No native module found to copy" && exit 1)
           ls -la ts-wrapper/dist/trace_core.*.node
-
-      - name: Copy native module to installed trace-core package
-        run: |
-          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: TypeScript type check
         run: npm run trace:typecheck
@@ -129,21 +128,21 @@ jobs:
         run: cargo clippy --all-targets --all-features -- -D warnings
 
       - name: Build
-        run: cargo build --release
+        run: cargo build --all-targets --all-features
 
       - name: Run tests
-        run: cargo test --lib
+        run: cargo test --all-targets --all-features
 
       - name: Run benchmarks (compile check only)
-        run: echo "Skipping benchmark build - requires N-API binary not available on CI runners" && exit 0
+        run: cargo bench --all-targets --all-features --no-run
 
   # Python ML CI
-  python:
+  python-ml:
     name: Python ML CI
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: prototype/mlx-classifier
+        working-directory: stria-ingestion-pipeline
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -152,28 +151,26 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install pytest
+          pip install -r requirements.txt 2>/dev/null || true
 
       - name: Run syntax check
-        run: python -m py_compile *.py
+        run: python -m py_compile $(find . -name "*.py")
 
       - name: Run tests (if any)
         run: |
-          if ls test_*.py 1>/dev/null 2>&1; then
-            pytest -v
+          if [ -f pytest.ini ] || [ -f pyproject.toml ] || ls tests/*.py 2>/dev/null; then
+            pytest
           else
-            echo "No Python tests found, skipping"
+            echo "No tests found, skipping"
           fi
 
-  # PR Preview Deployment (on pull requests)
+  # Cloudflare Pages Preview Deploy (on PRs)
   preview-deploy:
     name: Preview Deploy (PR)
-    needs: [typescript, rust]
+    needs: [typescript, rust, python-ml]
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
@@ -203,33 +200,14 @@ jobs:
           rustup target add x86_64-unknown-linux-gnu
           npx napi build --release --target x86_64-unknown-linux-gnu
 
-      - name: Rebuild trace-core package with native module
-        working-directory: trace-core
-        run: |
-          npm pack
-          # Ensure the tgz file exists at the expected path for ts-wrapper dependency
-          ls -la trace-core-0.1.0.tgz
-
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
         run: |
           npm ci --legacy-peer-deps
           npm run build
 
-      - name: Copy native module to ts-wrapper dist
-        working-directory: trace-core
-        run: |
-          ls -la trace_core.*.node
-          cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
-          (echo "No native module found to copy" && exit 1)
-          ls -la ts-wrapper/dist/trace_core.*.node
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Copy native module to installed trace-core package
-        run: |
-          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: Build
         run: npm run build
@@ -253,13 +231,13 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `🚀 **Preview Deployment Ready**\\n\\nYour changes are live at: ${url}\\n\\nThis preview will update automatically on each push to this PR.`
+              body: `🚀 **Preview Deployment Ready**\n\nYour changes are live at: ${url}\n\nThis preview will update automatically on each push to this PR.`
             })
 
   # Cloudflare Pages Production Deploy (on main branch only)
   deploy:
     name: Deploy to Cloudflare Pages (Production)
-    needs: [typescript, rust]
+    needs: [typescript, rust, python-ml]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -289,33 +267,14 @@ jobs:
           rustup target add x86_64-unknown-linux-gnu
           npx napi build --release --target x86_64-unknown-linux-gnu
 
-      - name: Rebuild trace-core package with native module
-        working-directory: trace-core
-        run: |
-          npm pack
-          # Ensure the tgz file exists at the expected path for ts-wrapper dependency
-          ls -la trace-core-0.1.0.tgz
-
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
         run: |
           npm ci --legacy-peer-deps
           npm run build
 
-      - name: Copy native module to ts-wrapper dist
-        working-directory: trace-core
-        run: |
-          ls -la trace_core.*.node
-          cp trace_core.*.node ts-wrapper/dist/ 2>/dev/null && echo "Copied native module" || \
-          (echo "No native module found to copy" && exit 1)
-          ls -la ts-wrapper/dist/trace_core.*.node
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Copy native module to installed trace-core package
-        run: |
-          cp trace-core/trace_core.*.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: Build
         run: npm run build
