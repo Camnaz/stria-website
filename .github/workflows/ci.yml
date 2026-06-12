@@ -39,7 +39,12 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --release --target x86_64-unknown-linux-gnu
+          cargo build --release --target x86_64-unknown-linux-gnu
+          ls -la target/x86_64-unknown-linux-gnu/release/libtrace_core.so || ls -la target/x86_64-unknown-linux-gnu/release/trace_core.dylib || true
+          # Copy to where napi expects it
+          mkdir -p .
+          cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.node 2>/dev/null || cp target/x86_64-unknown-linux-gnu/release/trace_core.dylib trace_core.node 2>/dev/null || true
+          ls -la trace_core.node
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -199,7 +204,12 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --release --target x86_64-unknown-linux-gnu
+          cargo build --release --target x86_64-unknown-linux-gnu
+          ls -la target/x86_64-unknown-linux-gnu/release/libtrace_core.so || ls -la target/x86_64-unknown-linux-gnu/release/trace_core.dylib || true
+          # Copy to where napi expects it
+          mkdir -p .
+          cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.node 2>/dev/null || cp target/x86_64-unknown-linux-gnu/release/trace_core.dylib trace_core.node 2>/dev/null || true
+          ls -la trace_core.node
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -284,7 +294,12 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --release --target x86_64-unknown-linux-gnu
+          cargo build --release --target x86_64-unknown-linux-gnu
+          ls -la target/x86_64-unknown-linux-gnu/release/libtrace_core.so || ls -la target/x86_64-unknown-linux-gnu/release/trace_core.dylib || true
+          # Copy to where napi expects it
+          mkdir -p .
+          cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.node 2>/dev/null || cp target/x86_64-unknown-linux-gnu/release/trace_core.dylib trace_core.node 2>/dev/null || true
+          ls -la trace_core.node
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
