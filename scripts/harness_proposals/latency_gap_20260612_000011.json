@@ -1,0 +1,5 @@
+{
+  "file": "new-check.py",
+  "description": "New telemetry check to monitor the telemetry volume",
+  "category": "latency_gap"
+}

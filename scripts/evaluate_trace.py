@@ -3,19 +3,41 @@
 Trace Data Flywheel - Automated Evaluation & Continuous Learning Engine
 Runs as a cron job to analyze telemetry, generate insights, and accumulate training data.
 """
-import json
+# Prevent multiprocessing RLock deadlocks in Hugging Face datasets/tokenizers library
 import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+os.environ["HF_DATASETS_NUM_PROC"] = "1"  # Disable multiprocessing in datasets library
+
+# Force 'spawn' start method on macOS to avoid fork-safety issues with multiprocessing
+import multiprocessing
+try:
+    multiprocessing.set_start_method("spawn", force=True)
+except RuntimeError:
+    pass  # Already set
+
+import json
 import sys
 import time
+import uuid
 from pathlib import Path
 from typing import Any
 
 import requests
 
+# Meta-monitoring integration
+try:
+    from meta_effectiveness_scorer import MetaEffectivenessScorer
+    META_SCORER_AVAILABLE = True
+except ImportError:
+    META_SCORER_AVAILABLE = False
+
 # ─── Configuration ──────────────────────────────────────────────────────────
 
 MLX_SERVER_URL = os.getenv("MLX_SERVER_URL", "http://localhost:9001/v1/chat/completions")
-TRACE_TELEMETRY_API = os.getenv("TRACE_TELEMETRY_API", "http://127.0.0.1:3000/api/v1/telemetry")
+# Use mock telemetry API on 8084 (no auth) or docker on 3000
+TRACE_TELEMETRY_API = os.getenv("TRACE_TELEMETRY_API", "http://localhost:8084/api/v1/telemetry")
 CONTINUOUS_LEARNING_PATH = Path("datasets/continuous_learning.jsonl")
 RETRAIN_THRESHOLD = int(os.getenv("RETRAIN_THRESHOLD", "20"))  # Trigger retrain after N samples (lowered for dev)
 MLX_MODEL = os.getenv("MLX_MODEL", "mlx-community/Qwen2.5-1.5B-Instruct-4bit")
@@ -48,17 +70,17 @@ THREE CORE PRIMITIVES TO EVALUATE:
 Data: {telemetry_json}
 
 Output STRICT JSON with these exact keys:
-{
+{{
   "latency_gaps": [
-    {"pattern": "...", "severity": "high|medium|low", "evidence": "...", "suggested_test_vector": "...", "token_bucket": "..."}
+    {{"pattern": "...", "severity": "high|medium|low", "evidence": "...", "suggested_test_vector": "...", "token_bucket": "..."}}
   ],
   "insights": [
-    {"type": "intent_drift|policy_violation|guardrail_bypass|edge_case", "description": "...", "evidence": "...", "affected_components": [...], "primitive": "latency|alignment|edge_case"}
+    {{"type": "intent_drift|policy_violation|guardrail_bypass|edge_case", "description": "...", "evidence": "...", "affected_components": [...], "primitive": "latency|alignment|edge_case"}}
   ],
   "new_test_synthetic_dataset": [
-    {"query": "...", "expected_intent": "...", "expected_risk": "...", "expected_signals": [...], "rationale": "...", "primitive_target": "latency|alignment|edge_case"}
+    {{"query": "...", "expected_intent": "...", "expected_risk": "...", "expected_signals": [...], "rationale": "...", "primitive_target": "latency|alignment|edge_case"}}
   ]
-}"""
+}}"""
 
 # ─── Core Functions ─────────────────────────────────────────────────────────
 
@@ -96,9 +118,37 @@ def ask_mlx_server(telemetry_data: list[dict[str, Any]]) -> dict[str, Any]:
         
         # Extract JSON from response (handle potential markdown code blocks)
         import re
+        # First try to find JSON in markdown code blocks
+        json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", content, re.DOTALL)
+        if json_match:
+            return json.loads(json_match.group(1))
+        # Fallback: find first complete JSON object
         json_match = re.search(r"\{.*\}", content, re.DOTALL)
         if json_match:
-            return json.loads(json_match.group())
+            # Try to parse, if fails try to find balanced braces
+            json_str = json_match.group()
+            try:
+                return json.loads(json_str)
+            except json.JSONDecodeError:
+                # Try to find balanced braces manually
+                brace_count = 0
+                start_idx = -1
+                for i, char in enumerate(json_str):
+                    if char == '{':
+                        if brace_count == 0:
+                            start_idx = i
+                        brace_count += 1
+                    elif char == '}':
+                        brace_count -= 1
+                        if brace_count == 0 and start_idx != -1:
+                            candidate = json_str[start_idx:i+1]
+                            try:
+                                return json.loads(candidate)
+                            except json.JSONDecodeError:
+                                continue
+                # If all else fails, return empty
+                print(f"[ERROR] Could not parse JSON from MLX response")
+                return {"latency_gaps": [], "insights": [], "new_test_synthetic_dataset": []}
         return json.loads(content)
     except Exception as e:
         print(f"[ERROR] MLX server analysis failed: {e}")
@@ -173,36 +223,48 @@ def hot_swap_model() -> bool:
 
 def main():
     print(f"[INFO] Starting Trace data flywheel evaluation @ {time.strftime('%Y-%m-%d %H:%M:%S')}")
-    
+
+    # Generate unique analysis ID for meta-monitoring
+    analysis_id = str(uuid.uuid4())[:8]
+
     # 1. Fetch telemetry
     telemetry = fetch_recent_telemetry(60)
     if not telemetry:
         print("[INFO] No new telemetry data to analyze")
         return 0
-    
+
     print(f"[INFO] Fetched {len(telemetry)} telemetry records")
-    
+
     # 2. Analyze with Hermes
     analysis = ask_mlx_server(telemetry)
-    
-    # 3. Accumulate learning
+
+    # 3. Log to meta-effectiveness scorer for RL feedback
+    if META_SCORER_AVAILABLE:
+        try:
+            scorer = MetaEffectivenessScorer()
+            findings_count = scorer.log_monitor_findings(analysis, analysis_id)
+            print(f"[META] Logged {findings_count} findings to meta-effectiveness scorer (id: {analysis_id})")
+        except Exception as e:
+            print(f"[META] Warning: Failed to log findings: {e}")
+
+    # 4. Accumulate learning
     total_entries = append_to_continuous_learning(telemetry, analysis)
     print(f"[INFO] Continuous learning dataset now has {total_entries} entries")
-    
-    # 4. Check retrain threshold
+
+    # 5. Check retrain threshold
     if check_retrain_threshold():
         if trigger_retrain():
             hot_swap_model()
             print("[INFO] Retrain + hot-swap complete. System updated.")
         else:
             print("[WARN] Retrain failed, continuing with current model")
-    
-    # 5. Print summary
+
+    # 6. Print summary
     lg = len(analysis.get("latency_gaps", []))
     ins = len(analysis.get("insights", []))
     tests = len(analysis.get("new_test_synthetic_dataset", []))
     print(f"[SUMMARY] Latency gaps: {lg}, Insights: {ins}, New test vectors: {tests}")
-    
+
     return 0
 
 

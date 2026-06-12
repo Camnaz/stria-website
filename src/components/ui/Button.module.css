@@ -1,45 +1,62 @@
 .button {
   align-items: center;
-  border: 1px solid var(--brass-dim);
-  color: var(--brass);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius) !important;
+  color: var(--dark-text);
   display: inline-flex;
-  font-family: var(--mono);
-  font-size: 11px;
+  font-family: var(--sans);
+  font-size: 13px;
   font-weight: 500;
   gap: 8px;
   justify-content: center;
-  letter-spacing: 0.1em;
-  min-height: 40px;
-  padding: 0 20px;
-  text-transform: uppercase;
-  transition: background var(--fast) ease, border-color var(--fast) ease, color var(--fast) ease;
+  letter-spacing: 0;
+  min-height: 44px;
+  padding: 0 24px;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--fast) var(--ease);
   white-space: nowrap;
 }
 
 .primary,
 .navCta {
-  border-color: var(--brass);
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #09090b;
 }
 
 .primary:hover,
 .navCta:hover {
-  background: var(--brass);
-  color: var(--obsidian);
+  background: var(--cyan-hover);
+  border-color: var(--blue-ink);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+
+.light-band .secondary {
+  border-color: var(--light-border);
+  color: var(--light-text);
 }
 
 .secondary:hover {
-  border-color: var(--brass);
-  color: var(--brass-bright);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: var(--cyan-dim);
+  text-decoration: none;
 }
 
 .primary:active,
 .secondary:active,
 .navCta:active {
-  opacity: 0.85;
+  transform: translateY(0);
 }
 
 .small {
-  min-height: 32px;
-  padding: 0 14px;
-  font-size: 10px;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 12px;
 }

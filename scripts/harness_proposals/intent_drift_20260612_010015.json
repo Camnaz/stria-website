@@ -1,0 +1,5 @@
+{
+  "file": "new-telemetry-check.py",
+  "description": "A new telemetry check to monitor the system's effectiveness and production metrics.",
+  "category": "intent_drift"
+}

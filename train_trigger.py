@@ -4,8 +4,21 @@ Training Trigger: Monitors synthetic dataset size and triggers MLX LoRA fine-tun
 
 Run via cron: 0 3 * * * /path/to/.venv-mlx/bin/python /path/to/train_trigger.py
 """
-import json
+# Prevent multiprocessing RLock deadlocks in Hugging Face datasets/tokenizers library
 import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+os.environ["HF_DATASETS_NUM_PROC"] = "1"  # Disable multiprocessing in datasets library
+
+# Force 'spawn' start method on macOS to avoid fork-safety issues with multiprocessing
+import multiprocessing
+try:
+    multiprocessing.set_start_method("spawn", force=True)
+except RuntimeError:
+    pass  # Already set
+
+import json
 import subprocess
 import sys
 from datetime import datetime

@@ -13,7 +13,7 @@ export function BrandButton({ variant = "header" }: BrandButtonProps) {
     >
       <img
         className={styles.logo}
-        src="/assets/stria-systems-obsidian-400.png"
+        src="/assets/striaSystems400.svg"
         alt="Stria Systems"
       />
     </button>

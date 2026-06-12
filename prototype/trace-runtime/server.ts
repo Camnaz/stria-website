@@ -18,7 +18,7 @@ import {
 import type { AgentToolCall, TraceIngestEnvelope, TraceMode } from "./types.js";
 
 const PORT = Number(process.env.TRACE_PORT ?? 8787);
-const FIXTURE_DIR = "fixtures/events";
+const FIXTURE_DIR = join(import.meta.dirname, "..", "..", "fixtures", "events");
 const execFileAsync = promisify(execFile);
 
 export function createTraceLocalServer() {
@@ -230,8 +230,12 @@ async function evaluateCall(call: AgentToolCall, mode: TraceMode, previousRecord
 }
 
 async function loadFixture(fixtureId: string): Promise<AgentToolCall> {
-  const safeFixture = fixtureId.replace(/[^a-z0-9-_]/gi, "");
-  const contents = await readFile(join(FIXTURE_DIR, `${safeFixture}.json`), "utf8");
+  // Preserve .json extension if present, otherwise add it
+  const fixtureName = fixtureId.endsWith(".json") ? fixtureId : `${fixtureId}.json`;
+  const safeFixture = fixtureId.replace(/[^a-z0-9-_.]/gi, "");
+  // Ensure we don't double-add .json
+  const filename = safeFixture.endsWith(".json") ? safeFixture : `${safeFixture}.json`;
+  const contents = await readFile(join(FIXTURE_DIR, filename), "utf8");
   return JSON.parse(contents) as AgentToolCall;
 }
 

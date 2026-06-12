@@ -3,8 +3,6 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles.css";
 
-console.log('main.tsx module loading...');
-
 // Lazy-loaded page components - each becomes a separate chunk
 const CompanyHome = lazy(() => import("./pages/CompanyHome").then((m) => ({ default: m.CompanyHome })));
 const PlatformDashboard = lazy(() => import("./pages/PlatformDashboard").then((m) => ({ default: m.PlatformDashboard })));
@@ -14,13 +12,9 @@ const ArchitectureOverview = lazy(() => import("./pages/ArchitectureOverview").t
 const TraceDocumentation = lazy(() => import("./pages/TraceDocumentation").then((m) => ({ default: m.TraceDocumentation })));
 const DemoRequest = lazy(() => import("./pages/DemoRequest").then((m) => ({ default: m.DemoRequest })));
 
-console.log('Lazy components defined');
-
 // Layout components (shared across pages, loaded upfront)
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
-
-console.log('Layout components imported');
 
 interface ErrorBoundaryState {
   error: Error | null;
@@ -62,7 +56,7 @@ function App() {
         <div className="site-shell">
           <Header />
           <main id="main-content">
-            <Suspense fallback={<div className="page-loading" aria-hidden="true">Loading…</div>}>
+            <Suspense fallback={<div className="page-loading" aria-hidden="true">Loading</div>}>
               <Routes>
                 <Route path="/" element={<CompanyHome />} />
                 <Route path="/platform" element={<PlatformDashboard />} />
@@ -86,5 +80,3 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </React.StrictMode>
 );
-
-console.log('React render called');

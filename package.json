@@ -1,5 +1,5 @@
 {
-  "name": "stria-systems-trace",
+  "name": "stria-systems-website",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,39 +8,18 @@
     "build": "vite build",
     "deploy:cloudflare": "npm run build && wrangler pages deploy dist --project-name stria-systems --branch main",
     "preview": "vite preview --host 0.0.0.0",
-    "trace:install": "bash scripts/install-trace-local.sh",
-    "trace:mlx:classify": "${TRACE_PYTHON:-python3} prototype/mlx-classifier/classify_usage.py",
-    "trace:mlx:prepare": "${TRACE_PYTHON:-python3} prototype/mlx-classifier/prepare_lora_dataset.py",
-    "trace:mlx:corpus": "${TRACE_PYTHON:-python3} prototype/mlx-classifier/build_enterprise_corpus.py",
-    "trace:mlx:baseline": "${TRACE_PYTHON:-python3} prototype/mlx-classifier/baseline_predict_usage.py",
-    "trace:mlx:probe": "${TRACE_PYTHON:-python3} prototype/mlx-classifier/probe_adapter.py",
-    "trace:mlx:train": "bash scripts/train-trace-mlx.sh",
-    "trace:mlx:evaluate": "python3 prototype/mlx-classifier/evaluate_usage_labels.py",
-    "trace:simulate": "tsx prototype/trace-runtime/simulate.ts",
-    "trace:simulate:chat": "tsx prototype/trace-runtime/simulate-chat-batch.ts",
-    "trace:simulate:malicious": "tsx prototype/trace-runtime/simulate-malicious-batch.ts",
-    "trace:serve": "tsx prototype/trace-runtime/server.ts",
-    "trace:typecheck": "tsc -p tsconfig.prototype.json --noEmit",
     "test": "vitest run",
     "lint:commits": "commitlint --from=HEAD~1 --to=HEAD",
     "commit": "git-cz",
     "prepare": "husky install"
   },
   "dependencies": {
-    "@trace/core": "file:./trace-core/ts-wrapper",
-    "@types/gsap": "^1.20.2",
-    "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react": "^4.3.4",
-    "ajv": "^8.20.0",
-    "ajv-formats": "^3.0.1",
+    "@trace/core": "^0.1.0",
     "gsap": "^3.15.0",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.17.0",
-    "typescript": "^5.6.3",
-    "vite": "^6.0.7",
-    "yaml": "^2.9.0"
+    "react-router-dom": "^7.17.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
@@ -55,11 +34,31 @@
     "@types/node": "^25.9.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "husky": "^9.1.6",
     "rollup-plugin-visualizer": "^7.0.1",
     "semantic-release": "^24.2.0",
-    "tsx": "^4.22.4",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.7",
     "vitest": "^4.1.8",
     "wrangler": "^4.98.0"
-  }
+  },
+  "description": "The official Stria Systems website — built with React, Vite, and deployed to Cloudflare Pages.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Camnaz/StriaSystems.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Camnaz/StriaSystems/issues"
+  },
+  "homepage": "https://github.com/Camnaz/StriaSystems#readme"
 }

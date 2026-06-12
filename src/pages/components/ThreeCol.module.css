@@ -1,13 +1,24 @@
 .grid {
   display: grid;
-  gap: 20px;
+  gap: clamp(14px, 2vw, 22px);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
   max-width: 1200px;
 }
 
+@media (min-width: 901px) {
+  .grid > :nth-child(2) {
+    margin-top: 16px;
+  }
+
+  .grid > :nth-child(3) {
+    margin-top: 32px;
+  }
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+    max-width: 680px;
   }
 }

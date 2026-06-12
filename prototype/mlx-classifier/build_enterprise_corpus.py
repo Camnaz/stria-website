@@ -1,6 +1,20 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+# Prevent multiprocessing RLock deadlocks in Hugging Face datasets library
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["HF_HUB_DISABLE_PROGRESS_BARS"] = "1"
+os.environ["HF_DATASETS_NUM_PROC"] = "1"  # Disable multiprocessing in datasets library
+
+# Force 'spawn' start method on macOS to avoid fork-safety issues with multiprocessing
+import multiprocessing
+try:
+    multiprocessing.set_start_method("spawn", force=True)
+except RuntimeError:
+    pass  # Already set
+
 import argparse
 import hashlib
 import json
@@ -243,8 +257,9 @@ SYNTHETIC_PATTERNS = [
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
     print(f"  read_jsonl: {path}")
-    text = path.read_text()
+    text = path.read_text(encoding="utf-8")
     print(f"    Text length: {len(text)}, First 200: {repr(text[:200])}")
+    # Use splitlines(keepends=False) to handle all line ending types
     lines = text.splitlines()
     print(f"    Lines: {len(lines)}")
     result = []
@@ -254,8 +269,10 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
                 result.append(json.loads(line))
             except json.JSONDecodeError as e:
                 print(f"    ERROR line {i+1}: {e}")
-                print(f"    Line: {repr(line[:200])}")
-                raise
+                print(f"    Line: {repr(line[:500])}")
+                # Try to recover by skipping this line
+                print(f"    Skipping corrupted line {i+1}")
+                continue
     return result
 
 
@@ -743,12 +760,15 @@ def load_local_source(path: Path, limit: int | None = None) -> list[dict[str, An
 def load_remote_source(dataset: str, split: str, text_field: str, label_field: str | None, limit: int | None) -> list[dict[str, Any]]:
     try:
         load_dataset = import_huggingface_load_dataset()
+        from datasets import DownloadConfig
     except ImportError as error:
         raise SystemExit(
             "The datasets package is required for remote corpus hydration. Install it with: pip install -r prototype/mlx-classifier/requirements.txt"
         ) from error
 
-    dataset_rows = load_dataset(dataset, split=split)
+    download_config = DownloadConfig(num_proc=1)
+    # Use streaming=True to avoid multiprocessing RLock issues on macOS
+    dataset_rows = load_dataset(dataset, split=split, download_config=download_config, streaming=True)
     label_names: list[str] | None = None
     if label_field and hasattr(dataset_rows, "features"):
         feature = dataset_rows.features.get(label_field)
@@ -770,12 +790,14 @@ def load_remote_source(dataset: str, split: str, text_field: str, label_field: s
 def load_remote_csv_source(data_file: str, split: str, limit: int | None) -> list[dict[str, Any]]:
     try:
         load_dataset = import_huggingface_load_dataset()
+        from datasets import DownloadConfig
     except ImportError as error:
         raise SystemExit(
             "The datasets package is required for remote corpus hydration. Install it with: pip install -r prototype/mlx-classifier/requirements.txt"
         ) from error
 
-    dataset_rows = load_dataset("csv", data_files=data_file, split=split)
+    download_config = DownloadConfig(num_proc=1)
+    dataset_rows = load_dataset("csv", data_files=data_file, split=split, download_config=download_config)
     output: list[dict[str, Any]] = []
     for row in dataset_rows:
         output.append(dict(row))
