@@ -39,7 +39,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --platform --release --target x86_64-unknown-linux-gnu
+          npx napi build --release --target x86_64-unknown-linux-gnu
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -203,7 +203,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --platform --release --target x86_64-unknown-linux-gnu
+          npx napi build --release --target x86_64-unknown-linux-gnu
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -292,7 +292,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --platform --release --target x86_64-unknown-linux-gnu
+          npx napi build --release --target x86_64-unknown-linux-gnu
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
