@@ -39,7 +39,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --platform --release --target x86_64-unknown-linux-gnu
+          napi build --release --target x86_64-unknown-linux-gnu
           ls -la trace_core.*.node
 
       - name: Setup Node.js (root)
@@ -198,7 +198,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --platform --release --target x86_64-unknown-linux-gnu
+          napi build --release --target x86_64-unknown-linux-gnu
           ls -la trace_core.*.node
 
       - name: Rebuild trace-core package with native module
@@ -278,7 +278,7 @@ jobs:
         working-directory: trace-core
         run: |
           npm ci
-          npx napi build --platform --release --target x86_64-unknown-linux-gnu
+          napi build --release --target x86_64-unknown-linux-gnu
           ls -la trace_core.*.node
 
       - name: Rebuild trace-core package with native module
