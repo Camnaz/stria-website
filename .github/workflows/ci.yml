@@ -37,7 +37,9 @@ jobs:
 
       - name: Build N-API binary (napi-rs)
         working-directory: trace-core
-        run: npm ci && npm run build:release
+        run: |
+          npm ci && npm run build:release
+          ls -la trace_core.*.node
 
       - name: Setup Node.js (root)
         uses: actions/setup-node@v4
@@ -193,7 +195,9 @@ jobs:
 
       - name: Build N-API binary (napi-rs)
         working-directory: trace-core
-        run: npm ci && npm run build:release
+        run: |
+          npm ci && npm run build:release
+          ls -la trace_core.*.node
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
@@ -270,7 +274,9 @@ jobs:
 
       - name: Build N-API binary (napi-rs)
         working-directory: trace-core
-        run: npm ci && npm run build:release
+        run: |
+          npm ci && npm run build:release
+          ls -la trace_core.*.node
 
       - name: Rebuild trace-core package with native module
         working-directory: trace-core
