@@ -54,6 +54,6 @@ jobs:
         run: cargo build --benches --all-features
 
       - name: Check for security vulnerabilities
-        uses: rustsec/audit-check@v2.0
+        uses: rustsec/audit-check@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
