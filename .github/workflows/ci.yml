@@ -42,20 +42,6 @@ jobs:
           rustup target add x86_64-unknown-linux-gnu
           npx napi build --release --target x86_64-unknown-linux-gnu
 
-      - name: Rebuild trace-core package with native module
-        working-directory: trace-core
-        run: |
-          npm pack
-          ls -la trace-core-0.1.0.tgz
-
-      - name: Install local trace-core package
-        working-directory: trace-core
-        run: npm install ./trace-core-0.1.0.tgz --ignore-scripts
-
-      - name: Copy native module to installed trace-core package
-        run: |
-          cp trace-core/trace_core.*.node node_modules/@trace/core/trace_core.node 2>/dev/null || true
-
       - name: Setup Node.js (root)
         uses: actions/setup-node@v4
         with:
@@ -64,7 +50,7 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Setup Node.js (ts-wrapper)
         uses: actions/setup-node@v4
