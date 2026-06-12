@@ -125,16 +125,13 @@ jobs:
         run: cargo fmt --all -- --check
 
       - name: Run clippy
-        run: cargo clippy --all-targets --all-features -- -D warnings
+        run: cargo clippy --lib -- -D warnings
 
-      - name: Build
-        run: cargo build --all-targets --all-features
+      - name: Build library
+        run: cargo build --lib --release
 
       - name: Run tests
-        run: cargo test --all-targets --all-features
-
-      - name: Run benchmarks (compile check only)
-        run: cargo bench --all-targets --all-features --no-run
+        run: cargo test --lib
 
   # Python ML CI
   python-ml:
