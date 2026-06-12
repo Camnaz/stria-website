@@ -23,11 +23,16 @@
     "monitor:comprehensive": "node monitor-comprehensive.cjs"
   },
   "dependencies": {
-    "@trace/core": "^0.1.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
+    "@trace/core": "file:./trace-core",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.17.0"
+    "react-router-dom": "^7.17.0",
+    "three": "^0.184.0",
+    "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
@@ -44,6 +49,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "ajv-formats": "^3.0.1",
     "axe-core": "^4.12.1",
     "chrome-launcher": "^1.2.1",
     "husky": "^9.1.6",
@@ -55,8 +61,7 @@
     "typescript": "^5.6.3",
     "vite": "^6.0.7",
     "vitest": "^4.1.8",
-    "wrangler": "^4.98.0",
-    "ajv-formats": "^3.0.1"
+    "wrangler": "^4.98.0"
   },
   "description": "The official Stria Systems website — built with React, Vite, and deployed to Cloudflare Pages.",
   "main": "index.js",
