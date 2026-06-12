@@ -54,7 +54,4 @@ jobs:
         run: echo "Skipping benchmark build - requires N-API binary not available on CI runners" && exit 0
 
       - name: Check for security vulnerabilities
-        uses: rustsec/audit-check@v2.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: trace-core
+        run: cargo audit --json
