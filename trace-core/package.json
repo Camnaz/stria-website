@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "main": "index.js",
   "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "trace_core.*.node"
+  ],
   "napi": {
     "binaryName": "trace_core"
   },

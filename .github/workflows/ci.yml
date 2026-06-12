@@ -190,6 +190,13 @@ jobs:
         working-directory: trace-core
         run: npm ci && npm run build:release
 
+      - name: Rebuild trace-core package with native module
+        working-directory: trace-core
+        run: |
+          npm pack
+          # Ensure the tgz file exists at the expected path for ts-wrapper dependency
+          ls -la trace-core-0.1.0.tgz
+
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
         run: |
@@ -259,6 +266,13 @@ jobs:
       - name: Build N-API binary (napi-rs)
         working-directory: trace-core
         run: npm ci && npm run build:release
+
+      - name: Rebuild trace-core package with native module
+        working-directory: trace-core
+        run: |
+          npm pack
+          # Ensure the tgz file exists at the expected path for ts-wrapper dependency
+          ls -la trace-core-0.1.0.tgz
 
       - name: Build trace-core TypeScript wrapper
         working-directory: trace-core/ts-wrapper
