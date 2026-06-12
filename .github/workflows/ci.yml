@@ -44,6 +44,12 @@ jobs:
           cp target/x86_64-unknown-linux-gnu/release/libtrace_core.so trace_core.linux-x64-gnu.node
           ls -la trace_core.*.node
 
+      - name: Rebuild trace-core package with native module
+        working-directory: trace-core
+        run: |
+          npm pack
+          ls -la trace-core-0.1.0.tgz
+
       - name: Setup Node.js (root)
         uses: actions/setup-node@v4
         with:
@@ -56,9 +62,7 @@ jobs:
 
       - name: Copy native module to installed trace-core package
         run: |
-          cp trace-core/trace_core.linux-x64-gnu.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64-musl.node node_modules/trace-core/ 2>/dev/null || \
-          cp trace-core/trace_core.linux-x64.node node_modules/trace-core/ 2>/dev/null || true
+          cp trace-core/trace_core.linux-x64-gnu.node node_modules/trace-core/ 2>/dev/null || true
 
       - name: Setup Node.js (ts-wrapper)
         uses: actions/setup-node@v4
