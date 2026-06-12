@@ -54,7 +54,7 @@ jobs:
 
       - name: Copy native module to installed trace-core package
         run: |
-          cp trace-core/trace_core.*.node node_modules/@trace/core/ 2>/dev/null || true
+          cp trace-core/trace_core.*.node node_modules/@trace/core/trace_core.node 2>/dev/null || true
 
       - name: Setup Node.js (root)
         uses: actions/setup-node@v4
