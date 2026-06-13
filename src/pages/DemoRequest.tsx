@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Band, ClosingCTA, Hero, SectionHeading } from "./components";
+import { Hero, SectionHeading } from "./components";
 import { HeroVisual } from "../components/visual";
 import { Button } from "../components/ui";
 import { routes } from "../utils/navigation";
@@ -61,6 +61,14 @@ export function DemoRequest() {
           "A technical owner and an operational owner",
         ]}
       >
+        <HeroVisual variant="home" />
+      </Hero>
+
+      <section className={styles.formSection}>
+        <SectionHeading
+          eyebrow="DEMO REQUEST"
+          title="Scope a walkthrough around your workflow."
+        />
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <label htmlFor="email">WORK EMAIL</label>
@@ -112,7 +120,7 @@ export function DemoRequest() {
           </Button>
           <p className={styles.formNote}>Demo requests are prepared for review before onboarding.</p>
         </form>
-      </Hero>
+      </section>
     </main>
   );
 }

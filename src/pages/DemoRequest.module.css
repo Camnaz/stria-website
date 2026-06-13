@@ -6,6 +6,14 @@
   padding-bottom: var(--section-y);
 }
 
+/* ── Form section ── */
+.formSection {
+  border-top: 1px solid rgba(212, 175, 55, 0.08);
+  margin: 0 auto;
+  max-width: 560px;
+  padding: var(--section-y) var(--pad-x);
+}
+
 .form {
   background: var(--dark-surface);
   border: 1px solid var(--dark-border);
@@ -13,7 +21,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 420px;
+  margin-top: 32px;
   padding: 28px;
   width: 100%;
 }
@@ -79,8 +87,13 @@
 }
 
 @media (max-width: 520px) {
+  .formSection {
+    padding: clamp(40px, 10vw, 64px) var(--pad-x);
+  }
+
   .form {
     gap: 16px;
+    margin-top: 24px;
     padding: 20px;
   }
 
