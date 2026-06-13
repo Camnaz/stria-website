@@ -44,3 +44,9 @@
   display: grid;
   gap: 16px;
 }
+
+@media (max-width: 560px) {
+  .panel {
+    padding: 16px;
+  }
+}

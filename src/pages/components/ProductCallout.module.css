@@ -42,17 +42,19 @@
   }
 }
 
-/* Scroll reveal */
-@media (prefers-reduced-motion: no-preference) {
-  .copy,
-  .grid {
-    animation: calloutReveal both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 36%;
-  }
+/* Scroll reveal — only when scroll-driven animations are supported */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .copy,
+    .grid {
+      animation: calloutReveal both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 36%;
+    }
 
-  .grid {
-    animation-name: calloutRevealLate;
+    .grid {
+      animation-name: calloutRevealLate;
+    }
   }
 }
 

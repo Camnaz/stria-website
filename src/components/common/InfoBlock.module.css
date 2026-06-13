@@ -47,12 +47,14 @@
   margin: 0;
 }
 
-/* Scroll reveal */
-@media (prefers-reduced-motion: no-preference) {
-  .block {
-    animation: cardReveal both;
-    animation-timeline: view();
-    animation-range: entry 8% cover 30%;
+/* Scroll reveal — only when scroll-driven animations are supported */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .block {
+      animation: cardReveal both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 30%;
+    }
   }
 }
 

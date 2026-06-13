@@ -6,8 +6,6 @@
   border-bottom: 1px solid rgba(212, 175, 55, 0.06);
   padding: 26px;
   transition: border-color var(--base) ease;
-  will-change: transform;
-  transform: translateZ(0);
   display: grid;
   gap: 16px;
 }
@@ -64,4 +62,15 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 8px;
+}
+
+@media (max-width: 560px) {
+  .card {
+    padding: 18px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 }

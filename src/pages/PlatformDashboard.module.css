@@ -231,6 +231,12 @@
   .dashboardGrid,
   .dashboardGrid:nth-of-type(2) {
     grid-template-columns: 1fr;
+    overflow: hidden;
+  }
+
+  .dashboardPanel {
+    min-width: 0;
+    overflow: hidden;
   }
 
   .metricRow {
@@ -253,6 +259,6 @@
   }
 
   .dashboardPanel {
-    padding: 20px;
+    padding: 16px;
   }
 }

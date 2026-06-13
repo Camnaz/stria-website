@@ -1,12 +1,15 @@
 .table {
   display: grid;
   gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
   gap: 16px;
+  min-width: 420px;
   padding: 12px 16px;
   font-family: var(--mono);
   font-size: 12.5px;

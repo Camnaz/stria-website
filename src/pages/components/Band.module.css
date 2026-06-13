@@ -9,12 +9,14 @@
   padding-bottom: calc(var(--section-y) * 0.72);
 }
 
-/* Scroll reveal */
-@media (prefers-reduced-motion: no-preference) {
-  .band {
-    animation: bandReveal both;
-    animation-timeline: view();
-    animation-range: entry 6% cover 28%;
+/* Scroll reveal — only when scroll-driven animations are supported */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .band {
+      animation: bandReveal both;
+      animation-timeline: view();
+      animation-range: entry 6% cover 28%;
+    }
   }
 }
 
