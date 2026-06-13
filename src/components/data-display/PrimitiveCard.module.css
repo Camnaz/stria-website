@@ -8,6 +8,8 @@
   transition: border-color var(--base) ease;
   display: grid;
   gap: 16px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -28,10 +30,13 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+  min-width: 0;
 }
 
 .title > div {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .title span:first-child {
@@ -48,6 +53,9 @@
   font-size: 18px;
   font-weight: 400;
   margin: 0 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card p {
@@ -55,6 +63,11 @@
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .metrics {
@@ -62,15 +75,38 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 8px;
+  min-width: 0;
 }
 
 @media (max-width: 560px) {
   .card {
-    padding: 18px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .card::before {
+    margin-bottom: 12px;
+  }
+
+  .title {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .title h3 {
+    font-size: 16px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .card p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    -webkit-line-clamp: 4;
   }
 
   .metrics {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
 }

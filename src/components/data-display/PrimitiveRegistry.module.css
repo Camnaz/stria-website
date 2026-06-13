@@ -43,10 +43,27 @@
 .list {
   display: grid;
   gap: 16px;
+  min-width: 0;
 }
 
 @media (max-width: 560px) {
   .panel {
     padding: 16px;
+  }
+
+  .panel::before {
+    margin-bottom: 16px;
+  }
+
+  .heading {
+    margin-bottom: 16px;
+  }
+
+  .heading strong {
+    font-size: 17px;
+  }
+
+  .list {
+    gap: 12px;
   }
 }
