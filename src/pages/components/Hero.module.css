@@ -1,99 +1,133 @@
+/* ── Hero: two-column split layout ── */
 .hero {
   align-items: center;
   display: grid;
-  justify-items: stretch;
-  min-height: clamp(500px, 64vh, 660px);
+  gap: clamp(32px, 5vw, 80px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: clamp(520px, 68vh, 720px);
   overflow: hidden;
-  padding: clamp(38px, 4.6vw, 64px) var(--pad-x);
+  padding: clamp(60px, 8vw, 100px) var(--pad-x) clamp(48px, 6vw, 80px);
   position: relative;
 }
 
+/* Subtle horizontal rule at hero bottom */
+.hero::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.18) 30%,
+    rgba(212, 175, 55, 0.18) 70%,
+    transparent 100%
+  );
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+/* ── Left column: text content ── */
 .content {
-  animation: rise 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  margin: 0;
-  max-width: 720px;
+  animation: rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  max-width: 580px;
   position: relative;
-  text-align: left;
   z-index: 2;
 }
 
+/* ── Right column: visual ── */
+.visual {
+  align-items: center;
+  animation: visualReveal 1200ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+}
+
+/* Badge / eyebrow */
 .badge {
-  display: grid;
-  gap: 6px;
-  margin-bottom: 24px;
-  width: fit-content;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: clamp(28px, 3.5vw, 44px);
 }
 
 .badge span {
-  color: var(--blue-quiet);
-  font-family: var(--body);
-  font-size: 12px;
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .badge strong {
   color: var(--dark-text);
   font-family: var(--sans);
-  font-size: clamp(16px, 1.5vw, 20px);
-  font-weight: 500;
-  letter-spacing: -0.015em;
+  font-size: clamp(14px, 1.2vw, 17px);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
 }
 
+/* Headline */
 .hero h1 {
-  font-size: clamp(40px, 5.4vw, 68px);
-  letter-spacing: -0.045em;
-  line-height: 1.15;
-  margin-bottom: 24px;
-  max-width: 700px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: clamp(36px, 4.8vw, 60px);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 20px;
   text-wrap: balance;
 }
 
+/* Body text */
 .text {
   color: var(--dark-muted);
-  font-size: clamp(16px, 1.45vw, 18px);
-  line-height: 1.65;
-  max-width: 620px;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 480px;
 }
 
+/* Bullet list */
 .bullets {
+  border-left: 1px solid rgba(212, 175, 55, 0.2);
   color: var(--dark-muted);
   display: grid;
-  gap: 10px;
-  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   line-height: 1.5;
   list-style: none;
-  margin: 26px 0 0;
-  max-width: 560px;
-  padding: 0;
+  margin: 24px 0 0;
+  padding: 0 0 0 20px;
 }
 
 .bullets li {
-  align-items: baseline;
-  display: grid;
-  font-size: 15px;
-  gap: 12px;
-  grid-template-columns: minmax(0, 1fr);
+  border-bottom: 1px solid rgba(242, 237, 230, 0.06);
+  font-size: 14px;
+  padding: 10px 0;
 }
 
-.bullets li::before {
-  content: none;
+.bullets li:last-child {
+  border-bottom: none;
 }
 
+/* Actions row */
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: flex-start;
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
+/* ── Animations ── */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -101,27 +135,93 @@
   }
 }
 
-@media (max-width: 760px) {
-  .hero {
-    min-height: auto;
-    padding-top: clamp(40px, 12vw, 68px);
-    padding-bottom: clamp(48px, 14vw, 76px);
+@keyframes visualReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
   }
-
-  .hero h1 {
-    font-size: clamp(38px, 12vw, 56px);
-    letter-spacing: -0.04em;
-    line-height: 1.15;
-  }
-
-  .text {
-    max-width: 34rem;
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
+/* ── Tablet: stack vertically ── */
+@media (max-width: 900px) {
+  .hero {
+    gap: 28px;
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: clamp(40px, 10vw, 64px);
+    padding-bottom: clamp(28px, 5vw, 44px);
+  }
+
+  .visual {
+    height: clamp(220px, 36vh, 320px);
+    min-height: 220px;
+    order: 1; /* visual below text on mobile */
+  }
+
+  .content {
+    order: 0; /* text first */
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 42px);
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+
+  .text {
+    font-size: 14px;
+    max-width: 32rem;
+  }
+
+  .badge {
+    margin-bottom: 16px;
+  }
+
+  .bullets {
+    margin-top: 16px;
+  }
+
+  .bullets li {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .actions {
+    margin-top: 24px;
+  }
+}
+
+/* ── Small mobile ── */
 @media (max-width: 520px) {
+  .hero {
+    gap: 24px;
+    padding-top: clamp(32px, 8vw, 48px);
+    padding-bottom: 24px;
+  }
+
+  .visual {
+    height: clamp(200px, 32vh, 280px);
+    min-height: 200px;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 36px);
+    margin-bottom: 14px;
+  }
+
+  .text {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
   .actions {
     align-items: stretch;
     flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
   }
 }

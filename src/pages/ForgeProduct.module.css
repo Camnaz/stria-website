@@ -1,24 +1,20 @@
 .page {
   min-height: 100vh;
+  --brass: #dfaa49;
+  --brass-bright: #ffd68a;
+  --brass-dim: rgba(223, 170, 73, 0.28);
+  --brass-faint: rgba(223, 170, 73, 0.09);
+  --dark-border: rgba(223, 170, 73, 0.16);
+  --line: var(--dark-border);
+  --line-strong: rgba(223, 170, 73, 0.36);
+  background:
+    radial-gradient(circle at 78% 14%, rgba(178, 91, 38, 0.17), transparent 32rem),
+    linear-gradient(180deg, #0c0907 0%, #120c08 40%, #08080a 100%);
 }
 
 .hero {
-  min-height: clamp(500px, 62vh, 660px);
-}
-
-.agenticProofline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--quiet);
+  background:
+    linear-gradient(110deg, rgba(8, 8, 10, 0.98) 0%, rgba(16, 11, 8, 0.9) 54%, rgba(34, 19, 8, 0.6) 100%);
 }
 
 .band {
@@ -28,7 +24,7 @@
 .splitBand {
   display: grid;
   gap: 32px;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
 }
 
 .splitLeft,
@@ -39,34 +35,33 @@
 }
 
 .eyebrow {
-  color: var(--blue-quiet);
-  font-family: var(--body);
-  font-size: 12px;
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  margin: 0 0 8px;
+  letter-spacing: 0.14em;
+  margin: 0 0 14px;
   text-transform: uppercase;
 }
 
 .splitLeft strong,
 .splitRight strong {
-  color: var(--muted);
+  color: var(--dark-muted);
   font-weight: 400;
   font-size: 15px;
   line-height: 1.6;
 }
 
 .codeBlock {
-  background: var(--obsidian);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
   font-family: var(--mono);
   font-size: 12px;
   line-height: 1.6;
   overflow-x: auto;
   padding: 16px;
   white-space: pre;
-  color: var(--muted);
+  color: var(--dark-muted);
 }
 
 .apiList {
@@ -79,18 +74,16 @@
 }
 
 .apiList li {
-  background: var(--obsidian);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
   padding: 12px 16px;
-  color: var(--muted);
+  color: var(--dark-muted);
   font-size: 13px;
   line-height: 1.5;
 }
 
-.kineticScene {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  padding-top: 24px;
+@media (max-width: 620px) {
+  .splitBand {
+    grid-template-columns: 1fr;
+  }
 }

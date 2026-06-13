@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Button — CSS Module
+   Button --- CSS Module
    Primary, secondary, nav-cta, and ghost variants
    ========================================================================== */
 
@@ -32,7 +32,7 @@
   cursor: not-allowed;
 }
 
-/* Primary / Nav CTA — filled brass */
+/* Primary / Nav CTA --- filled brass */
 .btn--primary,
 .btn--nav-cta {
   border-color: var(--color-brand);
@@ -45,7 +45,7 @@
   color: var(--color-bg);
 }
 
-/* Secondary — outline brass */
+/* Secondary --- outline brass */
 .btn--secondary {
   border-color: var(--color-brand-dim);
   color: var(--color-brand);
@@ -56,7 +56,7 @@
   color: var(--color-brand-bright);
 }
 
-/* Ghost — no border, muted text */
+/* Ghost --- no border, muted text */
 .btn--ghost {
   border-color: transparent;
   color: var(--color-fg-quiet);
@@ -66,7 +66,7 @@
   color: var(--color-fg);
 }
 
-/* Footer variant — smaller, subtler */
+/* Footer variant --- smaller, subtler */
 .btn--footer {
   min-height: 32px;
   padding: 0 var(--space-3);

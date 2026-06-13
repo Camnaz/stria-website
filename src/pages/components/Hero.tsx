@@ -21,7 +21,6 @@ export function Hero({ children, className = "", badge, title, text, bullets, ac
     <section className={`${styles.hero} ${className}`}>
       <div className={styles.content}>
         <div className={styles.badge}>
-          <span>{badge.label}</span>
           <strong>{badge.title}</strong>
         </div>
         <h1>{title}</h1>
@@ -37,7 +36,7 @@ export function Hero({ children, className = "", badge, title, text, bullets, ac
           <div className={styles.actions}>{actions}</div>
         )}
       </div>
-      {children}
+      {children && <div className={styles.visual}>{children}</div>}
     </section>
   );
 }

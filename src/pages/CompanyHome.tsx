@@ -17,7 +17,7 @@ import {
   AudienceGrid,
   ClosingCTA,
 } from "./components";
-import { SystemBackdrop, StriaKineticScene } from "../components/visual";
+import { HeroVisual } from "../components/visual";
 import { InfoBlock, ModeColumn } from "../components/common";
 import { Button } from "../components/ui";
 import { useNavigate } from "react-router-dom";
@@ -35,7 +35,7 @@ export function CompanyHome() {
           title: "The evidence layer for enterprise AI",
         }}
         title="AI is doing the work. Stria proves it did it right."
-        text="Every prompt, tool call, and automated action leaves a trail. Stria turns that trail into evidence — then the work that repeats into verified execution infrastructure."
+        text="Every prompt, tool call, and automated action leaves a trail. Stria turns that trail into evidence, then turns repeated work into verified execution infrastructure."
         bullets={[
           "Trace LLM usage, tool calls, cost, and failures",
           "Cluster repeated workflows from telemetry",
@@ -54,8 +54,7 @@ export function CompanyHome() {
           ),
         ]}
       >
-        <SystemBackdrop />
-        <StriaKineticScene className={styles.kineticScene} />
+        <HeroVisual variant="home" />
       </Hero>
 
       <Band className={styles.band}>
@@ -148,7 +147,7 @@ export function CompanyHome() {
       <ClosingCTA
         eyebrow="Accountable Autonomy"
         title="Delegate the work. Keep the receipts."
-        text="The next decade of work runs on delegated authority. Stria is the layer that lets enterprises hand real work to autonomous systems — and prove, at any moment, exactly what happened."
+        text="The next decade of work runs on delegated authority. Stria is the layer that lets enterprises hand real work to autonomous systems and prove, at any moment, exactly what happened."
         action={
           <Button variant="primary" onClick={() => navigate(routes.trace)}>
             Explore Trace <ArrowRight size={18} />

@@ -1,63 +1,52 @@
+/* ------ Base ------ */
 .button {
   align-items: center;
-  border: 1px solid var(--dark-border);
-  border-radius: var(--radius) !important;
-  color: var(--dark-text);
+  border-radius: 6px;
   display: inline-flex;
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 500;
   gap: 8px;
   justify-content: center;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
   min-height: 44px;
   padding: 0 24px;
-  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--fast) var(--ease);
+  transition: background 280ms ease, border-color 280ms ease, color 280ms ease;
   white-space: nowrap;
 }
 
+/* ------ Primary: dark bg, brass text → brass bg, dark text on hover ------ */
 .primary,
 .navCta {
-  background: var(--cyan);
-  border-color: var(--cyan);
-  color: #09090b;
+  background: var(--dark-bg);
+  border: 1px solid color-mix(in srgb, var(--brass) 50%, transparent);
+  color: var(--brass);
 }
 
 .primary:hover,
 .navCta:hover {
-  background: var(--cyan-hover);
-  border-color: var(--blue-ink);
-  transform: translateY(-1px);
-  text-decoration: none;
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--dark-bg);
 }
 
+/* ------ Secondary: transparent, muted text → subtle fill on hover ------ */
 .secondary {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--dark-border);
-  color: var(--dark-text);
-}
-
-.light-band .secondary {
-  background: rgba(0, 0, 0, 0.06);
-  border-color: var(--light-border);
-  color: var(--light-text);
+  background: transparent;
+  border: 1px solid rgba(242, 237, 230, 0.14);
+  color: var(--dark-muted);
 }
 
 .secondary:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  background: var(--cyan-dim);
-  text-decoration: none;
+  background: rgba(242, 237, 230, 0.06);
+  border-color: rgba(242, 237, 230, 0.32);
+  color: var(--dark-text);
 }
 
-.primary:active,
-.secondary:active,
-.navCta:active {
-  transform: translateY(0);
-}
-
+/* ------ Small ------ */
 .small {
-  min-height: 36px;
-  padding: 0 16px;
   font-size: 12px;
+  letter-spacing: 0.03em;
+  min-height: 38px;
+  padding: 0 20px;
 }

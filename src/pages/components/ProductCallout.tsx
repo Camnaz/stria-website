@@ -1,5 +1,4 @@
 import styles from "./ProductCallout.module.css";
-import { ModeColumn } from "../../components/common";
 import type { ReactNode } from "react";
 
 interface ProductCalloutProps {
@@ -10,11 +9,10 @@ interface ProductCalloutProps {
   text: string;
 }
 
-export function ProductCallout({ children, className = "", eyebrow, title, text }: ProductCalloutProps) {
+export function ProductCallout({ children, className = "", eyebrow: _eyebrow, title, text }: ProductCalloutProps) {
   return (
     <section className={`${styles.callout} ${className}`}>
       <div className={styles.copy}>
-        <p className={styles.eyebrow}>{eyebrow}</p>
         <h2>{title}</h2>
         <p>{text}</p>
       </div>

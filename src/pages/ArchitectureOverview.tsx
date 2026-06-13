@@ -1,6 +1,6 @@
 import { ArrowRight, Database, FileSearch, GitBranch, LockKeyhole, Network, ShieldCheck } from "lucide-react";
 import { Band, ClosingCTA, Hero, SectionHeading, ThreeCol } from "./components";
-import { SystemBackdrop } from "../components/visual";
+import { HeroVisual } from "../components/visual";
 import { ArchitectureCard, InfoBlock } from "../components/common";
 import { Button } from "../components/ui";
 import { routes } from "../utils/navigation";
@@ -18,7 +18,7 @@ export function ArchitectureOverview() {
           title: "Architecture",
         }}
         title="One platform layer for observable and verified AI execution."
-        text="Stria separates telemetry ingestion, workflow orchestration, and trust enforcement into three planes — deployable together or independently."
+        text="Stria separates telemetry ingestion, workflow orchestration, and trust enforcement into three planes that can be deployed together or independently."
         actions={[
           <Button key="docs" variant="primary" onClick={() => navigate(routes.traceDocs)}>
             View developer docs <ArrowRight size={18} />
@@ -28,7 +28,7 @@ export function ArchitectureOverview() {
           </Button>,
         ]}
       >
-        <SystemBackdrop />
+        <HeroVisual variant="architecture" />
       </Hero>
 
       <Band className={styles.band}>
@@ -92,7 +92,7 @@ export function ArchitectureOverview() {
       <ClosingCTA
         eyebrow="OBSERVABLE. VERIFIED. ACCOUNTABLE."
         title="Telemetry stays observable. Automation becomes verified."
-        text="The Stria platform gives enterprises the evidence layer they need to operate AI at scale — with full attribution, policy enforcement, and audit readiness."
+        text="The Stria platform gives enterprises the evidence layer they need to operate AI at scale with full attribution, policy enforcement, and audit readiness."
         action={
           <Button variant="primary" onClick={() => navigate(routes.traceDocs)}>
             View developer docs <ArrowRight size={18} />

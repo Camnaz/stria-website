@@ -1,24 +1,20 @@
 .page {
   min-height: 100vh;
+  --brass: #78bfe7;
+  --brass-bright: #b7e4ff;
+  --brass-dim: rgba(120, 191, 231, 0.26);
+  --brass-faint: rgba(120, 191, 231, 0.09);
+  --dark-border: rgba(120, 191, 231, 0.15);
+  --line: var(--dark-border);
+  --line-strong: rgba(120, 191, 231, 0.34);
+  background:
+    radial-gradient(circle at 82% 20%, rgba(77, 144, 188, 0.18), transparent 34rem),
+    linear-gradient(180deg, #07090d 0%, #081018 42%, #08080a 100%);
 }
 
 .hero {
-  min-height: clamp(500px, 62vh, 660px);
-}
-
-.agenticProofline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--quiet);
+  background:
+    linear-gradient(90deg, rgba(8, 8, 10, 0.98) 0%, rgba(8, 12, 18, 0.88) 54%, rgba(9, 24, 34, 0.58) 100%);
 }
 
 .band {

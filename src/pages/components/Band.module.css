@@ -1,25 +1,27 @@
+/* ── Band: content section wrapper ── */
 .band {
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid rgba(212, 175, 55, 0.08);
   padding: var(--section-y) var(--pad-x);
   position: relative;
 }
 
 .compact {
-  padding-bottom: calc(var(--section-y) * 0.75);
+  padding-bottom: calc(var(--section-y) * 0.72);
 }
 
+/* Scroll reveal */
 @media (prefers-reduced-motion: no-preference) {
   .band {
     animation: bandReveal both;
     animation-timeline: view();
-    animation-range: entry 8% cover 32%;
+    animation-range: entry 6% cover 28%;
   }
 }
 
 @keyframes bandReveal {
   from {
-    opacity: 0.72;
-    transform: translateY(22px);
+    opacity: 0.65;
+    transform: translateY(24px);
   }
   to {
     opacity: 1;

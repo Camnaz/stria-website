@@ -3,101 +3,12 @@
 }
 
 .hero {
-  background:
-    radial-gradient(circle at 88% 18%, rgba(103, 195, 210, 0.14), transparent 28%),
-    radial-gradient(circle at 6% 78%, rgba(34, 197, 94, 0.12), transparent 24%),
-    linear-gradient(120deg, rgba(9, 9, 11, 0.98), rgba(12, 16, 18, 0.96));
-  min-height: clamp(500px, 62vh, 640px);
-  position: relative;
-}
-
-.hero::after {
-  background:
-    linear-gradient(180deg, transparent, rgba(9, 9, 11, 0.96)),
-    radial-gradient(ellipse at bottom right, rgba(103, 195, 210, 0.11), transparent 42%);
-  bottom: 0;
-  content: "";
-  height: 160px;
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-}
-
-.kineticScene {
-  filter: blur(0.1px);
-  opacity: 0.22;
-  pointer-events: none;
-  position: absolute;
-  bottom: 8%;
-  height: min(56vw, 520px);
-  max-width: 560px;
-  right: clamp(-180px, -8vw, -40px);
-  width: 52vw;
-  z-index: 0;
-}
-
-.heroRail {
-  display: grid;
-  gap: 12px;
-  max-width: 330px;
-  position: absolute;
-  right: var(--pad-x);
-  top: 50%;
-  transform: translateY(-42%);
-  width: 26vw;
-  z-index: 2;
-}
-
-.heroRail div {
-  background:
-    linear-gradient(135deg, rgba(103, 195, 210, 0.08), rgba(250, 250, 250, 0.018)),
-    rgba(9, 9, 11, 0.5);
-  border: 1px solid rgba(63, 63, 70, 0.86);
-  border-radius: var(--radius);
-  padding: 18px;
-}
-
-.heroRail div:nth-child(2) {
-  transform: translateX(-32px);
-}
-
-.heroRail span {
-  color: var(--cyan);
-  display: block;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  margin-bottom: 16px;
-}
-
-.heroRail strong {
-  color: var(--dark-text);
-  display: block;
-  font-size: 16px;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-
-.heroRail p {
-  color: var(--dark-muted);
-  font-size: 13px;
-  line-height: 1.45;
-  margin: 0;
+  background: var(--dark-bg);
 }
 
 .band {
   padding-top: clamp(72px, 9vw, 118px);
   padding-bottom: clamp(72px, 9vw, 118px);
-}
-
-.band:nth-of-type(2) {
-  background:
-    linear-gradient(180deg, rgba(103, 195, 210, 0.03), transparent 46%),
-    var(--dark-bg);
 }
 
 .compact {
@@ -109,40 +20,6 @@
   margin-top: clamp(32px, 5vw, 56px);
 }
 
-.principle {
-  min-height: 180px;
-  max-width: 320px;
-}
-
 .principle h3 {
   margin-bottom: 8px;
-}
-
-.closing-text {
-  max-width: 720px;
-  margin: 0 auto 24px;
-}
-
-@media (max-width: 900px) {
-  .kineticScene {
-    height: 420px;
-    opacity: 0.14;
-    right: -240px;
-    width: 680px;
-  }
-
-  .heroRail {
-    display: none;
-  }
-}
-
-@media (max-width: 620px) {
-  .kineticScene {
-    display: none;
-  }
-
-  .principle {
-    min-height: 0;
-    max-width: none;
-  }
 }

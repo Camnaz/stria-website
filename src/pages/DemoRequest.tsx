@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Band, ClosingCTA, Hero, SectionHeading } from "./components";
-import { SystemBackdrop } from "../components/visual";
+import { HeroVisual } from "../components/visual";
 import { Button } from "../components/ui";
 import { routes } from "../utils/navigation";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,6 @@ export function DemoRequest() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("Demo request:", formData);
     setSubmitted(true);
   };
 
@@ -40,7 +39,7 @@ export function DemoRequest() {
             </Button>,
           ]}
         >
-          <SystemBackdrop />
+          <HeroVisual variant="home" />
         </Hero>
       </main>
     );
@@ -62,7 +61,6 @@ export function DemoRequest() {
           "A technical owner and an operational owner",
         ]}
       >
-        <SystemBackdrop />
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <label htmlFor="email">WORK EMAIL</label>

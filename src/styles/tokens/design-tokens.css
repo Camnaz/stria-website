@@ -1,5 +1,5 @@
 /* ==========================================================================
-   STRIA SYSTEMS — Design Tokens
+   STRIA SYSTEMS --- Design Tokens
    Single source of truth for colors, spacing, typography, motion, z-index
    ========================================================================== */
 
@@ -8,41 +8,44 @@
   color-scheme: dark;
 
   /* ---------- Semantic Colors ---------- */
-  /* Backgrounds */
-  --color-bg: #030303;
-  --color-bg-elevated: #0a0a0a;
-  --color-bg-overlay: #111111;
+  /* Backgrounds --- obsidian from logo */
+  --color-bg: #08080a;
+  --color-bg-elevated: #0e0e10;
+  --color-bg-overlay: #121214;
 
-  /* Foregrounds */
-  --color-fg: #ffffff;
-  --color-fg-muted: #a1a1aa;
-  --color-fg-quiet: #8b8b9a;
+  /* Foregrounds --- warm ivory */
+  --color-fg: #f2ede6;
+  --color-fg-muted: #888888;
+  --color-fg-quiet: #555555;
 
-  /* Brand — Teal/Cyan */
-  --color-brand: #00d4aa;
-  --color-brand-bright: #22e8c4;
-  --color-brand-dim: rgba(0, 212, 170, 0.2);
-  --color-brand-faint: rgba(0, 212, 170, 0.06);
+  /* Brand --- brass/gold */
+  --color-brand: #d4af37;
+  --color-brand-bright: #e8cf7a;
+  --color-brand-dim: rgba(212, 175, 55, 0.25);
+  --color-brand-faint: rgba(212, 175, 55, 0.08);
 
-  /* Accent — Pink/Magenta for labels */
-  --color-accent: #f472b6;
-  --color-accent-dim: rgba(244, 114, 182, 0.15);
+  /* Accent --- terracotta for warnings */
+  --color-accent: #b87e6a;
+  --color-accent-dim: rgba(184, 126, 106, 0.15);
 
   /* Borders & Lines */
-  --color-line: rgba(255, 255, 255, 0.08);
-  --color-line-strong: rgba(255, 255, 255, 0.15);
+  --color-line: rgba(212, 175, 55, 0.15);
+  --color-line-strong: rgba(212, 175, 55, 0.35);
 
   /* Status */
-  --color-success: #00d4aa;
-  --color-warning: #fbbf24;
-  --color-error: #f87171;
-  --color-info: #00d4aa;
+  --color-success: #7a9e8e;
+  --color-warning: #d4af37;
+  --color-error: #b87e6a;
+  --color-info: #c4b8a8;
 
   /* ---------- Typography ---------- */
-  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Crimson Pro for headlines, Fira Sans for UI */
+  --font-display: "Crimson Pro", Georgia, "Times New Roman", serif;
+  --font-sans: "Fira Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-brand: "Crimson Pro", Georgia, "Times New Roman", serif;
 
+  --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -51,14 +54,14 @@
   --font-size-sm: clamp(12px, 1vw, 13px);
   --font-size-base: clamp(15px, 1.15vw, 17px);
   --font-size-lg: clamp(18px, 1.5vw, 20px);
-  --font-size-xl: clamp(22px, 2vw, 26px);
-  --font-size-2xl: clamp(28px, 3.2vw, 44px);
-  --font-size-3xl: clamp(44px, 5.8vw, 86px);
+  --font-size-xl: clamp(26px, 2.6vw, 32px);
+  --font-size-2xl: clamp(36px, 4vw, 56px);
+  --font-size-3xl: clamp(52px, 7vw, 96px);
 
-  --line-height-tight: 1.05;
-  --line-height-snug: 1.15;
+  --line-height-tight: 1.0;
+  --line-height-snug: 1.12;
   --line-height-normal: 1.35;
-  --line-height-relaxed: 1.65;
+  --line-height-relaxed: 1.6;
 
   --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: -0.005em;
@@ -94,8 +97,8 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 40px rgba(0, 212, 170, 0.15);
-  --shadow-glow-strong: 0 0 80px rgba(0, 212, 170, 0.25);
+  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.12);
+  --shadow-glow-strong: 0 0 80px rgba(212, 175, 55, 0.2);
 
   /* ---------- Motion ---------- */
   --duration-fast: 140ms;
@@ -131,7 +134,7 @@
   --container-narrower: 720px;
 
   /* ---------- Selection ---------- */
-  --selection-bg: rgba(0, 212, 170, 0.35);
+  --selection-bg: rgba(212, 175, 55, 0.35);
 
   /* ---------- Focus ---------- */
   --focus-ring: 2px solid var(--color-brand);

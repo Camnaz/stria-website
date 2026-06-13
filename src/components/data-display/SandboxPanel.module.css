@@ -69,7 +69,7 @@
 
 .console pre {
   color: var(--sage);
-  font-family: var(--mono);
+  font-family: var(--code);
   font-size: 13px;
   line-height: 1.6;
   margin: 0;

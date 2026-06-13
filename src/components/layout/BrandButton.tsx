@@ -1,14 +1,17 @@
 import styles from "./BrandButton.module.css";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../utils/navigation";
 
 interface BrandButtonProps {
   variant?: "header" | "footer";
 }
 
 export function BrandButton({ variant = "header" }: BrandButtonProps) {
+  const navigate = useNavigate();
   return (
     <button
       className={`${styles.brand} ${variant === "footer" ? styles.footerBrand : ""}`}
-      onClick={() => window.location.href = "/"}
+      onClick={() => navigate(routes.company)}
       aria-label="Stria Systems home"
     >
       <img

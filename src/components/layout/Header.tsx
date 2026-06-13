@@ -99,5 +99,7 @@ function surfaceFromPath(pathname: string): Surface {
   if (pathname.startsWith(routes.forge)) return "forge";
   if (pathname.startsWith(routes.architecture)) return "architecture";
   if (pathname.startsWith(routes.demo)) return "demo";
+  if (pathname.startsWith(routes.legal)) return "legal";
+  if (pathname.startsWith(routes.privacy)) return "privacy";
   return "company";
 }

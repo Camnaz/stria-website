@@ -9,5 +9,7 @@ export function getSurfaceFromPath(pathname: string): import("../types/router").
   if (pathname === "/trace/documentation" || pathname === "/trace/docs") return "traceDocs";
   if (pathname === "/trace" || pathname.startsWith("/trace/")) return "trace";
   if (pathname === "/demo" || pathname.startsWith("/demo/")) return "demo";
+  if (pathname === "/legal" || pathname.startsWith("/legal/")) return "legal";
+  if (pathname === "/privacy" || pathname.startsWith("/privacy/")) return "privacy";
   return "company";
 }

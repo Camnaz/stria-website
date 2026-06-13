@@ -13,8 +13,7 @@
   position: absolute;
   inset: 0;
   border: 1px solid var(--brass-dim);
-  background: linear-gradient(135deg, var(--brass-faint), transparent);
-  backdrop-filter: blur(8px);
+  background: var(--dark-surface);
   display: grid;
   place-items: center;
   transform-style: preserve-3d;
@@ -76,11 +75,5 @@
   inset: 16px;
   border: 1px solid var(--brass-faint);
   border-radius: 4px;
-  opacity: 0.3;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.02); }
+  opacity: 0.2;
 }

@@ -1,6 +1,6 @@
 import { ArrowRight, ClipboardCheck, GitBranch, Network, ShieldCheck } from "lucide-react";
 import { Band, Hero, ProductCallout, SectionHeading, ThreeCol } from "./components";
-import { SystemBackdrop, StriaKineticScene } from "../components/visual";
+import { HeroVisual } from "../components/visual";
 import { InfoBlock, WorkflowClusterCard, PrimitiveCard } from "../components/common";
 import { Button } from "../components/ui";
 import { routes } from "../utils/navigation";
@@ -19,7 +19,7 @@ export function ForgeProduct() {
           title: "Forge by Stria Systems",
         }}
         title="When AI work repeats, forge it into infrastructure."
-        text="Forge does not replace agents. It gives repeated agent work a tested execution path — with sandbox verification, scoring, versioning, and deployment feedback."
+        text="Forge does not replace agents. It gives repeated agent work a tested execution path with sandbox verification, scoring, versioning, and deployment feedback."
         actions={[
           <Button key="platform" variant="primary" onClick={() => navigate(routes.platform)}>
             View platform dashboard <ArrowRight size={18} />
@@ -29,8 +29,7 @@ export function ForgeProduct() {
           </Button>,
         ]}
       >
-        <SystemBackdrop />
-        <StriaKineticScene className={styles.kineticScene} />
+        <HeroVisual variant="forge" />
       </Hero>
 
       <Band className={styles.band}>
@@ -56,14 +55,14 @@ export function ForgeProduct() {
 
       <Band className={`${styles.band} ${styles.splitBand}`}>
         <div className={styles.splitLeft}>
-          <p className={styles.eyebrow}>CANDIDATE WORKFLOWS</p>
+          <p className={styles.sectionPill}>Candidate workflows</p>
           <strong>Identified from Trace telemetry, scored for automation readiness.</strong>
           {workflowClusters.map((cluster) => (
             <WorkflowClusterCard key={cluster.id} cluster={cluster} compact />
           ))}
         </div>
         <div className={styles.splitRight}>
-          <p className={styles.eyebrow}>PRIMITIVE REGISTRY</p>
+          <p className={styles.sectionPill}>Primitive registry</p>
           <strong>Approved automation is versioned, tested, scored, and deployable.</strong>
           {forgePrimitives.map((primitive) => {
             const deployment = deployments.find((d) => d.primitive_id === primitive.id);
@@ -82,7 +81,7 @@ export function ForgeProduct() {
 
       <Band className={`${styles.band} ${styles.splitBand}`}>
         <div className={styles.splitLeft}>
-          <p className={styles.eyebrow}>SANDBOX EXECUTION</p>
+          <p className={styles.sectionPill}>Sandbox execution</p>
           <strong>Verified primitives run in isolated environments with deterministic I/O.</strong>
           <pre className={styles.codeBlock}>{`POST /forge/workflow-candidates
 {
@@ -96,7 +95,7 @@ POST /forge/primitives/:id/deploy
 GET  /trace/events?primitive_id={primitiveId}`}</pre>
         </div>
         <div className={styles.splitRight}>
-          <p className={styles.eyebrow}>CLEAN API BOUNDARY</p>
+          <p className={styles.sectionPill}>Clean API boundary</p>
           <strong>Trace remains the source of truth. Forge reads telemetry, writes primitives.</strong>
           <ul className={styles.apiList}>
             <li>Trace → Forge: workflow candidate events</li>

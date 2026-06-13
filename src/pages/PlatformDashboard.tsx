@@ -10,13 +10,11 @@ import {
 import {
   Band,
   Hero,
-  ProductCallout,
   SectionHeading,
-  ThreeCol,
 } from "./components";
 import { useNavigate } from "react-router-dom";
-import { SystemBackdrop, RecursiveWorkflowVisual, StriaKineticScene } from "../components/visual";
-import { InfoBlock, ModeColumn, WorkflowClusterCard } from "../components/common";
+import { HeroVisual } from "../components/visual";
+import { WorkflowClusterCard } from "../components/common";
 import { PrimitiveRegistry, SandboxPanel, TraceEventTable } from "../components/data-display";
 import { Button } from "../components/ui";
 import { routes } from "../utils/navigation";
@@ -50,27 +48,28 @@ export function PlatformDashboard() {
           </Button>,
         ]}
       >
-        <SystemBackdrop />
-        <RecursiveWorkflowVisual className={styles.recursiveVisual} />
+        <HeroVisual variant="platform" />
       </Hero>
 
       <Band className={styles.band}>
         <SectionHeading eyebrow="PLATFORM FLOW" title="LLM usage becomes verified automation." />
-        <ol className={styles.platformChain}>
-          {[
-            "LLM usage",
-            "Trace telemetry",
-            "Workflow clustering",
-            "Forge recommendation",
-            "Code and tests",
-            "Sandbox verification",
-            "Approved primitive registry",
-            "Monitored deployment",
-            "Feedback into Trace",
-          ].map((step) => (
-            <li key={step}>{step}</li>
-          ))}
-        </ol>
+        <div className={styles.platformFlow} aria-label="Platform flow">
+          <article>
+            <span>01</span>
+            <h3>Trace intake</h3>
+            <p>LLM usage, tool calls, cost, latency, failures, and policy events become evidence records.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Forge decision</h3>
+            <p>Repeated work is clustered, recommended, converted into code and tests, then sandbox verified.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Deployment loop</h3>
+            <p>Approved primitives enter the registry, run under monitoring, and feed outcomes back into Trace.</p>
+          </article>
+        </div>
       </Band>
 
       <section className={styles.dashboardGrid}>

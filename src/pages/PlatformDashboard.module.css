@@ -3,101 +3,151 @@
 }
 
 .hero {
-  min-height: clamp(500px, 62vh, 660px);
+  min-height: clamp(520px, 70vh, 720px);
+  position: relative;
 }
 
 .recursiveVisual {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  padding-top: 24px;
+  height: min(58vh, 540px);
+  left: auto;
+  opacity: 0.12;
+  position: absolute;
+  right: clamp(22px, 4vw, 80px);
+  top: 50%;
+  transform: translateY(-48%);
+  width: min(42vw, 560px);
+  z-index: 0;
 }
 
 .band {
-  padding: var(--section-y) var(--pad-x);
+  padding: clamp(68px, 8vw, 104px) var(--pad-x) clamp(46px, 6vw, 76px);
 }
 
-.platformChain {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 16px 0 0;
+.platformFlow {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(28px, 4vw, 44px);
 }
 
-.platformChain li {
-  background: var(--obsidian-2);
-  border: 1px solid var(--line);
-  padding: 8px 16px;
-  border-radius: var(--radius);
-  font-family: var(--mono);
-  font-size: 12px;
+.platformFlow article {
+  background:
+    linear-gradient(145deg, rgba(242, 237, 230, 0.035), rgba(242, 237, 230, 0.012));
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  min-height: 210px;
+  padding: clamp(22px, 3vw, 30px);
+  transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease), background 180ms var(--ease);
 }
 
+.platformFlow article:hover {
+  background:
+    linear-gradient(145deg, rgba(242, 237, 230, 0.045), rgba(212, 175, 55, 0.025));
+  border-color: rgba(212, 175, 55, 0.38);
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 175, 55, 0.1),
+    0 16px 42px rgba(0, 0, 0, 0.18);
+}
+
+.platformFlow span {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: clamp(26px, 4vw, 44px);
+}
+
+.platformFlow h3 {
+  color: var(--ink);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+.platformFlow p {
+  color: var(--muted);
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 30ch;
+}
+
+/* Asymmetric dashboard grid */
 .dashboardGrid {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  padding: var(--section-y) var(--pad-x);
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+  padding: clamp(40px, 6vw, 78px) var(--pad-x);
+}
+
+.dashboardGrid:nth-of-type(2) {
+  grid-template-columns: 1fr 1.4fr;
+  padding-top: clamp(12px, 3vw, 34px);
 }
 
 .dashboardPanel {
   background: var(--obsidian-2);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 24px;
+  padding: 32px;
 }
 
 .panelHeading {
-  margin-bottom: 24px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
 }
 
 .panelHeading span {
-  color: var(--blue-quiet);
-  font-family: var(--body);
-  font-size: 12px;
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .panelHeading strong {
-  font-size: 15px;
-  color: var(--muted);
-  font-weight: 400;
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
+/* Metrics with dramatic contrast */
 .metricRow {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-bottom: 40px;
+  background: var(--line);
+  border: 1px solid var(--line);
 }
 
 .metricTile {
   background: var(--obsidian);
-  border: 1px solid var(--line);
-  padding: 16px;
-  border-radius: var(--radius);
+  padding: 24px 20px;
 }
 
 .metricLabel {
   display: block;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--quiet);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .metricValue {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
 
@@ -109,23 +159,26 @@
 
 .traceTable th {
   text-align: left;
-  padding: 12px;
+  padding: 14px 12px;
   border-bottom: 1px solid var(--line);
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--quiet);
 }
 
 .traceTable td {
-  padding: 12px;
+  padding: 14px 12px;
   border-bottom: 1px solid var(--line);
+  color: var(--muted);
 }
 
 .traceTable td code {
-  font-family: var(--mono);
+  font-family: var(--code);
   font-size: 11px;
+  color: var(--ink);
 }
 
 .traceTable tbody tr:last-child td {
@@ -134,34 +187,72 @@
 
 .status {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 3px 10px;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: var(--radius);
 }
 
 .statusSuccess {
-  background: rgba(122, 158, 138, 0.15);
-  color: var(--sage);
-  border: 1px solid rgba(122, 158, 138, 0.3);
+  background: rgba(122, 158, 142, 0.12);
+  color: #7a9e8e;
+  border: 1px solid rgba(122, 158, 142, 0.25);
 }
 
 .statusFailed {
-  background: rgba(184, 126, 106, 0.15);
-  color: var(--terracotta);
-  border: 1px solid rgba(184, 126, 106, 0.3);
+  background: rgba(184, 126, 106, 0.12);
+  color: #b87e6a;
+  border: 1px solid rgba(184, 126, 106, 0.25);
 }
 
 .statusFlagged {
-  background: rgba(212, 175, 55, 0.15);
+  background: rgba(212, 175, 55, 0.12);
   color: var(--brass);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid var(--brass-dim);
 }
 
 .clusterList {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+@media (max-width: 980px) {
+  .platformFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .platformFlow article {
+    min-height: 0;
+  }
+
+  .dashboardGrid,
+  .dashboardGrid:nth-of-type(2) {
+    grid-template-columns: 1fr;
+  }
+
+  .metricRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .recursiveVisual {
+    height: 380px;
+    opacity: 0.075;
+    right: -250px;
+    top: 42%;
+    transform: translateY(-50%);
+    width: 540px;
+  }
+
+  .metricRow {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardPanel {
+    padding: 20px;
+  }
 }

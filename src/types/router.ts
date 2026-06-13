@@ -5,7 +5,9 @@ export type Surface =
   | "forge"
   | "architecture"
   | "traceDocs"
-  | "demo";
+  | "demo"
+  | "legal"
+  | "privacy";
 
 export interface RouteMetadata {
   title: string;
@@ -20,6 +22,8 @@ export const routes: Record<Surface, string> = {
   architecture: "/architecture",
   traceDocs: "/trace/documentation",
   demo: "/demo",
+  legal: "/legal",
+  privacy: "/privacy",
 };
 
 export const routeMetadata: Record<Surface, RouteMetadata> = {
@@ -57,5 +61,15 @@ export const routeMetadata: Record<Surface, RouteMetadata> = {
     title: "Request Demo | Stria Systems",
     description:
       "Request a Trace demo for enterprise AI workflows that need identity, policy evaluation, evidence records, and operational intelligence.",
+  },
+  legal: {
+    title: "Legal | Stria Systems",
+    description:
+      "Review Stria Systems legal notices, acceptable website use, intellectual property notices, and liability limitations.",
+  },
+  privacy: {
+    title: "Privacy Policy | Stria Systems",
+    description:
+      "Review how Stria Systems handles website inquiry information, demo requests, analytics, and communications.",
   },
 };

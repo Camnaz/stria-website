@@ -18,7 +18,10 @@ export function Footer() {
         <button onClick={() => navigate(routes.demo)}>Demo</button>
       </nav>
 
-      <span className={styles.credit}>Stria Systems</span>
+      <div className={styles.legalLinks} aria-label="Legal links">
+        <button onClick={() => navigate(routes.legal)}>Legal</button>
+        <button onClick={() => navigate(routes.privacy)}>Privacy Policy</button>
+      </div>
     </footer>
   );
 }

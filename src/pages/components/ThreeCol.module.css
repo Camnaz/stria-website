@@ -1,24 +1,23 @@
 .grid {
   display: grid;
-  gap: clamp(14px, 2vw, 22px);
+  gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 0 auto;
-  max-width: 1200px;
 }
 
+/* Subtle vertical stagger on desktop */
 @media (min-width: 901px) {
   .grid > :nth-child(2) {
-    margin-top: 16px;
+    margin-top: 24px;
   }
-
   .grid > :nth-child(3) {
-    margin-top: 32px;
+    margin-top: 48px;
   }
 }
 
 @media (max-width: 900px) {
   .grid {
+    gap: 12px;
     grid-template-columns: 1fr;
-    max-width: 680px;
+    max-width: 560px;
   }
 }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SurfaceBadge — CSS Module
+   SurfaceBadge --- CSS Module
    Section identifier with label + strong text
    ========================================================================== */
 
@@ -32,7 +32,7 @@
   margin: 0;
 }
 
-/* Product variant — lighter label */
+/* Product variant --- lighter label */
 .surfaceBadge--product .surfaceBadge__label {
   color: var(--color-brand-dim);
 }

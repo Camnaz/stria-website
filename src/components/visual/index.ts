@@ -5,3 +5,6 @@ export * from "./ForgeObject";
 export * from "./RecursiveWorkflowVisual";
 export * from "./OperatorCanvas";
 export * from "./TraceEvidenceVisual";
+export * from "./ScrollCanvas";
+export * from "./SignalModel";
+export * from "./HeroVisual";

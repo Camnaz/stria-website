@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Card — CSS Module
+   Card --- CSS Module
    Base card component and variants
    ========================================================================== */
 
@@ -25,7 +25,7 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Info Block — icon + title + text */
+/* Info Block --- icon + title + text */
 .infoBlock {
   display: grid;
   gap: var(--space-3);

@@ -1,6 +1,6 @@
 import { ArrowRight, ClipboardCheck, FileSearch, Fingerprint, GitBranch, LockKeyhole, Network, ScanLine, ShieldCheck } from "lucide-react";
 import { Band, Hero, ProductCallout, SectionHeading, ThreeCol } from "./components";
-import { SystemBackdrop } from "../components/visual";
+import { HeroVisual } from "../components/visual";
 import { InfoBlock, ModeColumn, PrimitiveCard, ValueCard } from "../components/common";
 import { Button } from "../components/ui";
 import { useNavigate } from "react-router-dom";
@@ -28,12 +28,7 @@ export function TraceProduct() {
           </Button>,
         ]}
       >
-        <SystemBackdrop />
-        <div className={styles.agenticProofline} aria-label="Agentic-first proof points">
-          <span>Local agent install</span>
-          <span>Operator copilot</span>
-          <span>Evidence before enforcement</span>
-        </div>
+        <HeroVisual variant="trace" />
       </Hero>
 
       <Band className={styles.band}>

@@ -8,11 +8,11 @@
 .logo {
   border-radius: 0;
   display: block;
-  height: clamp(40px, 4.2vw, 54px);
+  height: clamp(46px, 4.9vw, 64px);
   object-fit: contain;
-  opacity: 0.92;
+  opacity: 0.96;
   transition: opacity var(--fast) ease;
-  width: clamp(43px, 4.5vw, 58px);
+  width: clamp(50px, 5.4vw, 70px);
 }
 
 .brand:hover .logo {
@@ -24,18 +24,18 @@
 }
 
 .footerBrand .logo {
-  height: clamp(46px, 5vw, 64px);
-  width: clamp(49px, 5.4vw, 68px);
+  height: clamp(54px, 5.8vw, 78px);
+  width: clamp(58px, 6.2vw, 84px);
 }
 
 @media (max-width: 560px) {
   .logo {
-    height: 42px;
-    width: 45px;
+    height: 48px;
+    width: 52px;
   }
 
   .footerBrand .logo {
-    height: 48px;
-    width: 51px;
+    height: 56px;
+    width: 60px;
   }
 }
