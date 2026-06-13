@@ -4,7 +4,7 @@ import { HeroVisual } from "../components/visual";
 import { Button } from "../components/ui";
 import { routes } from "../utils/navigation";
 import { useNavigate } from "react-router-dom";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import styles from "./DemoRequest.module.css";
 
 export function DemoRequest() {
@@ -18,6 +18,14 @@ export function DemoRequest() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  // Auto-scroll to form on page load so user lands directly at the form
+  useEffect(() => {
+    const formSection = document.getElementById("demo-form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -87,7 +95,7 @@ export function DemoRequest() {
         <HeroVisual variant="home" />
       </Hero>
 
-      <section className={styles.formSection}>
+      <section id="demo-form" className={styles.formSection}>
         <SectionHeading
           eyebrow="DEMO REQUEST"
           title="Scope a walkthrough around your workflow."
