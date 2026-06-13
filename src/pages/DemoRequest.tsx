@@ -16,10 +16,33 @@ export function DemoRequest() {
     priority: "Interaction observability",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/demo-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setError(result.error || "Something went wrong. Please try again.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -70,6 +93,7 @@ export function DemoRequest() {
           title="Scope a walkthrough around your workflow."
         />
         <form onSubmit={handleSubmit} className={styles.form}>
+          {error && <p className={styles.formError}>{error}</p>}
           <div className={styles.formGroup}>
             <label htmlFor="email">WORK EMAIL</label>
             <input
@@ -115,8 +139,8 @@ export function DemoRequest() {
               <option value="Policy review and controls">Policy review and controls</option>
             </select>
           </div>
-          <Button type="submit" variant="primary" className={styles.submitButton} fullWidth>
-            Prepare demo request <ArrowRight size={18} />
+          <Button type="submit" variant="primary" className={styles.submitButton} fullWidth disabled={submitting}>
+            {submitting ? "Sending..." : "Prepare demo request"} <ArrowRight size={18} />
           </Button>
           <p className={styles.formNote}>Demo requests are prepared for review before onboarding.</p>
         </form>
