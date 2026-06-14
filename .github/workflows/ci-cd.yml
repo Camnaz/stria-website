@@ -6,8 +6,9 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: '0 2 * * *'  # Daily at 2 AM UTC
+  # Disabled: auto-deploy caused stale builds to overwrite manual deploys
+  # schedule:
+  #   - cron: '0 2 * * *'  # Daily at 2 AM UTC
 
 env:
   NODE_VERSION: '22.x'
