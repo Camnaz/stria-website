@@ -29,7 +29,7 @@ jobs:
         run: cargo build --release
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -42,7 +42,7 @@ jobs:
           npx napi build --platform --release
 
       - name: Setup Node.js (root)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -52,7 +52,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Setup Node.js (ts-wrapper)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -165,7 +165,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -233,7 +233,7 @@ jobs:
   #       uses: actions/checkout@v4
   #
   #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
+  #       uses: actions/setup-node@v6
   #       with:
   #         node-version: ${{ env.NODE_VERSION }}
   #         cache: 'npm'
