@@ -10,7 +10,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 # N-API bindings for Node.js
-napi = { version = "2.14", features = ["napi4", "napi5", "napi6", "napi7", "napi8", "serde_json"] }
+napi = { version = "3.9", features = ["napi4", "napi5", "napi6", "napi7", "napi8", "serde_json"] }
 napi-derive = "2.14"
 
 # Serialization
